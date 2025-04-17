@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Blockchain and Web3 Innovations</title>
+        <link
+            href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Audiowide&family=Press+Start+2P&display=swap"
+            rel="stylesheet">
+        <link rel="stylesheet" type="text/css" href="blockchain.css" />
+        <link rel="stylesheet" type="text/css" href="../../../asset/css/dark-theme.css" />
+        <link rel="stylesheet" type="text/css" href="../../../asset/css/light-theme.css" />
+        <link rel="stylesheet" type="text/css" href="../../../asset/css/style.css" />
+    </head>
+
+    <body>
+        <header>
+            <nav>
+                <div class="nav-container">
+                    <!-- Logo -->
+                    <a href="../../../index.html">
+                        <img src="../../../logo.png" alt="Logo" class="logo">
+                    </a>
+    
+                    <!-- Use a table to create a horizontal layout. -->
+                    <table>
+                        <tr>
+                            <!-- Search box -->
+                            <th>
+                                <div>
+                                    <input type="text" id="search-box" class="form-control" placeholder="Search News..."
+                                        onkeyup="showSuggestions()" style="border-radius:15px; margin-left:-25px;">
+                                    <div id="suggestions" class="list-group position-absolute w-100"></div>
+                                </div>
+                            </th>
+    
+                            <!-- Menu -->
+                            <th>
+                                <input type="checkbox" id="menu-toggle" class="menu-checkbox">
+                                <label for="menu-toggle" class="menu-icon">☰</label>
+                                <ul class="nav-menu">
+                                    <li><a href="../../../about.html">About Us</a></li>
+                                    <li><a href="../../../news.html">News</a></li>
+                                    <li><a href="../../../tools.html">Tools</a></li>
+                                    <li><a href="../../../resources.html">Resource Tutorial</a></li>
+                                    <li><a href="../../../forum.html">Forum</a></li>
+                                    <li><a href="../../../chatbot.html">Chatbot</a></li>
+                                    <li><a href="../../../contact.html">Contact Us</a></li>
+                                </ul>
+                            </th>
+    
+                            <!-- Clear Cache Button -->
+                            <th>
+                                <button id="clear-storage" class="clear-storage" style="
+                                font-size: 1.2rem;
+                                cursor: pointer;
+                                border: none;
+                                background: transparent;
+                                margin-right: -23px;" title="Clear all Cookies and LocalStorage.">🗑️</button>
+                            </th>
+    
+                            <!-- Theme Toggle Button -->
+                            <th>
+                                <button id="theme-toggle" class="theme-toggle" title="Theme"
+                                    style="margin-right: -20px;">🌙</button>
+                            </th>
+                        </tr>
+                    </table>
+                </div>
+            </nav>
+        </header>
+
+        <div id="cookie-popup" class="cookie-popup" style="display:none;">
+            <span style="color:black;">This website uses cookies to enhance the user experience. Do you accept?</span>
+            <br>
+            <button class="accept-btn" onclick="acceptCookies()">Agree</button>
+            <button class="decline-btn" onclick="declineCookies()">Disagree</button>
+        </div>
+
+        <div class="hero">
+            <h1><span id="typing"></span></h1>
+            <p>Discover the blockchain in the world</p>
+        </div>
+
+        <div class="container">
+            <p class="subheadline">
+            <h1 style="color:black;">Blockchain and Web3 Innovations: The Future of Decentralization</h1>
+            <p>
+                "Revolutionizing the digital world with decentralization and user empowerment."
+            </p>
+            </p>
+            <br>
+            <div class="share_navbar">
+                <div class="share-container">
+                    <button class="share-button" onclick="toggleShareMenu()">
+                        <i class="fas fa-share-alt"></i> 🔗Share
+                    </button>
+                    <div class="share-menu" id="shareMenu">
+                        <a href="#" id="facebook"><i class="fab fa-facebook"></i> Facebook</a>
+                        <a href="#" id="twitter"><i class="fab fa-x-twitter"></i> X (Twitter)</a>
+                        <a href="#" id="linkedin"><i class="fab fa-linkedin"></i> LinkedIn</a>
+                        <a href="#" id="email"><i class="fas fa-envelope"></i> Email</a>
+                        <a href="#" onclick="copyLink(event)"><i class="fas fa-copy"></i> Copy</a>
+                    </div>
+                </div>
+            </div>
+    
+            <p class="meta" style="color:black;">By Tommy Wong | Published: March 25, 2025</p>
+    
+            <div class="hero-image">
+                <img src="./media/blockchain_pic.png" alt="Blockchain picture">
+            </div>
+    
+            <p  style="color:black;">Source from:</p>
+            <a href="https://www.linkedin.com/pulse/decentralized-system-blockchain-olaoluwa-marvellous"  style="color:blue;">
+                Decentralized System in Blockchain
+            </a>
+    
+            <div class="emerging-tech-video" style="text-align: center; padding: 40px;">
+                <h2 style="font-size: 2rem; margin-bottom: 20px; color:black;">What is Blockchain?</h2>
+                <p style="font-size: 1rem; margin-bottom: 20px; color: #555;">Watch how cutting-edge innovations for
+                    Blockchain.</p>
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/qQJOdRFsdsg?si=aLbn6tubEo_lIVCg"
+                    title="YouTube video player" frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            </div>
+    
+            <article>
+                <p>
+                    Blockchain technology and Web3 innovations are reshaping the digital landscape by decentralizing data,
+                    enhancing
+                    security, and empowering users. As these technologies evolve, they are revolutionizing industries such
+                    as
+                    finance, gaming, supply chain management, and digital identity.
+                </p>
+    
+                <div class="tech-card">
+                    <h4>1. The Rise of Web3: A Decentralized Internet</h4><br>
+                    <img src="./media/decentralized.webp" weight='200' height='200' alt="Decentralized System picture">
+                    <br>
+                    <p>
+                        Web3 represents the next phase of the internet, shifting away from centralized platforms to
+                        decentralized applications (dApps)
+                        powered by blockchain. This new model enables peer-to-peer interactions without intermediaries,
+                        giving users
+                        greater control over their data and digital assets.
+                    </p>
+                </div>
+    
+                <br>
+    
+                <div class="tech-card">
+                    <h4>2. Smart Contracts and Decentralized Finance (DeFi)</h4><br>
+                    <img src="./media/smartcontracts.png" weight='200' height='200' alt="Smart Contracts picture">
+                    <br>
+                    <p>
+                        Smart contracts—self-executing agreements coded on blockchain—are driving innovation in
+                        decentralized finance (DeFi). DeFi
+                        platforms allow users to lend, borrow, and trade assets without traditional banks, offering greater
+                        financial
+                        inclusivity and transparency.
+                    </p>
+                </div>
+    
+                <br>
+    
+                <div class="tech-card">
+                    <h4>3. NFTs and the Digital Economy</h4><br>
+                    <img src="./media/NFT.png" weight='200' height='200' alt="NFTs and the Digital Economy picture">
+                    <br>
+                    <p>
+                        Non-fungible tokens (NFTs) have revolutionized digital ownership, enabling artists, gamers, and
+                        content creators to tokenize
+                        and monetize their work. From digital art to virtual real estate, NFTs are expanding the
+                        possibilities of
+                        digital economies.
+                    </p>
+                </div>
+    
+                <br>
+    
+                <div class="tech-card">
+                    <h4>4. Blockchain in Supply Chain and Digital Identity</h4><br>
+                    <img src="./media/blockchainmanagement.jpg" weight='200' height='200'
+                        alt="Blockchain in Supply Chain Management">
+                    <br>
+                    <p>
+                        Blockchain is improving supply chain transparency by providing immutable records of product origins
+                        and movements. Additionally,
+                        blockchain-based digital identities offer secure and verifiable credentials, reducing fraud and
+                        enhancing online
+                        security.
+                    </p>
+                </div>
+    
+                <br>
+    
+                <div class="tech-card">
+                    <h4>5. The Challenges and Future of Web3</h4><br>
+                    <img src="./media/web3.png" weight='200' height='200' alt="Web3 picture">
+                    <br>
+                    <p>
+                        While Web3 and blockchain offer immense potential, challenges such as scalability, regulatory
+                        concerns, and user adoption remain. However,
+                        ongoing innovations in layer-2 scaling solutions, interoperability, and governance models are paving
+                        the way
+                        for a more decentralized and efficient digital future.
+                    </p>
+                </div>
+    
+                <br>
+    
+                <p>
+                    Blockchain and Web3 innovations are redefining how we interact with the internet, finance, and digital
+                    assets. As these
+                    technologies continue to mature, they promise to create a more decentralized, secure, and user-centric
+                    digital
+                    ecosystem.
+                </p>
+    
+                <div class="related">
+                    <h4>Related Stories</h4>
+                    <a
+                        href="www.reuters.com/markets/europe/unit-stuttgart-bourse-gets-ok-blockchain-based-trading-system-switzerland-2025-03-18">
+                        Unit of Stuttgart bourse gets OK for blockchain-based trading system in Switzerland</a>
+                    <a
+                        href="https://www.fintechweekly.com/magazine/articles/web3-transforms-cross-border-payments-in-fintech">
+                        Web3 Innovations Transforming Cross-Border Payments in Fintech</a>
+                    <a href="https://cryptopotato.com/dwf-labs-debuts-250m-fund-to-power-web3-innovation">
+                        DWF Labs Debuts $250M Fund to Power Web3 Innovation</a>
+                </div>
+    
+                <button id="backToTop" title="Back to Top">↑ Back to Top</button>
+            </article>
+        </div>
+
+        <script src="blockchain.js"></script>
+        <script src="../../../asset/scripts/scripts.js"></script>
+
+    </body>
+
+</html>

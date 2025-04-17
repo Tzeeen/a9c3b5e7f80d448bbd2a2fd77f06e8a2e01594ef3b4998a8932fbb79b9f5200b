@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI and Machine Learning</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Audiowide&family=Press+Start+2P&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="AI.css" />
+    <link rel="stylesheet" type="text/css" href="../../../asset/css/dark-theme.css" />
+    <link rel="stylesheet" type="text/css" href="../../../asset/css/light-theme.css" />
+    <link rel="stylesheet" type="text/css" href="../../../asset/css/style.css" />
+</head>
+
+<body>
+    <header>
+        <nav>
+            <div class="nav-container">
+                <!-- Logo -->
+                <a href="../../../index.html">
+                    <img src="../../../logo.png" alt="Logo" class="logo">
+                </a>
+
+                <!-- Use a table to create a horizontal layout. -->
+                <table>
+                    <tr>
+                        <!-- Search box -->
+                        <th>
+                            <div>
+                                <input type="text" id="search-box" class="form-control" placeholder="Search News..."
+                                    onkeyup="showSuggestions()" style="border-radius:15px; margin-left:-25px;">
+                                <div id="suggestions" class="list-group position-absolute w-100"></div>
+                            </div>
+                        </th>
+
+                        <!-- Menu -->
+                        <th>
+                            <input type="checkbox" id="menu-toggle" class="menu-checkbox">
+                            <label for="menu-toggle" class="menu-icon">☰</label>
+                            <ul class="nav-menu">
+                                <li><a href="../../../about.html">About Us</a></li>
+                                <li><a href="../../../news.html">News</a></li>
+                                <li><a href="../../../tools.html">Tools</a></li>
+                                <li><a href="../../../resources.html">Resource Tutorial</a></li>
+                                <li><a href="../../../forum.html">Forum</a></li>
+                                <li><a href="../../../chatbot.html">Chatbot</a></li>
+                                <li><a href="../../../contact.html">Contact Us</a></li>
+                            </ul>
+                        </th>
+
+                        <!-- Clear Cache Button -->
+                        <th>
+                            <button id="clear-storage" class="clear-storage" style="
+                            font-size: 1.2rem;
+                            cursor: pointer;
+                            border: none;
+                            background: transparent;
+                            margin-right: -23px;" title="Clear all Cookies and LocalStorage.">🗑️</button>
+                        </th>
+
+                        <!-- Theme Toggle Button -->
+                        <th>
+                            <button id="theme-toggle" class="theme-toggle" title="Theme"
+                                style="margin-right: -20px;">🌙</button>
+                        </th>
+                    </tr>
+                </table>
+            </div>
+        </nav>
+    </header>
+
+    <div id="cookie-popup" class="cookie-popup" style="display:none;">
+        <span style="color:black;">This website uses cookies to enhance the user experience. Do you accept?</span>
+        <br>
+        <button class="accept-btn" onclick="acceptCookies()">Agree</button>
+        <button class="decline-btn" onclick="declineCookies()">Disagree</button>
+    </div>
+
+    <div class="hero">
+        <h1><span id="typing"></span></h1>
+        <p>Discover the World of Artificial Intelligence</p>
+    </div>
+
+    <div class="container">
+        <p class="subheadline">
+        <h1>AI and Machine Learning Breakthroughs: Transforming Industries and Shaping the Future</h1>
+        <p>
+            "Driving innovation, revolutionizing industries, and shaping the future of technology and society."
+        </p>
+        </p>
+        <br>
+        <div class="share_navbar">
+            <div class="share-container">
+                <button class="share-button" onclick="toggleShareMenu()">
+                    <i class="fas fa-share-alt"></i> 🔗Share
+                </button>
+                <div class="share-menu" id="shareMenu">
+                    <a href="#" id="facebook"><i class="fab fa-facebook"></i> Facebook</a>
+                    <a href="#" id="twitter"><i class="fab fa-x-twitter"></i> X (Twitter)</a>
+                    <a href="#" id="linkedin"><i class="fab fa-linkedin"></i> LinkedIn</a>
+                    <a href="#" id="email"><i class="fas fa-envelope"></i> Email</a>
+                    <a href="#" onclick="copyLink(event)"><i class="fas fa-copy"></i> Copy</a>
+                </div>
+            </div>
+        </div>
+
+        <p class="meta" style=>By Jane Doe | Published: March 22, 2025</p>
+
+        <div class="hero-image">
+            <img src="https://incubator.ucf.edu/wp-content/uploads/2023/07/artificial-intelligence-new-technology-science-futuristic-abstract-human-brain-ai-technology-cpu-central-processor-unit-chipset-big-data-machine-learning-cyber-mind-domination-generative-ai-scaled-1-1500x1000.jpg"
+                alt="Artificial Intelligence">
+        </div>
+
+        <p style="color:black;">Source from:</p>
+        <a href="https://medium.com/@manobharathi.2197/unlocking-the-power-of-artificial-intelligence-ai-in-design-a-game-changer-for-creativity-and-48ecccd46e10"
+            style="color:blue">
+            Unlocking the Power of Artificial Intelligence (AI) in Design: A Game Changer for Creativity and Efficiency.
+        </a>
+
+        <div class="emerging-tech-video" style="text-align: center; padding: 40px;">
+            <h2 style="font-size: 2rem; margin-bottom: 20px; color:black">What is Artificial Intelligence?</h2>
+            <p style="font-size: 1rem; margin-bottom: 20px; color: #555;">Watch how cutting-edge innovations for AI to
+                shaping the future.</p>
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/JcXKbUIebrU?si=GlkErDIfWd2H-uDO"
+                title="YouTube video player" frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        </div>
+
+        <article>
+            <p>
+                In a groundbreaking series of advancements, artificial intelligence (AI) and machine learning (ML) are
+                transforming
+                industries at an unprecedented pace. From healthcare to cybersecurity, recent breakthroughs are
+                revolutionizing
+                automation, decision-making, and innovation worldwide.
+            </p>
+
+            <p>
+                One of the most significant developments is the rise of Generative AI, including powerful large language
+                models (LLMs)
+                such as OpenAI's GPT and Google's Gemini. These models have enhanced content creation, coding, and data
+                analysis,
+                making AI-driven interactions more human-like and efficient.
+            </p>
+
+            <p>
+                In healthcare, AI is playing a crucial role in diagnosing diseases, predicting patient outcomes, and
+                accelerating drug
+                discovery. Deep learning algorithms now analyze medical images with expert-level accuracy, while
+                AI-powered
+                research tools are expediting new treatments for cancer and other life-threatening conditions.
+            </p>
+
+            <p>
+                Meanwhile, autonomous systems, including self-driving cars and AI-powered robotics, are advancing
+                rapidly. Companies
+                are deploying robots in logistics, manufacturing, and even surgery to improve efficiency and precision.
+            </p>
+
+            <p>
+                Cybersecurity has also seen a major shift with AI-driven threat detection systems. These models analyze
+                massive datasets in real-time
+                to identify cyber threats before they can cause harm, strengthening digital defenses worldwide.
+            </p>
+
+            <p>
+                As AI becomes more integrated into daily life, researchers are focusing on Explainable AI (XAI) to
+                ensure transparency and fairness in decision-making. Ethical AI
+                development is becoming a priority to prevent bias and promote accountability in automated systems.
+            </p>
+
+            <p>
+                The next frontier in AI research is Quantum AI, which promises to revolutionize computing by solving
+                complex problems beyond the capabilities of classical computers. This emerging
+                technology could reshape fields like cryptography, materials science, and optimization.
+            </p>
+
+            <p>
+                Experts predict that AI and ML will continue to push the boundaries of technological possibilities,
+                reshaping industries and economies. As these innovations advance, regulatory frameworks
+                and ethical guidelines will play a crucial role in ensuring responsible AI deployment.
+            </p>
+
+            <p>
+                Stay tuned as AI continues to redefine the future, unlocking new possibilities and challenges for
+                businesses, governments, and individuals alike.
+            </p>
+
+            <p><strong>Some of the most impactful Artificial Intelligence technologies today include:</strong></p>
+
+            <div class="tech-card">
+                <img src="./media/ChatGPT.png" weight='200' height='200' alt="ChatGPT Icon">
+                <br>
+                <p><strong>ChatGPT</strong></p>
+                <p>
+                    ChatGPT (developed by OpenAI) is a conversational AI model designed to understand and generate
+                    human-like text. It is widely used for customer service, content creation, tutoring, and virtual
+                    assistants, offering helpful and creative responses in real time.
+                </p>
+
+                <a href="https://openai.com/index/gpt-4o-and-more-tools-to-chatgpt-free/" target="_blank">
+                    <button class="button">
+                        <span>Learn More</span>
+                    </button>
+                </a>
+            </div>
+
+            <br>
+
+            <div class="tech-card">
+                <img src="./media/Claude.png" weight='200' height='200' alt="Claude Icon">
+                <br>
+                <p><strong>Claude</strong></p>
+                <p>
+                    Claude (developed by Anthropic) is another next-generation AI chatbot focused on providing safe,
+                    ethical,
+                    and high-quality conversational experiences. It is designed to follow user instructions while
+                    minimizing
+                    harmful outputs, making it useful for business, education, and personal productivity.
+                </p>
+
+                <a href="https://claude.ai" target="_blank">
+                    <button class="button">
+                        <span>Learn More</span>
+                    </button>
+                </a>
+            </div>
+
+            <br>
+
+            <div class="tech-card">
+                <img src="./media/Gemini.png" weight='200' height='200' alt="Google Gemini Icon">
+                <br>
+                <p><strong>Google Bard (Gemini)</strong></p>
+                <p>
+                    Google Bard is Google's conversational AI, designed to deliver fast, informative, and creative
+                    responses
+                    by tapping into Google's search capabilities and vast data resources. Bard helps with tasks like
+                    summarizing,
+                    researching, and content ideation.
+                </p>
+
+                <a href="https://blog.google/technology/ai/google-gemini-ai/" target="_blank">
+                    <button class="button">
+                        <span>Learn More</span>
+                    </button>
+                </a>
+            </div>
+
+            <br>
+
+            <div class="tech-card">
+                <img src="./media/Microsoft Copilot.png" weight='200' height='200' alt="5G Icon">
+                <br>
+                <p><strong>Microsoft Copilot</strong></p>
+                <p>
+                    Microsoft Copilot is embedded into tools like Microsoft 365 (Word, Excel, etc.) and helps automate
+                    tasks,
+                    summarize information, and draft content directly within popular productivity apps.
+                </p>
+
+                <a href="https://clickup.com/" target="_blank">
+                    <button class="button">
+                        <span>Learn More</span>
+                    </button>
+                </a>
+            </div>
+
+            <br>
+
+            <div class="tech-card">
+                <img src="./media/deepseek.png" weight='200' height='200' alt="DeepSeek Icon">
+                <br>
+                <p><strong>DeepSeek</strong></p>
+                <p>
+                    DeepSeek is a newer AI model developed to rival large-scale language models like ChatGPT and Claude.
+                    It
+                    emphasizes powerful reasoning, in-depth content creation, and problem-solving capabilities, making
+                    it
+                    valuable for research, technical writing, and advanced query responses.
+                </p>
+
+                <a href="https://www.deepseek.com/" target="_blank">
+                    <button class="button">
+                        <span>Learn More</span>
+                    </button>
+                </a>
+            </div>
+
+
+            <p>
+                These AI tools represent the latest generation of AI innovation, helping millions of people work faster,
+                create more effectively, and make smarter decisions. As AI continues to evolve, more
+                specialized and powerful models like DeepSeek will keep emerging, pushing the boundaries of what
+                machines can
+                achieve.
+            </p>
+
+            <div class="related">
+                <h4>Related Stories</h4>
+                <a href="https://www.technologyreview.com/2025/03/21/1113635">
+                    OpenAI has released its first research into how using ChatGPT affects people's emotional
+                    wellbeing</a>
+                <a href="https://www.computerworld.com/emerging-technology/">
+                    New AI weather forecasting system called a huge step forward</a>
+            </div>
+
+            <button id="backToTop" title="Back to Top">↑ Back to Top</button>
+        </article>
+    </div>
+
+    <script src="AI.js"></script>
+    <script src="../../../asset/scripts/scripts.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TechPolicy Watch - Regulatory Changes in 2025</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Audiowide&family=Press+Start+2P&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="regulatory.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" type="text/css" href="../../../asset/css/dark-theme.css" />
+    <link rel="stylesheet" type="text/css" href="../../../asset/css/light-theme.css" />
+    <link rel="stylesheet" type="text/css" href="../../../asset/css/style.css" />
+</head>
+
+<body>
+    <header>
+        <nav>
+            <div class="nav-container">
+                <!-- Logo -->
+                <a href="../../../index.html">
+                    <img src="../../../logo.png" alt="Logo" class="logo">
+                </a>
+
+                <!-- Use a table to create a horizontal layout. -->
+                <table>
+                    <tr>
+                        <!-- Search box -->
+                        <th>
+                            <div>
+                                <input type="text" id="search-box" class="form-control" placeholder="Search News..."
+                                    onkeyup="showSuggestions()" style="border-radius:15px; margin-left:-25px;">
+                                <div id="suggestions" class="list-group position-absolute w-100"></div>
+                            </div>
+                        </th>
+
+                        <!-- Menu -->
+                        <th>
+                            <input type="checkbox" id="menu-toggle" class="menu-checkbox">
+                            <label for="menu-toggle" class="menu-icon">☰</label>
+                            <ul class="nav-menu">
+                                <li><a href="../../../about.html">About Us</a></li>
+                                <li><a href="../../../news.html">News</a></li>
+                                <li><a href="../../../tools.html">Tools</a></li>
+                                <li><a href="../../../resources.html">Resource Tutorial</a></li>
+                                <li><a href="../../../forum.html">Forum</a></li>
+                                <li><a href="../../../chatbot.html">Chatbot</a></li>
+                                <li><a href="../../../contact.html">Contact Us</a></li>
+                            </ul>
+                        </th>
+
+                        <!-- Clear Cache Button -->
+                        <th>
+                            <button id="clear-storage" class="clear-storage" style="
+                            font-size: 1.2rem;
+                            cursor: pointer;
+                            border: none;
+                            background: transparent;
+                            margin-right: -23px;" title="Clear all Cookies and LocalStorage.">🗑️</button>
+                        </th>
+
+                        <!-- Theme Toggle Button -->
+                        <th>
+                            <button id="theme-toggle" class="theme-toggle" title="Theme"
+                                style="margin-right: -20px;">🌙</button>
+                        </th>
+                    </tr>
+                </table>
+            </div>
+        </nav>
+    </header>
+
+    <div id="cookie-popup" class="cookie-popup" style="display:none;">
+        <span style="color:black;">This website uses cookies to enhance the user experience. Do you accept?</span>
+        <br>
+        <button class="accept-btn" onclick="acceptCookies()">Agree</button>
+        <button class="decline-btn" onclick="declineCookies()">Disagree</button>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h2>2025 Regulatory Changes Reshaping Tech</h2>
+            <p>The global technology sector is experiencing a wave of regulatory changes as governments aim to enhance
+                consumer protection,
+                data privacy, and market fairness. With increasing concerns over data security, AI ethics, and antitrust
+                practices, new laws
+                and policies are being introduced that could significantly impact how tech companies operate. Here are
+                some of the most
+                critical regulatory changes shaping the industry in 2025.</p>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <main class="container">
+        <!-- Latest News Section -->
+        <section class="latest-news">
+            <h2 style="color:grey"><i class="fas fa-newspaper"></i> Breaking Regulatory Updates</h2>
+            <div class="news-grid">
+                <!-- News Card 1 -->
+                <article class="news-card">
+                    <img src="https://www.johnsoncontrols.com/-/media/project/jci-global/johnson-controls/us-region/united-states-johnson-controls/home/artificial-intelligence-ethics-principles/images/ethics-ai-infographic.jpg?la=en&h=600&w=1140&hash=85E3623A93224384CC9A10E1A06E0434"
+                        alt="AI Regulations and Ethical Oversight">
+                    <div class="card-content">
+                        <h3>AI Regulations and Ethical Oversight</h3>
+                        <p>
+                            Artificial intelligence (AI) is advancing rapidly, prompting governments to impose stricter
+                            regulations to ensure responsible
+                            development and deployment. The EU AI Act, which takes effect this year, classifies AI
+                            applications into risk categories,
+                            requiring companies to comply with transparency, fairness, and accountability standards.
+                            High-risk AI systems, such as those
+                            used in hiring, healthcare, and law enforcement, will undergo rigorous audits.
+                        </p>
+                        <div class="meta">
+                            <span><i class="far fa-calendar"></i> May 15, 2025</span>
+                            <a href="https://www.artificial-intelligence-act.com"  style="color:blue;">Read More <i
+                                    class="fas fa-arrow-right" style="color:blue;"></i></a>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- News Card 2 -->
+                <article class="news-card">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQl-x4fSrhHDh8CaoKwPCtkQpCXPNWiFFUq1g&s"
+                        alt="Stricter Data Privacy Laws">
+                    <div class="card-content">
+                        <h3>Stricter Data Privacy Laws</h3>
+                        <p>Data privacy remains a top priority for regulators worldwide. Following the GDPR (General
+                            Data Protection Regulation) in Europe,
+                            other regions are implementing similar measures</p>
+                        <div class="meta">
+                            <span><i class="far fa-calendar"></i> April 30, 2025</span>
+                            <a href="https://www.consumerprivacyact.com/american-data-privacy-and-protection-act-adppa">Read
+                                More <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- News Card 3 -->
+                <article class="news-card">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQoc4Svqf8nhIjaL_QT5Bnu_q9XJ5UhPSVTkw&s"
+                        alt="Antitrust Crackdowns and Big Tech Regulations">
+                    <div class="card-content">
+                        <h3>Antitrust Crackdowns and Big Tech Regulations</h3>
+                        <p>Regulators worldwide are cracking down on monopolistic practices by large technology
+                            companies. The Digital Markets Act (DMA)
+                            in the EU imposes restrictions on “gatekeepers” like Google, Apple, Amazon, and Meta,
+                            forcing them to allow more interoperability
+                            and prevent self-preferencing in their platforms. For example, Apple may be required to
+                            permit third-party app stores on iOS devices.</p>
+                        <div class="meta">
+                            <span><i class="far fa-calendar"></i> March 22, 2025</span>
+                            <a
+                                href="https://commission.europa.eu/strategy-and-policy/priorities-2019-2024/europe-fit-digital-age/digital-markets-act-ensuring-fair-and-open-digital-markets_en">Read
+                                More <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- News Card 4 -->
+                <article class="news-card">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS5UVZFuMAxRkeYe-diPLhGyDrlhQ8QwcC35Q&s"
+                        alt="Cryptocurrency and Web3 Regulations">
+                    <div class="card-content">
+                        <h3>Cryptocurrency and Web3 Regulations</h3>
+                        <p>The rise of decentralized finance (DeFi) and blockchain-based platforms has led to increased
+                            regulatory scrutiny. In the U.S.,
+                            the Securities and Exchange Commission (SEC) is pushing for clearer definitions of
+                            cryptocurrencies as securities, potentially
+                            impacting major platforms like Binance and Coinbase.</p>
+                        <div class="meta">
+                            <span><i class="far fa-calendar"></i> March 22, 2025</span>
+                            <a href="https://www.sec.gov/about/crypto-task-force">Read More <i
+                                    class="fas fa-arrow-right"></i>
+                            </a>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- News Card 5 -->
+                <article class="news-card">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRDlXUh0w9CdS57HXqmZyE-nZMb1Ota5rIgxg&s"
+                        alt="Cybersecurity and National Security Policies">
+                    <div class="card-content">
+                        <h3>Cybersecurity and National Security Policies</h3>
+                        <p>With the rise in cyber threats, governments are enacting tougher cybersecurity laws. The U.S.
+                            Cybersecurity Maturity Model
+                            Certification (CMMC) is now mandatory for companies working with federal agencies, requiring
+                            them to meet higher security standards.
+                        </p>
+                        <div class="meta">
+                            <span><i class="far fa-calendar"></i> March 22, 2025</span>
+                            <a
+                                href="https://www.nsf.org/knowledge-library/eight-steps-new-cybersecurity-maturity-model-certification-cmmc-required-dod"  style="color:blue;">Read
+                                More <i class="fas fa-arrow-right"  style="color:blue;"></i></a>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- News Card 6 -->
+                <article class="news-card">
+                    <img src="https://taxguru.in/wp-content/uploads/2024/04/Digital-Taxation-Strategies-and-Implications-for-Global-Economies-1.jpg"
+                        alt="Digital Taxation and Fair Market Practices">
+                    <div class="card-content">
+                        <h3>Digital Taxation and Fair Market Practices</h3>
+                        <p>Countries are implementing digital service taxes (DSTs) to ensure that global tech companies
+                            pay their fair share of taxes where
+                            they generate revenue. The OECD's Global Minimum Tax Agreement, which sets a 15% minimum
+                            corporate tax rate, is being adopted by
+                            multiple countries, targeting companies like Google and Amazon that previously benefited
+                            from tax havens.
+                        </p>
+                        <div class="meta">
+                            <span><i class="far fa-calendar"></i> March 22, 2025</span>
+                            <a
+                                href="https://news.law.fordham.edu/jcfl/2024/10/08/taxing-the-digital-giants-what-the-oecd-global-tax-deal-means-for-the-u-s/">Read
+                                More <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <br>
+
+        <!-- Policy Updates Section -->
+        <section class="policy-updates">
+            <h2 style="color:grey"><i class="fas fa-gavel"></i> Upcoming Policy Deadlines</h2>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-date">January 1, 2025</div>
+                    <br>
+                    <div class="timeline-content">
+                        <h4>EU : Data Act</h4>
+                        <p>
+                        <ul>
+                            <li>Mandates interoperability for IoT devices and cloud services.</li>
+                            <li>Requires fair data-sharing terms for B2B contracts.</li>
+                        </ul>
+                        </p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">March 31, 2025</div>
+                    <br>
+                    <div class="timeline-content">
+                        <h4>India : Digital Personal Data Protection Act (DPDPA)</h4>
+                        <p>
+                        <ul>
+                            <li>Final deadline for "gatekeepers" (e.g., Apple, Google, Meta) to submit compliance
+                                reports on interoperability, anti-steering, and data portability.</li>
+                        </ul>
+                        </p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">April 14, 2025</div>
+                    <br>
+                    <div class="timeline-content">
+                        <h4>EU : Digital Markets Act (DMA)</h4>
+                        <p>
+                        <ul>
+                            <li>Expected deadline for companies to appoint Data Protection Officers (DPOs) and implement
+                                consent frameworks.</li>
+                        </ul>
+                        </p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">June 30, 2025</div>
+                    <br>
+                    <div class="timeline-content">
+                        <h4>EU : AI Act (Phase 2)</h4>
+                        <p>
+                        <ul>
+                            <li>General-Purpose AI (GPAI) models must comply with transparency requirements (e.g.,
+                                disclosing training data, copyright compliance).</li>
+                            <li>High-risk AI systems (e.g., HR, healthcare) must meet conformity assessments.</li>
+                        </ul>
+                        </p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">July 1, 2025</div>
+                    <br>
+                    <div class="timeline-content">
+                        <h4>U.S. : Texas Data Privacy Act (TDPSA)</h4>
+                        <p>
+                        <ul>
+                            <li>Enforcement begins (similar to Virginia's CDPA, with opt-out rights for targeted ads and
+                                sensitive data).</li>
+                        </ul>
+                        </p>
+                    </div>
+                    <div class="timeline-date">July 1, 2025</div>
+                    <br>
+                    <div class="timeline-content">
+                        <h4>EU : NIS2 Directive</h4>
+                        <p>
+                        <ul>
+                            <li>Extended compliance deadline for critical sectors (e.g., cloud, SaaS) to implement
+                                cybersecurity risk management and incident reporting (24-hour notification).</li>
+                        </ul>
+                        </p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">September 30, 2025</div>
+                    <br>
+                    <div class="timeline-content">
+                        <h4>Canada : Bill C-27 (AIDA)</h4>
+                        <p>
+                        <ul>
+                            <li>Expected enforcement of the Artificial Intelligence and Data Act, requiring impact
+                                assessments for "high-impact" AI systems.</li>
+                        </ul>
+                        </p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">October 1, 2025</div>
+                    <br>
+                    <div class="timeline-content">
+                        <h4>EU : Digital Services Act (DSA)</h4>
+                        <p>
+                        <ul>
+                            <li>Expands to all remaining platforms (including smaller ones with 45M+ EU users),
+                                requiring:
+                                <ol>
+                                    <li>Content moderation transparency.</li>
+                                    <li>Algorithmic accountability.</li>
+                                </ol>
+                            </li>
+                        </ul>
+                        </p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">December 31, 2025</div>
+                    <br>
+                    <div class="timeline-content">
+                        <h4>China : Cross-Border Data Transfer Rules</h4>
+                        <p>
+                        <ul>
+                            <li>Final deadline for companies to complete security assessments for exporting data outside
+                                China (especially for financial, health, and ride-hailing data).</li>
+                        </ul>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Newsletter Section -->
+    <section class="newsletter">
+        <div class="container">
+            <h2>Stay Updated on Tech Regulations</h2>
+            <p>Subscribe to our weekly policy digest.</p>
+            <form>
+                <input type="email" placeholder="Your email address">
+                <button type="submit" onclick=newletter()>Subscribe</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- JavaScript -->
+    <script src="regulatory.js"></script>
+    <script src="../../../asset/scripts/scripts.js"></script>
+
+</body>
+
+</html>

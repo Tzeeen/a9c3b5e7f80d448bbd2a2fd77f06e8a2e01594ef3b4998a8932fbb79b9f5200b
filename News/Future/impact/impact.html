@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Impact of Automation on Jobs</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Audiowide&family=Press+Start+2P&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="impact.css" />
+    <link rel="stylesheet" type="text/css" href="../../../asset/css/dark-theme.css" />
+    <link rel="stylesheet" type="text/css" href="../../../asset/css/light-theme.css" />
+    <link rel="stylesheet" type="text/css" href="../../../asset/css/style.css" />
+</head>
+
+<body>
+    <header>
+        <nav>
+            <div class="nav-container">
+                <!-- Logo -->
+                <a href="../../../index.html">
+                    <img src="../../../logo.png" alt="Logo" class="logo">
+                </a>
+
+                <!-- Use a table to create a horizontal layout. -->
+                <table>
+                    <tr>
+                        <!-- Search box -->
+                        <th>
+                            <div>
+                                <input type="text" id="search-box" class="form-control" placeholder="Search News..."
+                                    onkeyup="showSuggestions()" style="border-radius:15px; margin-left:-25px;">
+                                <div id="suggestions" class="list-group position-absolute w-100"></div>
+                            </div>
+                        </th>
+
+                        <!-- Menu -->
+                        <th>
+                            <input type="checkbox" id="menu-toggle" class="menu-checkbox">
+                            <label for="menu-toggle" class="menu-icon">☰</label>
+                            <ul class="nav-menu">
+                                <li><a href="../../../about.html">About Us</a></li>
+                                <li><a href="../../../news.html">News</a></li>
+                                <li><a href="../../../tools.html">Tools</a></li>
+                                <li><a href="../../../resources.html">Resource Tutorial</a></li>
+                                <li><a href="../../../forum.html">Forum</a></li>
+                                <li><a href="../../../chatbot.html">Chatbot</a></li>
+                                <li><a href="../../../contact.html">Contact Us</a></li>
+                            </ul>
+                        </th>
+
+                        <!-- Clear Cache Button -->
+                        <th>
+                            <button id="clear-storage" class="clear-storage" style="
+                            font-size: 1.2rem;
+                            cursor: pointer;
+                            border: none;
+                            background: transparent;
+                            margin-right: -23px;" title="Clear all Cookies and LocalStorage.">🗑️</button>
+                        </th>
+
+                        <!-- Theme Toggle Button -->
+                        <th>
+                            <button id="theme-toggle" class="theme-toggle" title="Theme"
+                                style="margin-right: -20px;">🌙</button>
+                        </th>
+                    </tr>
+                </table>
+            </div>
+        </nav>
+    </header>
+
+    <div id="cookie-popup" class="cookie-popup" style="display:none;">
+        <span style="color:black;">This website uses cookies to enhance the user experience. Do you accept?</span>
+        <br>
+        <button class="accept-btn" onclick="acceptCookies()">Agree</button>
+        <button class="decline-btn" onclick="declineCookies()">Disagree</button>
+    </div>
+
+    <div class="page">
+        <div class="container">
+            <h1>The Impact of Automation on Jobs</h1>
+            <p class="subtitle">How AI and robotics are transforming the workforce</p>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="article-meta" style="color:grey;">
+            <span>By Sarah Johnson, Technology Correspondent</span>
+            <span>Published: June 15, 2025</span>
+        </div>
+
+        <div class="share_navbar">
+            <div class="share-container">
+                <button class="share-button" onclick="toggleShareMenu()">
+                    <i class="fas fa-share-alt"></i> 🔗Share
+                </button>
+                <div class="share-menu" id="shareMenu">
+                    <a href="#" id="facebook"><i class="fab fa-facebook"></i> Facebook</a>
+                    <a href="#" id="twitter"><i class="fab fa-x-twitter"></i> X (Twitter)</a>
+                    <a href="#" id="linkedin"><i class="fab fa-linkedin"></i> LinkedIn</a>
+                    <a href="#" id="email"><i class="fas fa-envelope"></i> Email</a>
+                    <a href="#" onclick="copyLink(event)"><i class="fas fa-copy"></i> Copy</a>
+                </div>
+            </div>
+        </div>
+
+        <img src="https://images.unsplash.com/photo-1620712943543-bcc4688e7485?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80"
+            alt="Robots working in factory" class="article-image"
+            style="border: 5px solid transparent;background:linear-gradient(white, grey) padding-box,linear-gradient(90deg, #6b8dff, #6bffb9, #ff6b6b) border-box;">
+
+        <div class="article-content">
+            <div class="main-content"
+                style="border: 5px solid transparent;background:linear-gradient(white, grey) padding-box,linear-gradient(90deg, #6b8dff, #6bffb9, #ff6b6b) border-box;">
+                <p>The Impact of Automation on Jobs: Challenges and Opportunities
+                    Automation is reshaping the workforce at an unprecedented pace. With advancements in artificial
+                    intelligence (AI),
+                    robotics, and machine learning, industries across the globe are experiencing shifts in employment
+                    dynamics. While
+                    automation enhances efficiency and productivity, it also raises concerns about job displacement and
+                    the future of work.
+                    In this article, we explore the challenges and opportunities that automation presents for workers
+                    and businesses.</p>
+
+                <div class="highlight">
+                    "Automation isn't just changing jobs—it's reshaping entire industries. The question isn't whether
+                    jobs will disappear, but how we'll adapt to this new reality." — Dr. Michael Chen, Labor Economist
+                </div>
+
+                <div class="statistics">
+                    <div class="stat-card">
+                        <h4>47%</h4>
+                        <p>of US jobs at risk of automation</p>
+                    </div>
+                    <div class="stat-card">
+                        <h4>85M</h4>
+                        <p>jobs may be displaced by 2025</p>
+                    </div>
+                    <div class="stat-card">
+                        <h4>97M</h4>
+                        <p>new roles may emerge</p>
+                    </div>
+                </div>
+
+                <h2>1. Job Displacement: Which Roles Are Most at Risk?</h2>
+                <p>Automation has already replaced numerous routine and repetitive tasks, particularly in industries
+                    such as manufacturing,
+                    retail, and customer service. Some of the most vulnerable jobs include:
+                </p>
+
+                <h3>Manufacturing and warehouse jobs</h3>
+                <p>
+                    Automated assembly lines and robotic process automation (RPA) have reduced the need for
+                    human labor in factories. Companies like Tesla and Amazon are heavily investing in robotics to
+                    improve efficiency.
+                </p>
+
+                <h3>Retail and cashier positions</h3>
+                <p>Self-checkout kiosks and cashier-less stores, such as Amazon Go, are reducing the demand for
+                    traditional retail workers.
+                </p>
+
+                <h3>Data entry and administrative roles</h3>
+                <p>AI-powered software can process large volumes of information faster than humans,
+                    decreasing the need for data entry clerks and administrative assistants.
+                </p>
+
+                <h3>Call center and customer support jobs</h3>
+                <p>AI chatbots and virtual assistants like ChatGPT are handling an increasing number
+                    of customer inquiries, reducing the need for human agents.
+                </p>
+
+                <p>While automation threatens these roles, it also opens doors for new employment opportunities in
+                    different areas.
+                </p>
+
+                <h2>2. Job Creation: Emerging Opportunities in the Age of Automation</h2>
+                <p>History has shown that technological advancements often create new job opportunities, even as they
+                    render some obsolete.
+                    Here are some fields experiencing growth due to automation:
+                </p>
+
+                <h3>AI and robotics engineering</h3>
+                <p>As automation expands, the demand for skilled professionals who design, program, and maintain
+                    AI systems and robots is increasing.
+                </p>
+
+                <h3>Cybersecurity and data protection</h3>
+                <p>With more businesses relying on automated systems, cybersecurity threats are rising,
+                    requiring skilled professionals to secure digital assets.
+                </p>
+
+                <h3>Human-AI collaboration roles</h3>
+                <p>With more businesses relying on automated systems, cybersecurity threats are rising,
+                    requiring skilled professionals to secure digital assets.
+                </p>
+
+                <h3>Healthcare and elder care</h3>
+                <p>While automation enhances medical diagnostics and robotic surgeries, human empathy and care
+                    remain irreplaceable, leading to increased demand in healthcare professions.
+                </p>
+
+                <h2>3. The Shift Toward Reskilling and Upskilling</h2>
+                <p>To remain competitive in an automated world, workers must adapt by acquiring new skills. Governments,
+                    corporations, and
+                    educational institutions are investing in reskilling programs to prepare employees for the changing
+                    job market. Key areas of focus include:
+                </p>
+
+                <h3>Digital literacy</h3>
+                <p>Understanding how to use digital tools and automation software is becoming essential in most
+                    industries.
+                </p>
+
+                <h3>Critical thinking and problem-solving</h3>
+                <p>As machines handle repetitive tasks, human workers will need to focus on complex problem-solving and
+                    innovation.
+                </p>
+
+                <h3>Soft skills and creativity</h3>
+                <p>Emotional intelligence, leadership, and creative thinking remain difficult for AI to replicate,
+                    making these skills more valuable.
+                </p>
+
+                <p>Companies like Amazon and Google are offering free reskilling programs to help employees transition
+                    into roles that complement automation rather than compete with it.
+                </p>
+
+                <h2>4. The Future of Work: A Hybrid Workforce</h2>
+                <p>Rather than fully replacing human workers, automation is expected to create a hybrid workforce where
+                    humans and machines
+                    collaborate. This shift will redefine job roles and responsibilities, allowing employees to focus on
+                    higher-value tasks while automation handles repetitive processes.</p>
+                <p>
+                    For instance, in the financial sector, AI-powered tools assist analysts by processing large
+                    datasets, allowing professionals
+                    to focus on strategy and decision-making. Similarly, in healthcare, robotic assistants help surgeons
+                    perform precise procedures, enhancing overall patient care.
+                </p>
+            </div>
+
+            <div class="sidebar"
+                style="border: 5px solid transparent;background:linear-gradient(white, grey) padding-box,linear-gradient(90deg, #6b8dff, #6bffb9, #ff6b6b) border-box;">
+                <h3>Related Articles</h3>
+                <div class="related-articles">
+                    <div class="related-article">
+                        <h4><a href="https://esab.com/us/nam_en/esab-university/articles/collaborative-robots-in-manufacturing/?utm_source=chatgpt.com"
+                                style="color:grey">The
+                                Rise of Collaborative Robots in Manufacturing</a></h4>
+                        <p>How cobots are working alongside humans</p>
+                    </div>
+                    <div class="related-article">
+                        <h4><a href="https://medium.com/data-science/the-end-of-required-work-universal-basic-income-and-ai-driven-prosperity-df7189b371fe?utm_source=chatgpt.com"
+                                style="color:grey">Universal
+                                Basic Income: Solution for Automation?</a></h4>
+                        <p>Examining UBI as a response to job displacement</p>
+                    </div>
+                    <div class="related-article">
+                        <h4><a href="https://www.forbes.com/councils/forbescoachescouncil/2025/02/28/17-ways-to-future-proof-your-career-in-the-age-of-ai/?utm_source=chatgpt.com"
+                                style="color:grey">17
+                                Ways To Future-Proof Your Career In The Age Of A</a></h4>
+                        <p>Strategies and skills essential for adapting to the evolving job market influenced by
+                            artificial intelligence</p>
+                    </div>
+                </div>
+
+                <h3>Poll: Your Opinion</h3>
+                <form id="automationPoll">
+                    <p>How do you think automation will affect your job?</p>
+                    <input type="radio" id="positive" name="impact" value="positive">
+                    <label for="positive">Positively - will create opportunities</label><br>
+                    <input type="radio" id="negative" name="impact" value="negative">
+                    <label for="negative">Negatively - may replace my job</label><br>
+                    <input type="radio" id="neutral" name="impact" value="neutral">
+                    <label for="neutral">Neutral - will change but not replace</label><br>
+                    <input type="radio" id="unsure" name="impact" value="unsure">
+                    <label for="unsure">Unsure</label><br>
+                    <button type="button" onclick="submitPoll()">Submit</button>
+                </form>
+                <div id="pollResults"></div>
+            </div>
+        </div>
+
+        <div class="comments-section"
+            style="border: 5px solid transparent;background:linear-gradient(white, whitesmoke) padding-box,linear-gradient(90deg, #6b8dff, #6bffb9, #ff6b6b) border-box;">
+            <h2>Reader Comments</h2>
+            <div class="comment-form">
+                <h3>Add Your Comment</h3>
+                <textarea id="newComment" placeholder="Share your thoughts on automation and jobs..."></textarea>
+                <button onclick="addComment()">Post Comment</button>
+            </div>
+            <div id="commentsContainer">
+                <!-- Comments will be added here by JavaScript -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Back to Top Button -->
+    <button onclick="topFunction()" id="backToTopBtn" title="Go to top">↑</button>
+
+    <script src="impact.js"></script>
+    <script src="../../../asset/scripts/scripts.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gemini Chatbot</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="./asset/css/dark-theme.css" />
+    <link rel="stylesheet" type="text/css" href="./asset/css/light-theme.css" />
+    <link rel="stylesheet" type="text/css" href="./asset/css/style.css" />
+</head>
+
+<body>
+    <header>
+        <nav>
+            <div class="nav-container">
+                <!-- Logo -->
+                <a href="./index.html">
+                    <img src="./logo.png" alt="Logo" class="logo">
+                </a>
+
+                <!-- Use a table to create a horizontal layout. -->
+                <table>
+                    <tr>
+                        <!-- Search box -->
+                        <th>
+                            <div>
+                                <input type="text" id="search-box" class="form-control" placeholder="Search News..."
+                                    onkeyup="showSuggestions()" style="border-radius:15px; margin-left:-25px;">
+                                <div id="suggestions" class="list-group position-absolute w-100"></div>
+                            </div>
+                        </th>
+
+                        <!-- Menu -->
+                        <th>
+                            <input type="checkbox" id="menu-toggle" class="menu-checkbox">
+                            <label for="menu-toggle" class="menu-icon">☰</label>
+                            <ul class="nav-menu">
+                                <li><a href="./about.html">About Us</a></li>
+                                <li><a href="./news.html">News</a></li>
+                                <li><a href="./tools.html">Tools</a></li>
+                                <li><a href="./resources.html">Resource Tutorial</a></li>
+                                <li><a href="./forum.html">Forum</a></li>
+                                <li><a href="./chatbot.html">Chatbot</a></li>
+                                <li><a href="./contact.html">Contact Us</a></li>
+                            </ul>
+                        </th>
+
+                        <!-- Clear Cache Button -->
+                        <th>
+                            <button id="clear-storage" class="clear-storage" style="
+                    font-size: 1.2rem;
+                    cursor: pointer;
+                    border: none;
+                    background: transparent;
+                    margin-right: -23px;" title="Clear all Cookies and LocalStorage.">🗑️</button>
+                        </th>
+
+                        <!-- Theme Toggle Button -->
+                        <th>
+                            <button id="theme-toggle" class="theme-toggle" title="Theme"
+                                style="margin-right: -20px;">🌙</button>
+                        </th>
+                    </tr>
+                </table>
+            </div>
+        </nav>
+    </header>
+    
+    <div id="cookie-popup" class="cookie-popup" style="display:none;">
+        <span style="color:black;">This website uses cookies to enhance the user experience. Do you accept?</span>
+        <br>
+        <button class="accept-btn" onclick="acceptCookies()">Agree</button>
+        <button class="decline-btn" onclick="declineCookies()">Disagree</button>
+    </div>
+
+    <!-- Main chat container -->
+    <main>
+        <div class="chat-container">
+            <div class="chat-header">
+                Gemini Chatbot
+                <button id="settings-btn" class="settings-btn">⚙️</button>
+            </div>
+
+            <!-- Settings panel -->
+            <div class="settings-panel" id="settings-panel">
+                <label for="api-key">Gemini API Key:</label>
+                <input type="password" id="api-key" placeholder="Enter your API key.">
+
+                <label for="model-select">Model:</label>
+                <select id="model-select">
+                    <option value="gemini-pro">gemini-pro</option>
+                    <option value="gemini-1.5-pro">gemini-1.5-pro</option>
+                    <option value="gemini-1.5-flash">gemini-1.5-flash</option>
+                    <option value="gemini-1.5-pro-latest">gemini-1.5-pro-latest</option>
+                    <option value="gemini-pro-vision">gemini-pro-vision</option>
+                </select>
+
+                <label for="temperature">Temperature (0.0-1.0):</label>
+                <input type="number" id="temperature" min="0" max="1" step="0.1" value="0.7">
+
+                <div id="error-display" class="error-message"></div>
+
+                <button id="save-settings">Save Settings</button>
+            </div>
+
+            <!-- Chat messages area -->
+            <div class="chat-messages" id="chat-messages">
+                <div class="message bot-message">
+                    Hello! I’m a chatbot powered by the Google Gemini API. How can I assist you today?
+                </div>
+            </div>
+
+            <!-- Loading indicator -->
+            <div class="loading" id="loading">
+                <div class="typing-indicator">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+
+            <!-- Chat input area -->
+            <div class="chat-input">
+                <input type="text" id="user-input" placeholder="在这里输入消息..." autocomplete="off">
+                <button id="send-button">Send</button>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        $(document).ready(function () {
+            // Configuration stored in localStorage
+            let apiKey = localStorage.getItem('gemini_api_key') || '';
+            let model = localStorage.getItem('gemini_model') || 'gemini-pro';
+            let temperature = localStorage.getItem('gemini_temperature') || 0.7;
+
+            // Store conversation history
+            let conversationHistory = [{
+                role: "model",
+                parts: [{ text: "Hello! I’m a chatbot powered by the Google Gemini API. How can I help you today?" }]
+            }];
+
+            // Set initial values
+            $('#api-key').val(apiKey);
+            $('#model-select').val(model);
+            $('#temperature').val(temperature);
+
+            // Settings panel toggle
+            $('#settings-btn').click(function () {
+                $('#settings-panel').toggle();
+            });
+
+            // Save settings
+            $('#save-settings').click(function () {
+                apiKey = $('#api-key').val();
+                model = $('#model-select').val();
+                temperature = $('#temperature').val();
+
+                localStorage.setItem('gemini_api_key', apiKey);
+                localStorage.setItem('gemini_model', model);
+                localStorage.setItem('gemini_temperature', temperature);
+
+                $('#settings-panel').hide();
+                $('#error-display').text('');
+
+                // Confirmation message
+                addMessageToChat('bot', 'Settings saved! Current model in use:' + model);
+            });
+
+            // Close settings panel when clicking outside
+            $(document).click(function (event) {
+                if (!$(event.target).closest('#settings-panel').length &&
+                    !$(event.target).is('#settings-btn')) {
+                    $('#settings-panel').hide();
+                }
+            });
+
+            // Send message function
+            function sendMessage() {
+                const userMessage = $('#user-input').val().trim();
+
+                if (!userMessage) return;
+
+                // Display user message
+                addMessageToChat('user', userMessage);
+                $('#user-input').val('');
+
+                // Add to conversation history
+                conversationHistory.push({
+                    role: "user",
+                    parts: [{ text: userMessage }]
+                });
+
+                // Check for API key
+                if (!apiKey) {
+                    addMessageToChat('bot', 'Please configure your Gemini API key in the settings first.');
+                    return;
+                }
+
+                // Show loading indicator
+                $('#loading').show();
+
+                // Prepare request data
+                const requestData = {
+                    contents: conversationHistory,
+                    generationConfig: {
+                        temperature: parseFloat(temperature),
+                        topK: 40,
+                        topP: 0.95,
+                        maxOutputTokens: 1024,
+                    }
+                };
+
+                let apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/${model}:generateContent?key=${apiKey}`;
+
+                // Send request to Gemini API
+                $.ajax({
+                    url: apiUrl,
+                    type: 'POST',
+                    contentType: 'application/json',
+                    data: JSON.stringify(requestData),
+                    success: function (data) {
+                        if (data.candidates && data.candidates[0].content) {
+                            const botResponse = data.candidates[0].content.parts[0].text;
+
+                            // Add bot response to chat
+                            addMessageToChat('bot', botResponse);
+
+                            // Update conversation history
+                            conversationHistory.push({
+                                role: "model",
+                                parts: [{ text: botResponse }]
+                            });
+                        } else {
+                            throw new Error('No valid response received.');
+                        }
+                    },
+                    error: function (xhr, status, error) {
+                        console.error('API call error: ', error);
+
+                        let errorMessage = 'Unknown error.';
+                        try {
+                            const errorResponse = JSON.parse(xhr.responseText);
+                            errorMessage = errorResponse.error?.message || 'Request failed.';
+                        } catch (e) {
+                            errorMessage = error || 'Network error.';
+                        }
+
+                        addMessageToChat('bot', `Sorry, an error occurred: ${errorMessage}`);
+                        $('#error-display').text(`Last error: ${errorMessage}`);
+                    },
+                    complete: function () {
+                        // Hide loading indicator
+                        $('#loading').hide();
+                    }
+                });
+            }
+
+            // Try to fetch available models
+            function fetchAvailableModels() {
+                if (!apiKey) return;
+
+                $.ajax({
+                    url: `https://generativelanguage.googleapis.com/v1beta/models?key=${apiKey}`,
+                    type: 'GET',
+                    success: function (data) {
+                        // Clear current options
+                        $('#model-select').empty();
+
+                        // Only add text generation models, not embedding models
+                        const supportedModels = data.models.filter(model =>
+                            model.name.includes('gemini') &&
+                            !model.name.includes('embedding') &&
+                            model.supportedGenerationMethods.includes('generateContent')
+                        );
+
+                        $.each(supportedModels, function (i, modelData) {
+                            const modelName = modelData.name.split('/').pop();
+                            $('#model-select').append($('<option>', {
+                                value: modelName,
+                                text: modelName
+                            }));
+                        });
+
+                        // If there's a saved model selection, try to select it
+                        if (model) {
+                            // Check if this model option exists
+                            const exists = $('#model-select option[value="' + model + '"]').length > 0;
+                            if (exists) {
+                                $('#model-select').val(model);
+                            } else {
+                                // If it doesn't exist, select the first option
+                                model = $('#model-select option:first').val();
+                                localStorage.setItem('gemini_model', model);
+                            }
+                        }
+                    },
+                    error: function (xhr, status, error) {
+                        console.error('Error retrieving model list: ', error);
+                    }
+                });
+            }
+
+            // Add message to chat interface
+            function addMessageToChat(sender, message) {
+                let messageHtml = '';
+
+                if (sender === 'user') {
+                    messageHtml = $('<div>', {
+                        'class': 'message user-message',
+                        text: message
+                    });
+                } else {
+                    // Process code blocks
+                    message = message.replace(/```([\s\S]*?)```/g, function (match, code) {
+                        return '<pre><code>' + code + '</code></pre>';
+                    });
+
+                    // Process inline code
+                    message = message.replace(/`([^`]+)`/g, '<code>$1</code>');
+
+                    messageHtml = $('<div>', {
+                        'class': 'message bot-message',
+                        html: message
+                    });
+                }
+
+                $('#chat-messages').append(messageHtml);
+
+                // Scroll to bottom
+                $('#chat-messages').scrollTop($('#chat-messages')[0].scrollHeight);
+            }
+
+            // Event listeners
+            $('#send-button').click(sendMessage);
+
+            $('#user-input').keypress(function (e) {
+                if (e.which === 13) { // Enter key
+                    sendMessage();
+                }
+            });
+
+            // Try to fetch model list
+            if (apiKey) {
+                fetchAvailableModels();
+            }
+
+            // Check if API key exists
+            if (!apiKey) {
+                $('#settings-panel').show();
+                addMessageToChat('bot', 'Welcome to the Gemini chatbot! Please configure your API key in the settings at the top right first.');
+            }
+        });
+    </script>
+    <script src="./asset/scripts/scripts.js"></script>
+    <!-- 引入 jQuery（CDN） -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <main class="sitemap-container">
+        <section class="sitemap-section">
+            <a href="index.html">
+                <img src="./logo.png" alt="Logo" class="logo">
+            </a>
+            <h2>Main Navigation</h2>
+            <div class="sitemap-grid">
+                <div class="sitemap-item">
+                    <h3><a href="index.html">Home</a></h3>
+                    <ul>
+                        <li>Homepage</li>
+                        <li>Featured Content</li>
+                        <li>Latest Updates</li>
+                    </ul>
+                </div>
+
+                <div class="sitemap-item">
+                    <h3><a href="about.html">About Us</a></h3>
+                    <ul>
+                        <li>Team Members</li>
+                        <li>Our Mission</li>
+                        <li>Company Profile</li>
+                    </ul>
+                </div>
+
+                <div class="sitemap-item">
+                    <h3><a href="news.html">News Categories</a></h3>
+                    <ul>
+                        <li>Emerging Technologies</li>
+                        <li>Industry Disruptors</li>
+                        <li>Future Trends</li>
+                    </ul>
+                </div>
+
+                <div class="sitemap-item">
+                    <h3><a href="tools.html">Tools</a></h3>
+                    <ul>
+                        <li>VS Studio Code</li>
+                        <li>RTX 5090</li>
+                        <li>Tesla P100</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section class="sitemap-section">
+            <h2>Resources & Support</h2>
+            <div class="sitemap-grid">
+                <div class="sitemap-item">
+                    <h3><a href="resources.html">Resource Tutorial</a></h3>
+                    <ul>
+                        <li>Video Tutorials</li>
+                        <li>File Downloads</li>
+                        <li>Learning Materials</li>
+                    </ul>
+                </div>
+
+                <div class="sitemap-item">
+                    <h3><a href="forum.html">Forum</a></h3>
+                    <ul>
+                        <li>Discussion Board</li>
+                        <li>Community Posts</li>
+                        <li>User Contributions</li>
+                    </ul>
+                </div>
+
+                <div class="sitemap-item">
+                    <h3><a href="chatbot.html">Chatbot</a></h3>
+                    <ul>
+                        <li>AI Assistant</li>
+                        <li>Help Center</li>
+                        <li>FAQ</li>
+                    </ul>
+                </div>
+
+                <div class="sitemap-item">
+                    <h3><a href="contact.html">Contact</a></h3>
+                    <ul>
+                        <li>Contact Form</li>
+                        <li>Location Map</li>
+                        <li>Support Email</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section class="sitemap-section">
+            <h2>Available Media Resources</h2>
+            <div class="resource-list">
+                <div class="resource-item">
+                    <img src="./asset/media/gif/1_wJt3v7Gs46uticTUj4y9zg.gif" alt="Machine Learning">
+                    <p>Machine Learning GIF</p>
+                </div>
+                <div class="resource-item">
+                    <img src="./asset/media/gif/deep_learning.gif" alt="Deep Learning">
+                    <p>Deep Learning GIF</p>
+                </div>
+                <div class="resource-item">
+                    <img src="./asset/media/gif/ethnic.gif" alt="AI Ethics">
+                    <p>AI Ethics GIF</p>
+                </div>
+                <div class="resource-item">
+                    <img src="./asset/media/gif/picture1.gif" alt="AI Technology">
+                    <p>AI Technology GIF</p>
+                </div>
+            </div>
+        </section>
+    </main>
+</body>
+
+</html>

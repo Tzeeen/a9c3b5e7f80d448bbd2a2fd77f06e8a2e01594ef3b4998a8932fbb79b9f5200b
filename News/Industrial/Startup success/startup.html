@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Startup Pulse | Success Stories & Funding News</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Audiowide&family=Press+Start+2P&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="startup.css" />
+    <link rel="stylesheet" type="text/css" href="../../../asset/css/dark-theme.css" />
+    <link rel="stylesheet" type="text/css" href="../../../asset/css/light-theme.css" />
+    <link rel="stylesheet" type="text/css" href="../../../asset/css/style.css" />
+</head>
+
+<body>
+    <header>
+        <nav>
+            <div class="nav-container">
+                <!-- Logo -->
+                <a href="../../../index.html">
+                    <img src="../../../logo.png" alt="Logo" class="logo">
+                </a>
+
+                <!-- Use a table to create a horizontal layout. -->
+                <table>
+                    <tr>
+                        <!-- Search box -->
+                        <th>
+                            <div>
+                                <input type="text" id="search-box" class="form-control" placeholder="Search News..."
+                                    onkeyup="showSuggestions()" style="border-radius:15px; margin-left:-25px;">
+                                <div id="suggestions" class="list-group position-absolute w-100"></div>
+                            </div>
+                        </th>
+
+                        <!-- Menu -->
+                        <th>
+                            <input type="checkbox" id="menu-toggle" class="menu-checkbox">
+                            <label for="menu-toggle" class="menu-icon">☰</label>
+                            <ul class="nav-menu">
+                                <li><a href="../../../about.html">About Us</a></li>
+                                <li><a href="../../../news.html">News</a></li>
+                                <li><a href="../../../tools.html">Tools</a></li>
+                                <li><a href="../../../resources.html">Resource Tutorial</a></li>
+                                <li><a href="../../../forum.html">Forum</a></li>
+                                <li><a href="../../../chatbot.html">Chatbot</a></li>
+                                <li><a href="../../../contact.html">Contact Us</a></li>
+                            </ul>
+                        </th>
+
+                        <!-- Clear Cache Button -->
+                        <th>
+                            <button id="clear-storage" class="clear-storage" style="
+                            font-size: 1.2rem;
+                            cursor: pointer;
+                            border: none;
+                            background: transparent;
+                            margin-right: -23px;" title="Clear all Cookies and LocalStorage.">🗑️</button>
+                        </th>
+
+                        <!-- Theme Toggle Button -->
+                        <th>
+                            <button id="theme-toggle" class="theme-toggle" title="Theme"
+                                style="margin-right: -20px;">🌙</button>
+                        </th>
+                    </tr>
+                </table>
+            </div>
+        </nav>
+    </header>
+
+    <div id="cookie-popup" class="cookie-popup" style="display:none;">
+        <span style="color:black;">This website uses cookies to enhance the user experience. Do you accept?</span>
+        <br>
+        <button class="accept-btn" onclick="acceptCookies()">Agree</button>
+        <button class="decline-btn" onclick="declineCookies()">Disagree</button>
+    </div>
+
+    <div class="container" style="border: 5px solid transparent;background:linear-gradient(white, whitesmoke) padding-box,linear-gradient(90deg, #6b8dff, #6bffb9, #ff6b6b) border-box;">
+        <br>
+        <div class="hero">
+            <h1>Startup Success Stories & Funding News</h1>
+            <p>Discover the latest startup funding rounds, success stories, and insights from the world of
+                entrepreneurship and venture capital.</p>
+        </div>
+
+        <div class="news-grid">
+            <!-- Featured News -->
+            <div class="news-card featured-news">
+                <img src="https://techcrunch.com/wp-content/uploads/2025/03/Island.jpg?resize=1200,800"
+                    alt="Island's $250 Million Funding Round" class="news-image">
+                <div class="news-content">
+                    <h2 class="news-title">Island's $250 Million Funding Round</h2>
+                    <p class="news-excerpt">Dallas-based cybersecurity startup Island has raised $250 million in
+                        fresh
+                        funding, boosting its valuation to $4.8 billion. Founded in 2020, the company has now
+                        secured
+                        $730 million in total funding and serves around 450 enterprise clients, including banks,
+                        universities, and retailers. Island's innovative web browser embeds cybersecurity directly
+                        into
+                        its framework, addressing the growing demand for secure digital tools amid the rise of
+                        remote
+                        work. The new funds will support product development and expand its 500-person team.</p>
+                    <div class="news-meta">
+                        <span>By Sarah Johnson</span>
+                        <span>3 days ago</span>
+                    </div>
+                    <br>
+                    <a href="https://techcrunch.com/2025/03/26/island-lands-250m-in-funding-at-a-4-8b-valuation/">
+                        <button class="button">
+                            <span>Read more</span>
+                        </button>
+                    </a>
+                </div>
+            </div>
+
+
+            <!-- Regular News Cards -->
+            <div class="news-card">
+                <img src="https://i.insider.com/67ce69ceb8b41a9673fa1f13?width=1000&format=jpeg&auto=webp"
+                    alt="Funding News" class="news-image">
+                <div class="news-content">
+                    <h2 class="news-title">Anduril's Soaring Valuation Amid Investor Frenzy</h2>
+                    <p class="news-excerpt">Defense tech startup Anduril, founded by Palmer Luckey in 2017, has
+                        skyrocketed to a $36.3 billion valuation, drawing intense investor interest. Despite the
+                        hype,
+                        strict stock transfer rules make it difficult to acquire shares, fueling a secondary market
+                        frenzy where some buyers are offering $56.67 per share. The excitement stems from Anduril's
+                        profitable government contracts, its visionary founder, and a booming environment for
+                        defense-focused innovation.</p>
+                    <div class="news-meta">
+                        <span>By Michael Chen</span>
+                        <span>5 hours ago</span>
+                    </div>
+                    <br>
+                    <a
+                        href="https://www.linkedin.com/posts/ben-bergman-b8345925_vcs-are-in-a-frenzy-to-invest-in-anduril-activity-7310354159407403009-6aPB">
+                        <button class="button">
+                            <span>Read more</span>
+                        </button>
+                    </a>
+                </div>
+            </div>
+
+            <div class="news-card">
+                <img src="https://cdn.techinasia.com/wp-content/uploads/2025/03/1741925350_shutterstock_2148917783-scaled.jpg"
+                    alt="Success Story" class="news-image">
+                <div class="news-content">
+                    <h2 class="news-title">Roi Tiger's Cybersecurity Venture Attracts $55 Million</h2>
+                    <p class="news-excerpt">Roi Tiger, a former Meta engineering exec, is raising $55 million for
+                        his
+                        stealth-mode cybersecurity startup, with the round led by Greenoaks. This follows a $20
+                        million
+                        seed investment from Sequoia, Index Ventures, and Cyberstarts. Despite limited public
+                        details,
+                        the startup is already valued in the hundreds of millions. Investor excitement is fueled by
+                        Alphabet's $32 billion acquisition of Wiz, where these same firms saw early success.</p>
+                    <div class="news-meta">
+                        <span>By David Wilson</span>
+                        <span>Yesterday</span>
+                    </div>
+                    <br>
+                    <a href="https://www.techinasia.com/news/ex-meta-execs-israeli-cybersecurity-startup-secures-55m">
+                        <button class="button">
+                            <span>Read more</span>
+                        </button>
+                    </a>
+                </div>
+            </div>
+
+            <div class="news-card">
+                <img src="https://mms.businesswire.com/media/20250305867466/en/2396911/4/Auxia_team.jpg?download=1"
+                    alt="Fintech News" class="news-image">
+                <div class="news-content">
+                    <h2 class="news-title">Auxia Secures $23.5 Million for AI Marketing Agents</h2>
+                    <p class="news-excerpt">Auxia, an AI-driven marketing startup based in Palo Alto, has raised
+                        $23.5
+                        million in combined Series A and seed funding. Founded in 2022, the company leverages AI
+                        agents
+                        to personalize consumer shopping experiences by delivering tailored marketing content across
+                        channels. The round was led by VMG Technology Partners and included investments from MUFG
+                        Innovation Partners, Incubate Fund, Vela Partners, and Stage 2 Capital, along with tech
+                        industry
+                        figures like Google CMO Lorraine Twohill and former Meta executive David Fischer. CEO
+                        Sandeep
+                        Menon highlights that Auxia's AI agents aim to streamline marketing workflows, automate
+                        complex
+                        tasks, and boost team efficiency.</p>
+                    <div class="news-meta">
+                        <span>By Emily Roberts</span>
+                        <span>2 days ago</span>
+                    </div>
+                    <br>
+                    <a
+                        href="https://www.businesswire.com/news/home/20250305867466/en/Auxia-Secures-%2423.5M-to-Redefine-Enterprise-Personalization-with-Agentic-AI">
+                        <button class="button">
+                            <span>Read more</span>
+                        </button>
+                    </a>
+                </div>
+            </div>
+
+            <div class="news-card">
+                <img src="https://static-cdn.toi-media.com/www/uploads/2024/05/Wiz-Founders.-Credit-Avishag-Shaar-Yashuv-640x400.jpg"
+                    alt="Health Tech News" class="news-image">
+                <div class="news-content">
+                    <h2 class="news-title">Wiz's Record-Breaking $32 Billion Acquisition by Alphabet</h2>
+                    <p class="news-excerpt">Wiz, an Israeli cybersecurity powerhouse, has been acquired by Alphabet
+                        in a
+                        landmark $32 billion deal, making it the largest cybersecurity acquisition in history.
+                        Founded
+                        by former Unit 8200 members Assaf Rappaport, Ami Luttwak, Yinon Costica, and Roy Reznik,
+                        each
+                        co-founder will receive over $3 billion from the sale. This historic acquisition surpasses
+                        Meta's 2014 WhatsApp deal and sets a new record for private venture-backed exits. Wiz, known
+                        for
+                        its cutting-edge cybersecurity solutions and partnerships with Fortune 100 companies, will
+                        bolster Google Cloud's security, especially in response to growing AI-driven threats.</p>
+                    <div class="news-meta">
+                        <span>By James Zhang</span>
+                        <span>3 days ago</span>
+                    </div>
+                    <br>
+                    <a
+                        href="https://www.timesofisrael.com/google-said-in-renewed-talks-to-buy-israeli-founded-cyber-unicorn-wiz-for-some-30b/">
+                        <button class="button">
+                            <span>Read more</span>
+                        </button>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Back to Top Button -->
+    <button onclick="topFunction()" id="backToTopBtn" title="Go to top">↑</button>
+
+    <script src="startup.js"></script>
+    <script src="../../../asset/scripts/scripts.js"></script>
+</body>
+
+</html>

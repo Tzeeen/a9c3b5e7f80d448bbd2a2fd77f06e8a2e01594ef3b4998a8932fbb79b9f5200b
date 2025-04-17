@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tech Pulse - Big Tech Innovations & Acquisitions</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Audiowide&family=Press+Start+2P&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="business.css" />
+    <link rel="stylesheet" type="text/css" href="../../../asset/css/dark-theme.css" />
+    <link rel="stylesheet" type="text/css" href="../../../asset/css/light-theme.css" />
+    <link rel="stylesheet" type="text/css" href="../../../asset/css/style.css" />
+</head>
+
+<body>
+    <header>
+        <nav>
+            <div class="nav-container">
+                <!-- Logo -->
+                <a href="../../../index.html">
+                    <img src="../../../logo.png" alt="Logo" class="logo">
+                </a>
+
+                <!-- Use a table to create a horizontal layout. -->
+                <table>
+                    <tr>
+                        <!-- Search box -->
+                        <th>
+                            <div>
+                                <input type="text" id="search-box" class="form-control" placeholder="Search News..."
+                                    onkeyup="showSuggestions()" style="border-radius:15px; margin-left:-25px;">
+                                <div id="suggestions" class="list-group position-absolute w-100"></div>
+                            </div>
+                        </th>
+
+                        <!-- Menu -->
+                        <th>
+                            <input type="checkbox" id="menu-toggle" class="menu-checkbox">
+                            <label for="menu-toggle" class="menu-icon">☰</label>
+                            <ul class="nav-menu">
+                                <li><a href="../../../about.html">About Us</a></li>
+                                <li><a href="../../../news.html">News</a></li>
+                                <li><a href="../../../tools.html">Tools</a></li>
+                                <li><a href="../../../resources.html">Resource Tutorial</a></li>
+                                <li><a href="../../../forum.html">Forum</a></li>
+                                <li><a href="../../../chatbot.html">Chatbot</a></li>
+                                <li><a href="../../../contact.html">Contact Us</a></li>
+                            </ul>
+                        </th>
+
+                        <!-- Clear Cache Button -->
+                        <th>
+                            <button id="clear-storage" class="clear-storage" style="
+                            font-size: 1.2rem;
+                            cursor: pointer;
+                            border: none;
+                            background: transparent;
+                            margin-right: -23px;" title="Clear all Cookies and LocalStorage.">🗑️</button>
+                        </th>
+
+                        <!-- Theme Toggle Button -->
+                        <th>
+                            <button id="theme-toggle" class="theme-toggle" title="Theme"
+                                style="margin-right: -20px;">🌙</button>
+                        </th>
+                    </tr>
+                </table>
+            </div>
+        </nav>
+    </header>
+
+    <div id="cookie-popup" class="cookie-popup" style="display:none;">
+        <span style="color:black;">This website uses cookies to enhance the user experience. Do you accept?</span>
+        <br>
+        <button class="accept-btn" onclick="acceptCookies()">Agree</button>
+        <button class="decline-btn" onclick="declineCookies()">Disagree</button>
+    </div>
+
+    <div class="hero">
+        <h1>New business models changing the market</h1>
+        <p>New Business Models Reshaping the Market in 2025
+            The business landscape is evolving rapidly, driven by technological advancements, changing consumer
+            behaviors,
+            and innovative strategies. Emerging business models are disrupting traditional industries, creating new
+            opportunities,
+            and redefining how companies operate. Here are some of the most impactful new business models transforming
+            the market today.</p>
+    </div>
+
+    <div class="container">
+
+        <main class="main-news">
+            <article class="news-card">
+                <img src="https://www.kbvresearch.com/images/blog/ai-as-a-service.jpg"
+                    alt="AI-Driven Subscription Services">
+
+                <div class="share-buttons">
+                    <button class="share-button share-twitter" onclick="shareOnTwitter()">
+                        <span class="share-icon"><i class="fab fa-twitter"></i></span>
+                        Twitter
+                    </button>
+                    <button class="share-button share-facebook" onclick="shareOnFacebook()">
+                        <span class="share-icon"><i class="fab fa-facebook-f"></i></span>
+                        Facebook
+                    </button>
+                    <button class="share-button share-linkedin" onclick="shareOnLinkedIn()">
+                        <span class="share-icon"><i class="fab fa-linkedin-in"></i></span>
+                        LinkedIn
+                    </button>
+                    <button class="share-button share-email" onclick="shareViaEmail()">
+                        <span class="share-icon"><i class="fas fa-envelope"></i></span>
+                        Email
+                    </button>
+                    <button class="share-button share-copy" onclick="copyToClipboard()">
+                        <span class="share-icon"><i class="fas fa-copy"></i></span>
+                        Copy Link
+                    </button>
+                </div>
+
+                <div class="news-content">
+                    <h2 class="news-title">AI-Driven Subscription Services</h2>
+                    <p class="news-excerpt">Subscription-based models have been around for years, but artificial
+                        intelligence (AI) is revolutionizing how they operate.
+                        Companies like Spotify and Netflix have long used AI for content recommendations, but newer
+                        players are taking it further.</p>
+                    <div class="news-meta">
+                        <span>By Sarah Johnson</span>
+                        <span>June 15, 202</span>
+                    </div>
+                </div>
+
+            </article>
+
+            <article class="news-card">
+                <img src="https://www.devteam.space/wp-content/uploads/2022/08/How-to-Build-Everything-as-a-Service-XaaS.jpg"
+                    alt="Everything as a Service">
+
+                <div class="share-buttons" >
+                    <button class="share-button share-twitter" onclick="shareOnTwitter()">
+                        <span class="share-icon"><i class="fab fa-twitter"></i></span>
+                        Twitter
+                    </button>
+                    <button class="share-button share-facebook" onclick="shareOnFacebook()">
+                        <span class="share-icon"><i class="fab fa-facebook-f"></i></span>
+                        Facebook
+                    </button>
+                    <button class="share-button share-linkedin" onclick="shareOnLinkedIn()">
+                        <span class="share-icon"><i class="fab fa-linkedin-in"></i></span>
+                        LinkedIn
+                    </button>
+                    <button class="share-button share-email" onclick="shareViaEmail()">
+                        <span class="share-icon"><i class="fas fa-envelope"></i></span>
+                        Email
+                    </button>
+                    <button class="share-button share-copy" onclick="copyToClipboard()">
+                        <span class="share-icon"><i class="fas fa-copy"></i></span>
+                        Copy Link
+                    </button>
+                </div>
+
+                <div class="news-content">
+                    <h2 class="news-title">"Everything as a Service" (XaaS)</h2>
+                    <p class="news-excerpt">Software-as-a-Service (SaaS) paved the way for the XaaS
+                        (Everything-as-a-Service) model. Now, industries beyond technology
+                        are adopting this approach. Car manufacturers like Volvo and Porsche offer vehicle subscription
+                        services, allowing consumers
+                        to swap cars instead of buying or leasing them. Similarly, home appliance companies are offering
+                        "appliances-as-a-service,"
+                        where customers pay a monthly fee to access high-end refrigerators, washing machines, and even
+                        furniture without owning them.
+                    </p>
+                    <div class="news-meta">
+                        <span>By Michael Chen</span>
+                        <span>June 12, 2025</span>
+                    </div>
+                </div>
+            </article>
+
+            <article class="news-card">
+                <img src="https://media.licdn.com/dms/image/v2/D4D12AQHb8FXzBOXo6Q/article-cover_image-shrink_720_1280/article-cover_image-shrink_720_1280/0/1694765758930?e=2147483647&v=beta&t=oa2r28beL5qNl_nLyzPIwAAwK6WojOGORwIHAR8UKKA"
+                    alt="Decentralized Marketplaces">
+
+                <div class="share-buttons">
+                    <button class="share-button share-twitter" onclick="shareOnTwitter()">
+                        <span class="share-icon"><i class="fab fa-twitter"></i></span>
+                        Twitter
+                    </button>
+                    <button class="share-button share-facebook" onclick="shareOnFacebook()">
+                        <span class="share-icon"><i class="fab fa-facebook-f"></i></span>
+                        Facebook
+                    </button>
+                    <button class="share-button share-linkedin" onclick="shareOnLinkedIn()">
+                        <span class="share-icon"><i class="fab fa-linkedin-in"></i></span>
+                        LinkedIn
+                    </button>
+                    <button class="share-button share-email" onclick="shareViaEmail()">
+                        <span class="share-icon"><i class="fas fa-envelope"></i></span>
+                        Email
+                    </button>
+                    <button class="share-button share-copy" onclick="copyToClipboard()">
+                        <span class="share-icon"><i class="fas fa-copy"></i></span>
+                        Copy Link
+                    </button>
+                </div>
+
+                <div class="news-content">
+                    <h2 class="news-title">Decentralized Marketplaces</h2>
+                    <p class="news-excerpt">Blockchain technology is enabling decentralized marketplaces that operate
+                        without intermediaries, reducing costs and increasing
+                        transparency. Platforms like OpenSea for NFTs and decentralized finance (DeFi) lending services
+                        allow users to transact directly
+                        with each other.</p>
+                    <div class="news-meta">
+                        <span>By Jessica Williams</span>
+                        <span>June 10, 2025</span>
+                    </div>
+                </div>
+            </article>
+
+            <article class="news-card">
+                <img src="https://cdn.prod.website-files.com/62fc1b4ed3d11fcdb917ace9/66f2ba1e553c6c59f40b8f93_infographic-csce-article-2.png"
+                    alt="Circular Economy and Resale Platforms">
+                <div class="share-buttons">
+                    <button class="share-button share-twitter" onclick="shareOnTwitter()">
+                        <span class="share-icon"><i class="fab fa-twitter"></i></span>
+                        Twitter
+                    </button>
+                    <button class="share-button share-facebook" onclick="shareOnFacebook()">
+                        <span class="share-icon"><i class="fab fa-facebook-f"></i></span>
+                        Facebook
+                    </button>
+                    <button class="share-button share-linkedin" onclick="shareOnLinkedIn()">
+                        <span class="share-icon"><i class="fab fa-linkedin-in"></i></span>
+                        LinkedIn
+                    </button>
+                    <button class="share-button share-email" onclick="shareViaEmail()">
+                        <span class="share-icon"><i class="fas fa-envelope"></i></span>
+                        Email
+                    </button>
+                    <button class="share-button share-copy" onclick="copyToClipboard()">
+                        <span class="share-icon"><i class="fas fa-copy"></i></span>
+                        Copy Link
+                    </button>
+                </div>
+                <div class="news-content">
+                    <h2 class="news-title">Circular Economy and Resale Platforms</h2>
+                    <p class="news-excerpt">Sustainability-driven business models are gaining traction, particularly in
+                        the fashion and consumer electronics industries. Brands
+                        like Patagonia and Levi's have introduced buy-back programs where customers return used items in
+                        exchange for store credit. These
+                        items are then refurbished and resold, reducing waste and promoting sustainability.</p>
+                    <div class="news-meta">
+                        <span>By David Miller</span>
+                        <span>June 8, 2025</span>
+                    </div>
+                </div>
+            </article>
+
+            <article class="news-card">
+                <img src="https://www.iqsdirectory.com/articles/on-demand-manufacturing/on-demand-manufacturing.jpg"
+                    alt="On-Demand Manufacturing">
+
+                <div class="share-buttons">
+                    <button class="share-button share-twitter" onclick="shareOnTwitter()">
+                        <span class="share-icon"><i class="fab fa-twitter"></i></span>
+                        Twitter
+                    </button>
+                    <button class="share-button share-facebook" onclick="shareOnFacebook()">
+                        <span class="share-icon"><i class="fab fa-facebook-f"></i></span>
+                        Facebook
+                    </button>
+                    <button class="share-button share-linkedin" onclick="shareOnLinkedIn()">
+                        <span class="share-icon"><i class="fab fa-linkedin-in"></i></span>
+                        LinkedIn
+                    </button>
+                    <button class="share-button share-email" onclick="shareViaEmail()">
+                        <span class="share-icon"><i class="fas fa-envelope"></i></span>
+                        Email
+                    </button>
+                    <button class="share-button share-copy" onclick="copyToClipboard()">
+                        <span class="share-icon"><i class="fas fa-copy"></i></span>
+                        Copy Link
+                    </button>
+                </div>
+
+                <div class="news-content">
+                    <h2 class="news-title">On-Demand Manufacturing</h2>
+                    <p class="news-excerpt">Traditional manufacturing often involves producing goods in bulk, leading to
+                        excess inventory and waste. However, on-demand manufacturing,
+                        powered by AI and 3D printing, is changing this.
+
+                    </p>
+                    <div class="news-meta">
+                        <span>By Robert Lee</span>
+                        <span>June 5, 2025</span>
+                    </div>
+                </div>
+            </article>
+
+            <article class="news-card">
+                <img src="https://ezassi.com/wp-content/uploads/2018/09/what-is-crowdsourcing-innovation-main-2.png"
+                    alt="Community-Driven and Crowdsourced Innovation">
+
+                <div class="share-buttons">
+                    <button class="share-button share-twitter" onclick="shareOnTwitter()">
+                        <span class="share-icon"><i class="fab fa-twitter"></i></span>
+                        Twitter
+                    </button>
+                    <button class="share-button share-facebook" onclick="shareOnFacebook()">
+                        <span class="share-icon"><i class="fab fa-facebook-f"></i></span>
+                        Facebook
+                    </button>
+                    <button class="share-button share-linkedin" onclick="shareOnLinkedIn()">
+                        <span class="share-icon"><i class="fab fa-linkedin-in"></i></span>
+                        LinkedIn
+                    </button>
+                    <button class="share-button share-email" onclick="shareViaEmail()">
+                        <span class="share-icon"><i class="fas fa-envelope"></i></span>
+                        Email
+                    </button>
+                    <button class="share-button share-copy" onclick="copyToClipboard()">
+                        <span class="share-icon"><i class="fas fa-copy"></i></span>
+                        Copy Link
+                    </button>
+                </div>
+
+                <div class="news-content">
+                    <h2 class="news-title">Community-Driven and Crowdsourced Innovation</h2>
+                    <p class="news-excerpt">Consumers are no longer just buyers—they are active participants in product
+                        development. Brands are leveraging crowdsourcing to co-create
+                        products with their customers.For example, companies like LEGO and Threadless allow users to
+                        submit product ideas, and the most popular ones are put into production.
+                        This model ensures that products align with market demand while fostering brand loyalty.
+                    </p>
+                    <div class="news-meta">
+                        <span>By Robert Lee</span>
+                        <span>June 5, 2025</span>
+                    </div>
+                </div>
+            </article>
+        </main>
+
+        <aside class="sidebar">
+            <div class="trending-list">
+                <h3 class="sidebar-title" style="color:blue;">Trending Now</h3>
+                <div class="trending-item">
+                    <div class="trending-number">1</div>
+                    <a
+                        href="https://www.businessinsider.com/recent-company-layoffs-laying-off-workers-2025?utm_source=chatgpt.com">
+                        <div class="trending-text" style="color:black;">Major Tech Company Layoffs</div>
+                    </a>
+                </div>
+                <div class="trending-item">
+                    <div class="trending-number">2</div>
+                    <a
+                        href="https://www.theaustralian.com.au/business/technology/more-funding-for-pandas-than-tech-entrepreneurs-blast-federal-budget/news-story/9b343c33153592e6c6b340375dda5ba3?utm_source=chatgpt.com">
+                        <div class="trending-text" style="color:black;">Criticism of Australian Federal Budget's Tech
+                            Funding</div>
+                    </a>
+                </div>
+                <div class="trending-item">
+                    <div class="trending-number">3</div>
+                    <a
+                        href="https://www.marketwatch.com/story/four-ai-stocks-to-buy-now-and-hold-says-the-manager-of-a-five-star-58b-global-fund-b16e6c22?utm_source=chatgpt.com">
+                        <div class="trending-text" style="color:black;">AI Stocks Recommended for Long-Term Investment
+                        </div>
+                    </a>
+                </div>
+                <div class="trending-item">
+                    <div class="trending-number">4</div>
+                    <a href="https://time.com/7200444/how-ai-benefits-harms-grew-in-2024/?utm_source=chatgpt.com">
+                        <div class="trending-text" style="color:black;">Advancements and Challenges in AI During 2024
+                        </div>
+                    </a>
+                </div>
+                <div class="trending-item">
+                    <div class="trending-number">5</div>
+                    <a
+                        href="https://www.vox.com/technology/391741/2024-ai-chatgpt-instagram-starlink-apple?utm_source=chatgpt.com">
+                        <div class="trending-text" style="color:black;">Tech Breakthroughs and Setbacks in 2024</div>
+                    </a>
+                </div>
+            </div>
+
+            <div class="trending-list">
+                <h3 class="sidebar-title" style="color:blue;">Top Acquisitions 2025</h3>
+                <div class="trending-item">
+                    <div class="trending-number">1</div>
+                    <div class="trending-text" style="color:black;">Google - Google's Acquisition of Wiz ($32 billion)
+                    </div>
+                </div>
+                <div class="trending-item">
+                    <div class="trending-number">2</div>
+                    <div class="trending-text" style="color:black;">Synopsys - Synopsys to Acquire Ansys ($35 billion)
+                    </div>
+                </div>
+                <div class="trending-item">
+                    <div class="trending-number">3</div>
+                    <div class="trending-text" style="color:black;">IBM - IBM Completes Acquisition of HashiCorp ($6.4
+                        billion)</div>
+                </div>
+                <div class="trending-item">
+                    <div class="trending-number">4</div>
+                    <div class="trending-text" style="color:black;">SoftBank - SoftBank's Acquisition of Ampere
+                        Computing ($6.5 billion)
+                    </div>
+                </div>
+                <div class="trending-item">
+                    <div class="trending-number">5</div>
+                    <div class="trending-text" style="color:black;">ServiceNow - ServiceNow Acquires Moveworks ($2.85
+                        billion)</div>
+                </div>
+            </div>
+        </aside>
+    </div>
+
+    <!-- Back to Top Button -->
+    <button onclick="topFunction()" id="backToTopBtn" title="Go to top">↑</button>
+
+    <script src="business.js"></script>
+    <script src="../../../asset/scripts/scripts.js"></script>
+</body>
+
+</html>

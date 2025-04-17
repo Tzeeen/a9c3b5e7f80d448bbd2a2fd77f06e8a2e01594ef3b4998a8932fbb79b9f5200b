@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home - My Website</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Audiowide&family=Press+Start+2P&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="./asset/css/dark-theme.css" />
+    <link rel="stylesheet" type="text/css" href="./asset/css/light-theme.css" />
+    <link rel="stylesheet" type="text/css" href="./asset/css/style.css" />
+</head>
+
+<body>
+    <header>
+        <nav>
+            <div class="nav-container">
+                <!-- Logo -->
+                <a href="./index.html">
+                    <img src="./logo.png" alt="Logo" class="logo">
+                </a>
+
+                <!-- Use a table to create a horizontal layout. -->
+                <table>
+                    <tr>
+                        <!-- Search box -->
+                        <th>
+                            <div>
+                                <input type="text" id="search-box" class="form-control" placeholder="Search News..."
+                                    onkeyup="showSuggestions()" style="border-radius:15px; margin-left:-25px;">
+                                <div id="suggestions" class="list-group position-absolute w-100"></div>
+                            </div>
+                        </th>
+
+                        <!-- Menu -->
+                        <th>
+                            <input type="checkbox" id="menu-toggle" class="menu-checkbox">
+                            <label for="menu-toggle" class="menu-icon">☰</label>
+                            <ul class="nav-menu">
+                                <li><a href="./about.html">About Us</a></li>
+                                <li><a href="./news.html">News</a></li>
+                                <li><a href="./tools.html">Tools</a></li>
+                                <li><a href="./resources.html">Resource Tutorial</a></li>
+                                <li><a href="./forum.html">Forum</a></li>
+                                <li><a href="./chatbot.html">Chatbot</a></li>
+                                <li><a href="./contact.html">Contact Us</a></li>
+                            </ul>
+                        </th>
+
+                        <!-- Clear Cache Button -->
+                        <th>
+                            <button id="clear-storage" class="clear-storage" style="
+                    font-size: 1.2rem;
+                    cursor: pointer;
+                    border: none;
+                    background: transparent;
+                    margin-right: -23px;" title="Clear all Cookies and LocalStorage.">🗑️</button>
+                        </th>
+
+                        <!-- Theme Toggle Button -->
+                        <th>
+                            <button id="theme-toggle" class="theme-toggle" title="Theme"
+                                style="margin-right: -20px;">🌙</button>
+                        </th>
+                    </tr>
+                </table>
+            </div>
+        </nav>
+    </header>
+
+    <div id="cookie-popup" class="cookie-popup" style="display:none;">
+        <span style="color:black;">This website uses cookies to enhance the user experience. Do you accept?</span>
+        <br>
+        <button class="accept-btn" onclick="acceptCookies()">Agree</button>
+        <button class="decline-btn" onclick="declineCookies()">Disagree</button>
+    </div>
+
+    <main>
+        <section class="Title">
+
+            <div
+                style="background: url('./asset/media/gif/picture1.gif') center/cover no-repeat; padding: 200px 20px; position: relative;">
+
+                <p style="font-size: 1.2rem; opacity: 0.9; color:white;">
+                    Discover the future of artificial intelligence.
+                </p>
+            </div>
+
+            <br>
+            <div class="grid">
+                <div class="row">
+                    <div class="tab">
+                        <div class="card">
+                            <img src="./asset/media/gif/1_wJt3v7Gs46uticTUj4y9zg.gif" width="100%" height="60%"
+                                alt="Machine Learning"><br><br>
+                            <h3 class="title">Machine Learning</h3>
+                            <p class="description">AI-powered algorithms that learn and adapt</p>
+                        </div>
+                    </div>
+                    <div class="tab">
+                        <div class="card">
+                            <img src="./asset/media/gif/deep_learning.gif" width="100%" height="60%"
+                                alt="Deep Learning"><br><br>
+                            <h3 class="title">Deep Learning</h3>
+                            <p class="description">Neural networks that mimic the human brain.</p>
+                        </div>
+                    </div>
+                    <div class="tab">
+                        <div class="card">
+                            <img src="./asset/media/gif/ethnic.gif" width="100%" height="60%" alt="AI ethics"><br><br>
+                            <h3 class="title">AI Ethics</h3>
+                            <p class="description">Exploring responsible AI development</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </section style="padding-top:5%;">>
+
+        <div class="row">
+            <div class="tab full-width">
+                <div class="card">
+                    <img src="./asset/media/gif/1_wJt3v7Gs46uticTUj4y9zg.gif" width="100%" height="60%"
+                        alt="Machine Learning">
+                    <h3 class="title">The Impact of Technology on Modern Society</h3>
+                    <p class="description">
+                        Technology is a driving force behind innovation, shaping industries...
+                    </p>
+                </div>
+            </div>
+
+            <div class="tab">
+                <div class="card">
+                    <img src="./asset/media/gif/deep_learning.gif" width="100%" height="60%" alt="Deep Learning">
+                    <h3 class="title">The Role of Technology in Advancing the Future</h3>
+                    <p class="description">
+                        Technology continues to revolutionize the way we live, work, and interact...
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="tab full-width">
+                <div class="card">
+                    <img src="./asset/media/gif/1_wJt3v7Gs46uticTUj4y9zg.gif" width="100%" height="60%"
+                        alt="Machine Learning">
+                    <h3 class="title">The Impact of Technology on Modern Society</h3>
+                    <p class="description">
+                        Technology is a driving force behind innovation, shaping industries...
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <section style="padding: 5% 2%; text-align: center;">
+            <h2>Introduction to AI</h2>
+            <p>Watch this video to understand how AI is changing the world.</p>
+            <video controls autoplay muted loop
+                style="border-radius: 25px; box-shadow: 0px -5px 100px 9px rgba(94, 3, 206, 0.309); max-width: 95%; height: auto;">
+                <source
+                    src="./asset/media/video/How will Artificial Intelligence and Internet of Things change the world_.mp4"
+                    type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </section>
+        <main class="sitemap-container">
+            <section class="sitemap-section">
+                <a href="index.html">
+                    <img src="./logo.png" alt="Logo" class="logo">
+                </a>
+                <h2>Main Navigation</h2>
+                <div class="sitemap-grid">
+                    <div class="sitemap-item">
+                        <h3><a href="index.html">Home</a></h3>
+                        <ul>
+                            <li>Homepage</li>
+                            <li>Featured Content</li>
+                            <li>Latest Updates</li>
+                        </ul>
+                    </div>
+    
+                    <div class="sitemap-item">
+                        <h3><a href="about.html">About Us</a></h3>
+                        <ul>
+                            <li>Team Members</li>
+                            <li>Our Mission</li>
+                        </ul>
+                    </div>
+    
+                    <div class="sitemap-item">
+                        <h3><a href="news.html">News Categories</a></h3>
+                        <ul>
+                            <li>Emerging Technologies</li>
+                            <li>Industry Disruptors</li>
+                            <li>Future Trends</li>
+                        </ul>
+                    </div>
+    
+                    <div class="sitemap-item">
+                        <h3><a href="tools.html">Tools</a></h3>
+                        <ul>
+                            <li>VS Studio Code</li>
+                            <li>RTX 5090</li>
+                            <li>Tesla P100</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+    
+            <section class="sitemap-section">
+                <h2>Resources & Support</h2>
+                <div class="sitemap-grid">
+                    <div class="sitemap-item">
+                        <h3><a href="resources.html">Resource Tutorial</a></h3>
+                        <ul>
+                            <li>Video Tutorials</li>
+                            <li>File Downloads</li>
+                            <li>Learning Materials</li>
+                        </ul>
+                    </div>
+    
+                    <div class="sitemap-item">
+                        <h3><a href="forum.html">Forum</a></h3>
+                        <ul>
+                            <li>Discussion Board</li>
+                            <li>Community Posts</li>
+                            <li>User Contributions</li>
+                        </ul>
+                    </div>
+    
+                    <div class="sitemap-item">
+                        <h3><a href="chatbot.html">Chatbot</a></h3>
+                        <ul>
+                            <li>AI Assistant</li>
+                            <li>Help Center</li>
+                            <li>FAQ</li>
+                        </ul>
+                    </div>
+    
+                    <div class="sitemap-item">
+                        <h3><a href="contact.html">Contact</a></h3>
+                        <ul>
+                            <li>Contact Form</li>
+                            <li>Location Map</li>
+                            <li>Support Email</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+    
+            <section class="sitemap-section">
+                <h2>Available Media Resources</h2>
+                <div class="resource-list">
+                    <div class="resource-item">
+                        <img src="./asset/media/gif/1_wJt3v7Gs46uticTUj4y9zg.gif" alt="Machine Learning">
+                        <p>Machine Learning GIF</p>
+                    </div>
+                    <div class="resource-item">
+                        <img src="./asset/media/gif/deep_learning.gif" alt="Deep Learning">
+                        <p>Deep Learning GIF</p>
+                    </div>
+                    <div class="resource-item">
+                        <img src="./asset/media/gif/ethnic.gif" alt="AI Ethics">
+                        <p>AI Ethics GIF</p>
+                    </div>
+                    <div class="resource-item">
+                        <img src="./asset/media/gif/picture1.gif" alt="AI Technology">
+                        <p>AI Technology GIF</p>
+                    </div>
+                </div>
+            </section>
+        </main>
+    <script src="./asset/scripts/scripts.js"></script>
+</body>
+
+</html>

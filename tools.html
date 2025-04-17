@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tools - Tech Innovators</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Audiowide&family=Press+Start+2P&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="./asset/css/dark-theme.css" />
+    <link rel="stylesheet" type="text/css" href="./asset/css/light-theme.css" />
+    <link rel="stylesheet" type="text/css" href="./asset/css/style.css" />
+</head>
+
+<body>
+    <header>
+        <nav>
+            <div class="nav-container">
+                <!-- Logo -->
+                <a href="./index.html">
+                    <img src="./logo.png" alt="Logo" class="logo">
+                </a>
+
+                <!-- Use a table to create a horizontal layout. -->
+                <table>
+                    <tr>
+                        <!-- Search box -->
+                        <th>
+                            <div>
+                                <input type="text" id="search-box" class="form-control" placeholder="Search News..."
+                                    onkeyup="showSuggestions()" style="border-radius:15px; margin-left:-25px;">
+                                <div id="suggestions" class="list-group position-absolute w-100"></div>
+                            </div>
+                        </th>
+
+                        <!-- Menu -->
+                        <th>
+                            <input type="checkbox" id="menu-toggle" class="menu-checkbox">
+                            <label for="menu-toggle" class="menu-icon">☰</label>
+                            <ul class="nav-menu">
+                                <li><a href="./about.html">About Us</a></li>
+                                <li><a href="./news.html">News</a></li>
+                                <li><a href="./tools.html">Tools</a></li>
+                                <li><a href="./resources.html">Resource Tutorial</a></li>
+                                <li><a href="./forum.html">Forum</a></li>
+                                <li><a href="./chatbot.html">Chatbot</a></li>
+                                <li><a href="./contact.html">Contact Us</a></li>
+                            </ul>
+                        </th>
+
+                        <!-- Clear Cache Button -->
+                        <th>
+                            <button id="clear-storage" class="clear-storage" style="
+                    font-size: 1.2rem;
+                    cursor: pointer;
+                    border: none;
+                    background: transparent;
+                    margin-right: -23px;" title="Clear all Cookies and LocalStorage.">🗑️</button>
+                        </th>
+
+                        <!-- Theme Toggle Button -->
+                        <th>
+                            <button id="theme-toggle" class="theme-toggle" title="Theme"
+                                style="margin-right: -20px;">🌙</button>
+                        </th>
+                    </tr>
+                </table>
+            </div>
+        </nav>
+    </header>
+
+    <div id="cookie-popup" class="cookie-popup" style="display:none;">
+        <span style="color:black;">This website uses cookies to enhance the user experience. Do you accept?</span>
+        <br>
+        <button class="accept-btn" onclick="acceptCookies()">Agree</button>
+        <button class="decline-btn" onclick="declineCookies()">Disagree</button>
+    </div>
+
+    <main>
+        <section class="Title">
+
+            <br><br>
+            <div class="row">
+                <div class="tab">
+                    <div class="card">
+                        <img src="./asset/media/img/tectools.jpeg" class="picture" alt="Vs Studio">
+                        <h3 class="title">Vs Studio Code</h3>
+                        <p class="description">Fully customizable. Customize your VS Code UI and layout so that it fits
+                            your
+                            coding style. </p>
+                    </div>
+                </div>
+                <div class="tab">
+                    <div class="card">
+                        <img src="./asset/media/img/products.jpeg" class="picture" alt="NVIDIA®">
+                        <h3 class="title">RTX 5090</h3>
+                        <p class="description">The NVIDIA® GeForce RTX™ 5090 is the most powerful GeForce GPU ever made,
+                            bringing game-changing capabilities to gamers and creators.</p>
+                        <a href="./RTX_5090.html" style="color: rgb(0, 255, 0); font-size: 25px; text-shadow: 0px 3px 10px black;">RTX ON!</a>
+                    </div>
+                </div>
+                <div class="tab">
+                    <div class="card">
+                        <img src="./asset/media/img/tesla.jpg" class="picture" alt="Tesla"
+                            alt="product">
+                        <h3 class="title">Tesla P100</h3>
+                        <p class="description">The NVIDIA® Tesla P100 (PCIe) is a budget-friendly data center GPU with
+                            performance similar to a GTX 1060. Designed for AI and HPC, it features Pascal architecture,
+                            HBM2 memory, and up to 9.3 TFLOPS FP32 performance, making it a cost-effective option for
+                            repurposed computing tasks.</p>
+                    </div>
+                </div>
+            </div>
+            
+                <article class="feature-article">
+                    <div class="article-icon">🤖</div>
+                    <h2>The Latest Breakthroughs in AI</h2>
+                    <div class="article-content">
+                        <p class="main-text">The application of artificial intelligence in the medical field has made significant progress, revolutionizing healthcare delivery and patient outcomes.</p>
+                        <div class="key-points">
+                            <h3>Key Developments:</h3>
+                            <ul>
+                                <li>🔬 Advanced diagnostic imaging powered by deep learning</li>
+                                <li>💊 Drug discovery acceleration through AI algorithms</li>
+                                <li>🏥 Personalized treatment recommendations</li>
+                                <li>📊 Predictive analytics for patient care</li>
+                            </ul>
+                        </div>
+                        <div class="impact-section">
+                            <p>These advancements are transforming healthcare delivery, making it more accurate, efficient, and accessible to all.</p>
+                        </div>
+                    </div>
+                </article>
+    
+                <article class="feature-article">
+                    <div class="article-icon">⛓️</div>
+                    <h2>Future of Blockchain</h2>
+                    <div class="article-content">
+                        <p class="main-text">Blockchain technology is revolutionizing the financial industry, creating new paradigms for transactions, security, and digital asset management.</p>
+                        <div class="key-points">
+                            <h3>Emerging Trends:</h3>
+                            <ul>
+                                <li>💹 Decentralized Finance (DeFi) evolution</li>
+                                <li>🔐 Enhanced security protocols</li>
+                                <li>🌐 Cross-border transaction solutions</li>
+                                <li>🏢 Enterprise blockchain adoption</li>
+                            </ul>
+                        </div>
+                        <div class="impact-section">
+                            <p>The technology is set to transform various sectors beyond finance, including supply chain, healthcare, and digital identity management.</p>
+                        </div>
+                    </div>
+                </article>
+            
+        </section>
+
+      
+
+        <style>
+            
+            .feature-article {
+                background: rgba(255, 255, 255, 0.05);
+                border-radius: 20px;
+                padding: 30px;
+                margin-bottom: 40px;
+                box-shadow: 0 8px 32px rgba(31, 38, 135, 0.15);
+                transition: transform 0.3s ease;
+                border: 1px solid rgba(255, 255, 255, 0.1);
+            }
+
+            .feature-article:hover {
+                transform: translateY(-5px);
+            }
+
+            .article-icon {
+                font-size: 3em;
+                text-align: center;
+                margin-bottom: 20px;
+                animation: float 3s ease-in-out infinite;
+            }
+
+            @keyframes float {
+                0% { transform: translateY(0px); }
+                50% { transform: translateY(-10px); }
+                100% { transform: translateY(0px); }
+            }
+
+            .feature-article h2 {
+                color: #102446;
+                text-align: center;
+                font-size: 2em;
+                margin-bottom: 20px;
+                position: relative;
+            }
+
+            .feature-article h2::after {
+                content: '';
+                display: block;
+                width: 60px;
+                height: 3px;
+                background: linear-gradient(90deg, #102446, #4a90e2);
+                margin: 15px auto;
+                border-radius: 2px;
+            }
+
+            .article-content {
+                padding: 20px;
+            }
+
+            .main-text {
+                font-size: 1.2em;
+                line-height: 1.6;
+                margin-bottom: 25px;
+                color: var(--text-color, #333);
+            }
+
+            .key-points {
+                background: rgba(16, 36, 70, 0.05);
+                padding: 20px;
+                border-radius: 15px;
+                margin: 20px 0;
+            }
+
+            .key-points h3 {
+                color: #102446;
+                margin-bottom: 15px;
+                font-size: 1.3em;
+            }
+
+            .key-points ul {
+                list-style: none;
+                padding: 0;
+            }
+
+            .key-points li {
+                margin: 12px 0;
+                padding: 10px 15px;
+                background: rgba(255, 255, 255, 0.5);
+                border-radius: 8px;
+                transition: transform 0.2s ease;
+                display: flex;
+                align-items: center;
+                gap: 10px;
+            }
+
+            .key-points li:hover {
+                transform: translateX(10px);
+                background: rgba(255, 255, 255, 0.8);
+            }
+
+            .impact-section {
+                margin-top: 25px;
+                padding: 20px;
+                border-left: 4px solid #102446;
+                background: rgba(16, 36, 70, 0.05);
+                border-radius: 0 15px 15px 0;
+            }
+
+            .impact-section p {
+                font-style: italic;
+                color: var(--text-color, #e6b223);
+                line-height: 1.6;
+            }
+
+            @media (max-width: 768px) {
+                .feature-article {
+                    padding: 20px;
+                }
+
+                .feature-article h2 {
+                    font-size: 1.5em;
+                }
+
+                .main-text {
+                    font-size: 1.1em;
+                }
+
+                .key-points li {
+                    padding: 8px 12px;
+                }
+            }
+        </style>
+
+    </main>
+    <script src="./asset/scripts/scripts.js"></script>
+    <main class="sitemap-container">
+        <section class="sitemap-section">
+            <a href="index.html">
+                <img src="./logo.png" alt="Logo" class="logo">
+            </a>
+            <h2>Main Navigation</h2>
+            <div class="sitemap-grid">
+                <div class="sitemap-item">
+                    <h3><a href="index.html">Home</a></h3>
+                    <ul>
+                        <li>Homepage</li>
+                        <li>Featured Content</li>
+                        <li>Latest Updates</li>
+                    </ul>
+                </div>
+
+                <div class="sitemap-item">
+                    <h3><a href="about.html">About Us</a></h3>
+                    <ul>
+                        <li>Team Members</li>
+                        <li>Our Mission</li>
+                    </ul>
+                </div>
+
+                <div class="sitemap-item">
+                    <h3><a href="news.html">News Categories</a></h3>
+                    <ul>
+                        <li>Emerging Technologies</li>
+                        <li>Industry Disruptors</li>
+                        <li>Future Trends</li>
+                    </ul>
+                </div>
+
+                <div class="sitemap-item">
+                    <h3><a href="tools.html">Tools</a></h3>
+                    <ul>
+                        <li>VS Studio Code</li>
+                        <li>RTX 5090</li>
+                        <li>Tesla P100</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section class="sitemap-section">
+            <h2>Resources & Support</h2>
+            <div class="sitemap-grid">
+                <div class="sitemap-item">
+                    <h3><a href="resources.html">Resource Tutorial</a></h3>
+                    <ul>
+                        <li>Video Tutorials</li>
+                        <li>File Downloads</li>
+                        <li>Learning Materials</li>
+                    </ul>
+                </div>
+
+                <div class="sitemap-item">
+                    <h3><a href="forum.html">Forum</a></h3>
+                    <ul>
+                        <li>Discussion Board</li>
+                        <li>Community Posts</li>
+                        <li>User Contributions</li>
+                    </ul>
+                </div>
+
+                <div class="sitemap-item">
+                    <h3><a href="chatbot.html">Chatbot</a></h3>
+                    <ul>
+                        <li>AI Assistant</li>
+                        <li>Help Center</li>
+                        <li>FAQ</li>
+                    </ul>
+                </div>
+
+                <div class="sitemap-item">
+                    <h3><a href="contact.html">Contact</a></h3>
+                    <ul>
+                        <li>Contact Form</li>
+                        <li>Location Map</li>
+                        <li>Support Email</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section class="sitemap-section">
+            <h2>Available Media Resources</h2>
+            <div class="resource-list">
+                <div class="resource-item">
+                    <img src="./asset/media/gif/1_wJt3v7Gs46uticTUj4y9zg.gif" alt="Machine Learning">
+                    <p>Machine Learning GIF</p>
+                </div>
+                <div class="resource-item">
+                    <img src="./asset/media/gif/deep_learning.gif" alt="Deep Learning">
+                    <p>Deep Learning GIF</p>
+                </div>
+                <div class="resource-item">
+                    <img src="./asset/media/gif/ethnic.gif" alt="AI Ethics">
+                    <p>AI Ethics GIF</p>
+                </div>
+                <div class="resource-item">
+                    <img src="./asset/media/gif/picture1.gif" alt="AI Technology">
+                    <p>AI Technology GIF</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+</body>
+
+</html>

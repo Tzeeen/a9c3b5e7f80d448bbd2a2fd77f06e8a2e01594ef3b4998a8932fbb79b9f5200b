@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quantum computing advancements</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Audiowide&family=Press+Start+2P&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="quantum.css" />
+    <link rel="stylesheet" type="text/css" href="../../../asset/css/dark-theme.css" />
+    <link rel="stylesheet" type="text/css" href="../../../asset/css/light-theme.css" />
+    <link rel="stylesheet" type="text/css" href="../../../asset/css/style.css" />
+
+<body>
+    <header>
+        <nav>
+            <div class="nav-container">
+                <!-- Logo -->
+                <a href="../../../index.html">
+                    <img src="../../../logo.png" alt="Logo" class="logo">
+                </a>
+
+                <!-- Use a table to create a horizontal layout. -->
+                <table>
+                    <tr>
+                        <!-- Search box -->
+                        <th>
+                            <div>
+                                <input type="text" id="search-box" class="form-control" placeholder="Search News..."
+                                    onkeyup="showSuggestions()" style="border-radius:15px; margin-left:-25px;">
+                                <div id="suggestions" class="list-group position-absolute w-100"></div>
+                            </div>
+                        </th>
+
+                        <!-- Menu -->
+                        <th>
+                            <input type="checkbox" id="menu-toggle" class="menu-checkbox">
+                            <label for="menu-toggle" class="menu-icon">☰</label>
+                            <ul class="nav-menu">
+                                <li><a href="../../../about.html">About Us</a></li>
+                                <li><a href="../../../news.html">News</a></li>
+                                <li><a href="../../../tools.html">Tools</a></li>
+                                <li><a href="../../../resources.html">Resource Tutorial</a></li>
+                                <li><a href="../../../forum.html">Forum</a></li>
+                                <li><a href="../../../chatbot.html">Chatbot</a></li>
+                                <li><a href="../../../contact.html">Contact Us</a></li>
+                            </ul>
+                        </th>
+
+                        <!-- Clear Cache Button -->
+                        <th>
+                            <button id="clear-storage" class="clear-storage" style="
+                            font-size: 1.2rem;
+                            cursor: pointer;
+                            border: none;
+                            background: transparent;
+                            margin-right: -23px;" title="Clear all Cookies and LocalStorage.">🗑️</button>
+                        </th>
+
+                        <!-- Theme Toggle Button -->
+                        <th>
+                            <button id="theme-toggle" class="theme-toggle" title="Theme"
+                                style="margin-right: -20px;">🌙</button>
+                        </th>
+                    </tr>
+                </table>
+            </div>
+        </nav>
+    </header>
+
+    <div id="cookie-popup" class="cookie-popup" style="display:none;">
+        <span style="color:black;">This website uses cookies to enhance the user experience. Do you accept?</span>
+        <br>
+        <button class="accept-btn" onclick="acceptCookies()">Agree</button>
+        <button class="decline-btn" onclick="declineCookies()">Disagree</button>
+    </div>
+
+    <div class="hero">
+        <h1><span id="typing"></span></h1>
+        <p>Discover the quantum computing in the world</p>
+    </div>
+
+    <div class="container">
+        <p class="subheadline">
+        <h1 style="color:black;">Quantum Computing Breakthroughs: Ushering in a New Era of Technology</h1>
+        <p>
+            "Perform complex computations exponentially faster than classical computers."
+        </p>
+        </p>
+        <br>
+        <div class="share_navbar">
+            <div class="share-container">
+                <button class="share-button" onclick="toggleShareMenu()">
+                    <i class="fas fa-share-alt"></i> 🔗Share
+                </button>
+                <div class="share-menu" id="shareMenu">
+                    <a href="#" id="facebook"><i class="fab fa-facebook"></i> Facebook</a>
+                    <a href="#" id="twitter"><i class="fab fa-x-twitter"></i> X (Twitter)</a>
+                    <a href="#" id="linkedin"><i class="fab fa-linkedin"></i> LinkedIn</a>
+                    <a href="#" id="email"><i class="fas fa-envelope"></i> Email</a>
+                    <a href="#" onclick="copyLink(event)"><i class="fas fa-copy"></i> Copy</a>
+                </div>
+            </div>
+        </div>
+
+        <p class="meta" style="color:black;">By Tommy Wong | Published: March 25, 2025</p>
+
+        <div class="hero-image">
+            <img src="./media/quantum_pic.png" alt="Quantum Computing picture">
+        </div>
+
+        <p style="color:black;">Source from:</p>
+        <a href="https://gmo-research.ai/en/resources/articles/future-quantum-computing" style="color:blue;">
+            The Future Is Quantum Computing
+        </a>
+
+        <div class="emerging-tech-video" style="text-align: center; padding: 40px;">
+            <h2 style="font-size: 2rem; margin-bottom: 20px;color:black;">What is Quantum Computing?</h2>
+            <p style="font-size: 1rem; margin-bottom: 20px; color: #555;">Watch how cutting-edge innovations for Quantum
+                Computing.</p>
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/2WMj2kJI32M?si=b53vuq-Z1yNgNv5D"
+                title="YouTube video player" frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        </div>
+
+        <article>
+            <p style="color:black;">
+                Quantum computing is rapidly advancing, promising to revolutionize industries by solving complex
+                problems beyond the
+                capabilities of classical computers. Recent breakthroughs in quantum processors, error correction, and
+                real-world applications are pushing this technology closer to mainstream adoption.
+            </p>
+
+            <div class="container_inner">
+                <div class="box">
+                    <h4>1. Quantum Processors Achieve New Milestones</h4><br>
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRrx5XcRp0vFedKzAsUjXARK0K1PBuw_w7sRg&s"
+                        weight='200' height='200' alt="Quantum Processors Achieve New Milestones">
+                </div>
+                <div class="box">
+                    <p>
+                        Leading tech companies, including IBM, Google, and Intel, have announced significant
+                        advancements in quantum processors. IBM recently unveiled a
+                        1,000-qubit processor, marking a major step toward quantum advantage. Google's Sycamore
+                        processor continues
+                        to demonstrate supremacy in solving computational problems exponentially faster than classical
+                        systems.
+                    </p>
+                </div>
+            </div>
+
+            <br>
+
+            <div class="container_inner">
+                <div class="box">
+                    <h4>2. Breakthroughs in Quantum Error Correction</h4><br>
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTAJi56vskS8OVf6NkwMskgIXvBr1dwAoepGw&s"
+                        weight='200' height='200' alt="Breakthroughs in Quantum Error Correction">
+                </div>
+                <div class="box">
+                    <p>
+                        One of the biggest challenges in quantum computing—error rates—has seen notable improvements.
+                        Researchers have developed advanced error correction techniques that
+                        enhance qubit stability, making quantum computations more reliable and scalable. These
+                        breakthroughs are crucial
+                        for developing fault-tolerant quantum computers.
+                    </p>
+                </div>
+            </div>
+
+            <br>
+
+            <div class="container_inner">
+                <div class="box">
+                    <h4>3. Quantum AI and Machine Learning Integration</h4><br>
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRfwcxBCwTq7bI0DRjGZom-M94DTkbyuEIAnw&s"
+                        weight='200' height='200' alt="Quantum AI and Machine Learning Integration">
+                </div>
+                <div class="box">
+                    <p>
+                        Quantum computing is now being explored for its potential to enhance artificial intelligence and
+                        machine learning. Companies are leveraging quantum algorithms to optimize data processing,
+                        leading to faster and more efficient AI models. This integration could redefine industries such
+                        as healthcare, finance, and logistics.
+                    </p>
+                </div>
+            </div>
+
+            <br>
+
+            <div class="container_inner">
+                <div class="box">
+                    <h4>4. Real-World Applications and Industry Adoption</h4><br>
+                    <img src="https://userpilot.com/blog/wp-content/uploads/2023/01/14-Real-Life-Product-Adoption-Examples-for-Every-Stage-of-The-Customer-Journey_7bf39e02dc8fde0adda2a274699629f7_2000.png"
+                        weight='200' height='200' alt="Real-World Applications and Industry Adoption">
+                </div>
+                <div class="box">
+                    <p>
+                        Quantum computing is beginning to impact real-world applications. Financial institutions are
+                        using quantum algorithms for risk analysis, while
+                        pharmaceutical companies are accelerating drug discovery through quantum simulations.
+                        Additionally, advancements
+                        in cryptography are bolstering cybersecurity efforts, preparing for a future with
+                        quantum-resistant encryption.
+                    </p>
+                </div>
+            </div>
+
+            <br>
+
+            <div class="container_inner">
+                <div class="box">
+                    <h4>5. Challenges and the Road Ahead</h4><br>
+                    <img src="https://media.licdn.com/dms/image/v2/D4D12AQFzhQqWUt1zRg/article-cover_image-shrink_720_1280/article-cover_image-shrink_720_1280/0/1736066944188?e=2147483647&v=beta&t=A-B-K9YCp35-06MDTzk9xjN9HvSHnIm5g7uid41Vztg"
+                        weight='200' height='200' alt="Challenges and the Road Ahead">
+                </div>
+                <div class="box">
+                    <p>
+                        Despite these breakthroughs, quantum computing still faces hurdles, including hardware
+                        limitations,
+                        cooling requirements, and the need for scalable quantum networks. However, continuous research
+                        and investment
+                        from governments and private sectors indicate strong momentum toward practical quantum
+                        applications.
+                    </p>
+                </div>
+            </div>
+
+            <br>
+
+            <p style="color:black;">
+                Quantum computing is on the verge of transforming industries, unlocking new computational capabilities,
+                and reshaping the future of technology. As researchers push
+                the boundaries, the next decade could witness groundbreaking innovations that bring quantum computing
+                into
+                everyday use.
+            </p>
+
+            <div class="related">
+                <h4>Related Stories</h4>
+                <a href="https://spectrum.ieee.org/quantum-computers">
+                    The Future of Quantum Computing Is Modular : Companies are thinking seriously about how to link
+                    quantum processors</a>
+                <a href="https://phys.org/news/2025-03-superconducting-quantum-processor-prototype-faster.html">
+                    Superconducting quantum processor prototype operates 10¹⁵ times faster than fastest
+                    supercomputer</a>
+                <a href="https://www.barrons.com/articles/microsoft-quantum-computing-majorana-1bc859c8">
+                    Microsoft Reports a Win on Quantum Computing. What It Means for the Sector.</a>
+            </div>
+
+            <button id="backToTop" title="Back to Top">↑ Back to Top</button>
+        </article>
+    </div>
+
+    <script src="quantum.js"></script>
+    <script src="../../../asset/scripts/scripts.js"></script>
+
+</body>
+
+</html>

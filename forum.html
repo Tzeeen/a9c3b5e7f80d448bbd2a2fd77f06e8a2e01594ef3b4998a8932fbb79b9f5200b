@@ -1,0 +1,556 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Forum - Tech Innovators</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Audiowide&family=Press+Start+2P&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="./asset/css/dark-theme.css" />
+    <link rel="stylesheet" type="text/css" href="./asset/css/light-theme.css" />
+    <link rel="stylesheet" type="text/css" href="./asset/css/style.css" />
+    <style>
+        .container {
+            width: 80%;
+            margin: 20px auto;
+        }
+
+        .post-form {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+        }
+
+        .post-list {
+            margin-top: 20px;
+        }
+
+        .post {
+            background: white;
+            padding: 15px;
+            margin-bottom: 10px;
+            border-radius: 8px;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .post img {
+            max-width: 100%;
+            border-radius: 8px;
+            max-height: 400px;
+            object-fit: contain;
+        }
+
+        .comments {
+            display: none;
+            margin-top: 10px;
+            padding-top: 10px;
+            border-top: 1px solid #ccc;
+        }
+
+        .comment {
+            background: #e9ecef;
+            padding: 10px;
+            border-radius: 5px;
+            margin-bottom: 5px;
+        }
+
+        textarea {
+            width: 100%;
+            min-height: 100px;
+            margin-bottom: 10px;
+            padding: 8px;
+            border-radius: 4px;
+            border: 1px solid #ddd;
+        }
+
+        input[type="text"] {
+            width: 100%;
+            padding: 8px;
+            border-radius: 4px;
+            border: 1px solid #ddd;
+        }
+
+        .error {
+            color: red;
+            margin-bottom: 10px;
+        }
+
+        .timestamp {
+            color: #666;
+            font-size: 0.8em;
+            margin-top: 5px;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <nav>
+            <div class="nav-container">
+                <!-- Logo -->
+                <a href="./index.html">
+                    <img src="./logo.png" alt="Logo" class="logo">
+                </a>
+
+                <!-- Use a table to create a horizontal layout. -->
+                <table>
+                    <tr>
+                        <!-- Search box -->
+                        <th>
+                            <div>
+                                <input type="text" id="search-box" class="form-control" placeholder="Search News..."
+                                    onkeyup="showSuggestions()" style="border-radius:15px; margin-left:-25px;">
+                                <div id="suggestions" class="list-group position-absolute w-100"></div>
+                            </div>
+                        </th>
+
+                        <!-- Menu -->
+                        <th>
+                            <input type="checkbox" id="menu-toggle" class="menu-checkbox">
+                            <label for="menu-toggle" class="menu-icon">☰</label>
+                            <ul class="nav-menu">
+                                <li><a href="./about.html">About Us</a></li>
+                                <li><a href="./news.html">News</a></li>
+                                <li><a href="./tools.html">Tools</a></li>
+                                <li><a href="./resources.html">Resource Tutorial</a></li>
+                                <li><a href="./forum.html">Forum</a></li>
+                                <li><a href="./chatbot.html">Chatbot</a></li>
+                                <li><a href="./contact.html">Contact Us</a></li>
+                            </ul>
+                        </th>
+
+                        <!-- Clear Cache Button -->
+                        <th>
+                            <button id="clear-storage" class="clear-storage" style="
+                    font-size: 1.2rem;
+                    cursor: pointer;
+                    border: none;
+                    background: transparent;
+                    margin-right: -23px;" title="Clear all Cookies and LocalStorage.">🗑️</button>
+                        </th>
+
+                        <!-- Theme Toggle Button -->
+                        <th>
+                            <button id="theme-toggle" class="theme-toggle" title="Theme"
+                                style="margin-right: -20px;">🌙</button>
+                        </th>
+                    </tr>
+                </table>
+            </div>
+        </nav>
+    </header>
+    
+    <div id="cookie-popup" class="cookie-popup" style="display:none;">
+        <span style="color:black;">This website uses cookies to enhance the user experience. Do you accept?</span>
+        <br>
+        <button class="accept-btn" onclick="acceptCookies()">Agree</button>
+        <button class="decline-btn" onclick="declineCookies()">Disagree</button>
+    </div>
+
+    <div class="Title">
+        <h1>Tech Innovator Forum</h1>
+    </div>
+
+    <div class="container">
+        <div class="post-form">
+            <h2>Publish New Post</h2>
+            <div id="postError" class="error"></div>
+            <input type="text" id="postTitle" placeholder="Title" required><br><br>
+            <textarea id="postContent" placeholder="Content" required></textarea><br><br>
+            <input type="file" id="postImage" accept="image/*"><br><br>
+            <button id="publishButton" onclick="createPost()">Publish</button>
+            <button onclick="clearForm()">Clear</button>
+        </div>
+
+        <div class="post-list" id="postList">
+           
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            // Load header and footer
+            fetch("./asset/header-footer.html")
+                .then(response => response.text())
+                .then(data => document.getElementById("header-footer").innerHTML = data)
+                .catch(error => console.error("Error loading header/footer:", error));
+
+            // Load posts
+            loadPosts();
+
+            // Auto-save draft
+            setupDraftSaving();
+        });
+
+        function setupDraftSaving() {
+            const titleInput = document.getElementById("postTitle");
+            const contentInput = document.getElementById("postContent");
+
+            // Load saved drafts
+            const savedTitle = localStorage.getItem("postTitleDraft");
+            const savedContent = localStorage.getItem("postContentDraft");
+
+            if (savedTitle) titleInput.value = savedTitle;
+            if (savedContent) contentInput.value = savedContent;
+
+            // Save drafts on input
+            titleInput.addEventListener("input", function () {
+                localStorage.setItem("postTitleDraft", titleInput.value);
+            });
+
+            contentInput.addEventListener("input", function () {
+                localStorage.setItem("postContentDraft", contentInput.value);
+            });
+        }
+
+        function createPost() {
+            const title = document.getElementById("postTitle").value.trim();
+            const content = document.getElementById("postContent").value.trim();
+            const imageInput = document.getElementById("postImage");
+            const errorDiv = document.getElementById("postError");
+
+            // Validate inputs
+            errorDiv.textContent = "";
+
+            if (!title) {
+                errorDiv.textContent = "Please fill in the title!";
+                return;
+            }
+
+            if (!content) {
+                errorDiv.textContent = "Please fill in the content!";
+                return;
+            }
+
+            // Disable publish button to prevent multiple submissions
+            const publishButton = document.getElementById("publishButton");
+            publishButton.disabled = true;
+
+            const timestamp = new Date().toLocaleString();
+            let post = {
+                id: Date.now().toString(),
+                title,
+                content,
+                image: "",
+                timestamp,
+                comments: []
+            };
+
+            if (imageInput.files.length) {
+                const fileSize = imageInput.files[0].size / 1024 / 1024; // Size in MB
+
+                if (fileSize > 5) {
+                    errorDiv.textContent = "The image size cannot exceed 5MB!";
+                    publishButton.disabled = false;
+                    return;
+                }
+
+                const reader = new FileReader();
+                reader.onload = function (e) {
+                    post.image = e.target.result;
+                    savePost(post);
+                    renderPost(post);
+                    clearForm();
+                    publishButton.disabled = false;
+                };
+                reader.onerror = function () {
+                    errorDiv.textContent = "Image loading failed!";
+                    publishButton.disabled = false;
+                };
+                reader.readAsDataURL(imageInput.files[0]);
+            } else {
+                savePost(post);
+                renderPost(post);
+                clearForm();
+                publishButton.disabled = false;
+            }
+        }
+
+        function clearForm() {
+            document.getElementById("postTitle").value = "";
+            document.getElementById("postContent").value = "";
+            document.getElementById("postImage").value = "";
+
+            // Clear drafts
+            localStorage.removeItem("postTitleDraft");
+            localStorage.removeItem("postContentDraft");
+        }
+
+        function savePost(post) {
+            let posts = JSON.parse(localStorage.getItem("posts")) || [];
+            posts.unshift(post); 
+
+            // Limit stored posts to prevent localStorage overflow
+            if (posts.length > 100) {
+                posts = posts.slice(0, 100);
+            }
+
+            try {
+                localStorage.setItem("posts", JSON.stringify(posts));
+            } catch (e) {
+                // Handle localStorage quota exceeded
+                if (e.name === 'QuotaExceededError') {
+                    alert("Storage space is full, please clean up some old posts!");
+                    // Remove oldest posts to make space
+                    posts = posts.slice(0, 50);
+                    localStorage.setItem("posts", JSON.stringify(posts));
+                }
+            }
+        }
+
+        function loadPosts() {
+            let posts = JSON.parse(localStorage.getItem("posts")) || [];
+            const postList = document.getElementById("postList");
+            postList.innerHTML = "";
+
+            if (posts.length === 0) {
+                postList.innerHTML = "<p>No posts yet, be the first to post!</p>";
+                return;
+            }
+
+            posts.forEach(renderPost);
+        }
+
+        function renderPost(post) {
+            const postDiv = document.createElement("div");
+            postDiv.classList.add("post");
+            postDiv.dataset.postId = post.id || Date.now().toString();
+
+            let commentsHtml = "";
+            if (post.comments && post.comments.length > 0) {
+                post.comments.forEach(comment => {
+                    commentsHtml += `<div class="comment">
+                        <p>${escapeHtml(comment.text)}</p>
+                        <div class="timestamp">${comment.timestamp || "未知时间"}</div>
+                    </div>`;
+                });
+            }
+
+            postDiv.innerHTML = `
+                <h3>${escapeHtml(post.title)}</h3>
+                <div class="timestamp">${post.timestamp || "未知时间"}</div>
+                <p>${escapeHtml(post.content).replace(/\n/g, "<br>")}</p>
+                ${post.image ? `<img src="${post.image}" alt="Post Image">` : ""}
+                <button onclick="toggleComments(this)">查看评论 (${post.comments ? post.comments.length : 0})</button>
+                <button onclick="deletePost('${postDiv.dataset.postId}')">删除帖子</button>
+                <div class="comments">
+                    <textarea placeholder="发表评论" class="comment-input"></textarea>
+                    <button onclick="addComment(this, '${postDiv.dataset.postId}')">提交评论</button>
+                    <div class="comment-list">
+                        ${commentsHtml}
+                    </div>
+                </div>`;
+
+            document.getElementById("postList").appendChild(postDiv);
+        }
+
+        function toggleComments(button) {
+            const commentSection = button.nextElementSibling.nextElementSibling;
+            if (commentSection.style.display === "none" || !commentSection.style.display) {
+                commentSection.style.display = "block";
+                button.textContent = button.textContent.replace("View", "Hide");
+            } else {
+                commentSection.style.display = "none";
+                button.textContent = button.textContent.replace("Hide", "View");
+            }
+        }
+
+        function addComment(button, postId) {
+            const commentText = button.previousElementSibling.value.trim();
+            if (!commentText) {
+                alert("Please enter a comment!");
+                return;
+            }
+
+            // Get posts from localStorage
+            let posts = JSON.parse(localStorage.getItem("posts")) || [];
+
+            // Find the post
+            const postIndex = posts.findIndex(p => p.id === postId);
+            if (postIndex === -1) {
+                alert("No such post found!");
+                return;
+            }
+
+            // Add comment to post
+            if (!posts[postIndex].comments) {
+                posts[postIndex].comments = [];
+            }
+
+            const timestamp = new Date().toLocaleString();
+            posts[postIndex].comments.push({
+                text: commentText,
+                timestamp
+            });
+
+            // Save back to localStorage
+            localStorage.setItem("posts", JSON.stringify(posts));
+
+            // Update UI
+            const commentDiv = document.createElement("div");
+            commentDiv.classList.add("comment");
+            commentDiv.innerHTML = `
+                <p>${escapeHtml(commentText)}</p>
+                <div class="timestamp">${timestamp}</div>
+            `;
+
+            button.nextElementSibling.appendChild(commentDiv);
+            button.previousElementSibling.value = "";
+
+            // Update comment count in button
+            const commentButton = button.parentElement.previousElementSibling.previousElementSibling;
+            const count = posts[postIndex].comments.length;
+            commentButton.textContent = commentButton.textContent.replace(/\(\d+\)/, `(${count})`);
+        }
+
+        function deletePost(postId) {
+            if (!confirm("Are you sure you want to delete this post?")) {
+                return;
+            }
+
+            // Get posts from localStorage
+            let posts = JSON.parse(localStorage.getItem("posts")) || [];
+
+            // Remove the post
+            posts = posts.filter(p => p.id !== postId);
+
+            // Save back to localStorage
+            localStorage.setItem("posts", JSON.stringify(posts));
+
+            // Update UI
+            const postElement = document.querySelector(`.post[data-post-id="${postId}"]`);
+            if (postElement) {
+                postElement.remove();
+            }
+
+            // If no posts left, show message
+            if (posts.length === 0) {
+                document.getElementById("postList").innerHTML = "<p>No posts yet, be the first to post!</p>";
+            }
+        }
+
+        // Helper function to escape HTML to prevent XSS
+        function escapeHtml(unsafe) {
+            return unsafe
+                .replace(/&/g, "&amp;")
+                .replace(/</g, "&lt;")
+                .replace(/>/g, "&gt;")
+                .replace(/"/g, "&quot;")
+                .replace(/'/g, "&#039;");
+        }
+    </script>
+    <script src="./asset/scripts/scripts.js"></script>
+    <main class="sitemap-container">
+        <section class="sitemap-section">
+            <a href="index.html">
+                <img src="./logo.png" alt="Logo" class="logo">
+            </a>
+            <h2>Main Navigation</h2>
+            <div class="sitemap-grid">
+                <div class="sitemap-item">
+                    <h3><a href="index.html">Home</a></h3>
+                    <ul>
+                        <li>Homepage</li>
+                        <li>Featured Content</li>
+                        <li>Latest Updates</li>
+                    </ul>
+                </div>
+
+                <div class="sitemap-item">
+                    <h3><a href="about.html">About Us</a></h3>
+                    <ul>
+                        <li>Team Members</li>
+                        <li>Our Mission</li>
+                    </ul>
+                </div>
+
+                <div class="sitemap-item">
+                    <h3><a href="news.html">News Categories</a></h3>
+                    <ul>
+                        <li>Emerging Technologies</li>
+                        <li>Industry Disruptors</li>
+                        <li>Future Trends</li>
+                    </ul>
+                </div>
+
+                <div class="sitemap-item">
+                    <h3><a href="tools.html">Tools</a></h3>
+                    <ul>
+                        <li>VS Studio Code</li>
+                        <li>RTX 5090</li>
+                        <li>Tesla P100</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section class="sitemap-section">
+            <h2>Resources & Support</h2>
+            <div class="sitemap-grid">
+                <div class="sitemap-item">
+                    <h3><a href="resources.html">Resource Tutorial</a></h3>
+                    <ul>
+                        <li>Video Tutorials</li>
+                        <li>File Downloads</li>
+                        <li>Learning Materials</li>
+                    </ul>
+                </div>
+
+                <div class="sitemap-item">
+                    <h3><a href="forum.html">Forum</a></h3>
+                    <ul>
+                        <li>Discussion Board</li>
+                        <li>Community Posts</li>
+                        <li>User Contributions</li>
+                    </ul>
+                </div>
+
+                <div class="sitemap-item">
+                    <h3><a href="chatbot.html">Chatbot</a></h3>
+                    <ul>
+                        <li>AI Assistant</li>
+                        <li>Help Center</li>
+                        <li>FAQ</li>
+                    </ul>
+                </div>
+
+                <div class="sitemap-item">
+                    <h3><a href="contact.html">Contact</a></h3>
+                    <ul>
+                        <li>Contact Form</li>
+                        <li>Location Map</li>
+                        <li>Support Email</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section class="sitemap-section">
+            <h2>Available Media Resources</h2>
+            <div class="resource-list">
+                <div class="resource-item">
+                    <img src="./asset/media/gif/1_wJt3v7Gs46uticTUj4y9zg.gif" alt="Machine Learning">
+                    <p>Machine Learning GIF</p>
+                </div>
+                <div class="resource-item">
+                    <img src="./asset/media/gif/deep_learning.gif" alt="Deep Learning">
+                    <p>Deep Learning GIF</p>
+                </div>
+                <div class="resource-item">
+                    <img src="./asset/media/gif/ethnic.gif" alt="AI Ethics">
+                    <p>AI Ethics GIF</p>
+                </div>
+                <div class="resource-item">
+                    <img src="./asset/media/gif/picture1.gif" alt="AI Technology">
+                    <p>AI Technology GIF</p>
+                </div>
+            </div>
+        </section>
+    </main>
+</body>
+
+</html>

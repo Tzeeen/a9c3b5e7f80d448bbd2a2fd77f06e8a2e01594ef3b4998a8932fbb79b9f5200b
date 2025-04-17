@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>News - Tech Innovators</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Audiowide&family=Press+Start+2P&display=swap"
+        rel="stylesheet">
+        <link rel="stylesheet" type="text/css" href="./asset/css/dark-theme.css" />
+        <link rel="stylesheet" type="text/css" href="./asset/css/light-theme.css" />
+        <link rel="stylesheet" type="text/css" href="./asset/css/style.css" />
+
+<body>
+    <header>
+        <nav>
+            <div class="nav-container">
+                <!-- Logo -->
+                <a href="./index.html">
+                    <img src="./logo.png" alt="Logo" class="logo">
+                </a>
+
+                <!-- Use a table to create a horizontal layout. -->
+                <table>
+                    <tr>
+                        <!-- Search box -->
+                        <th>
+                            <div>
+                                <input type="text" id="search-box" class="form-control" placeholder="Search News..."
+                                    onkeyup="showSuggestions()" style="border-radius:15px; margin-left:-25px;">
+                                <div id="suggestions" class="list-group position-absolute w-100"></div>
+                            </div>
+                        </th>
+
+                        <!-- Menu -->
+                        <th>
+                            <input type="checkbox" id="menu-toggle" class="menu-checkbox">
+                            <label for="menu-toggle" class="menu-icon">☰</label>
+                            <ul class="nav-menu">
+                                <li><a href="./about.html">About Us</a></li>
+                                <li><a href="./news.html">News</a></li>
+                                <li><a href="./tools.html">Tools</a></li>
+                                <li><a href="./resources.html">Resource Tutorial</a></li>
+                                <li><a href="./forum.html">Forum</a></li>
+                                <li><a href="./chatbot.html">Chatbot</a></li>
+                                <li><a href="./contact.html">Contact Us</a></li>
+                            </ul>
+                        </th>
+
+                        <!-- Clear Cache Button -->
+                        <th>
+                            <button id="clear-storage" class="clear-storage" style="
+                    font-size: 1.2rem;
+                    cursor: pointer;
+                    border: none;
+                    background: transparent;
+                    margin-right: -23px;" title="Clear all Cookies and LocalStorage.">🗑️</button>
+                        </th>
+
+                        <!-- Theme Toggle Button -->
+                        <th>
+                            <button id="theme-toggle" class="theme-toggle" title="Theme"
+                                style="margin-right: -20px;">🌙</button>
+                        </th>
+                    </tr>
+                </table>
+            </div>
+        </nav>
+    </header>
+    
+    <div id="cookie-popup" class="cookie-popup" style="display:none;">
+        <span style="color:black;">This website uses cookies to enhance the user experience. Do you accept?</span>
+        <br>
+        <button class="accept-btn" onclick="acceptCookies()">Agree</button>
+        <button class="decline-btn" onclick="declineCookies()">Disagree</button>
+    </div>
+
+    <main>
+        <section class="Title">
+
+            <br>
+            <br>
+            <article>
+                <h2>The latest breakthroughs in AI</h2>
+                <p>The application of artificial intelligence in the medical field has made significant progress.</p>
+            </article>
+            <article>
+                <h2>Future of Blockcain</h2>
+                <p>Blockchain technology is changing the landscape of the financial industry.</p>
+            </article>
+            <br>
+        </section>
+        <section class="news-category">
+
+            <div
+                style="background: url('./asset/media/gif/AI-Technology-Creation-Concept.webp') center/cover no-repeat; padding: 200px 20px; position: relative;">
+
+                <p style="font-size: 36px; color:white;">
+                    Emerging Technologies
+                </p>
+            </div>
+            <div class="slider-container">
+                <button class="slide-btn left" onclick="slideLeft('emerging')">&#10094;</button>
+                <div class="news-slider" id="emerging">
+                    <div class="news-container">
+                        <article class="tab">
+                            <div class="card">
+                                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS0sMg53AVxX18Pi7AdsooFZaeTqKhtqL56-LyY0EbH19dXKAWMEIrXiXFIIjJR_F6DvqE&usqp=CAU"
+                                    alt="AI & Machine Learning" class="picture">
+                                <h3 class="title">AI & Machine Learning</h3>
+                                <p class="description">Explore the latest in AI and machine <br>learning technologies.
+                                </p>
+                                <a href="./News/Emerging/AI&ML/AI.html" class="read-more">Read more</a>
+                            </div>
+                        </article>
+                        <article class="tab">
+                            <div class="card">
+                                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRKxlU2pB1T3E7Mk8539NPYMbIrrQZ57Iv7Cg&s"
+                                    alt="Blockchain" class="picture">
+                                <h3 class="title">Blockchain</h3>
+                                <p class="description">Understand the fundamentals of <br>blockchain technology.</p>
+                                <a href="./News/Emerging/blockchain/blockchain.html" class="read-more">Read more</a>
+                            </div>
+                        </article>
+                        <article class="tab">
+                            <div class="card">
+                                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS1khWJkZBmp0m3X7NjtcHFwmcUYyRcypMlIQ&s"
+                                    alt="Quantum Computing" class="picture">
+                                <h3 class="title">Quantum Computing</h3>
+                                <p class="description">Discover advancements <br>in quantum computing.</p>
+                                <a href="./News/Emerging/quantum/quantum.html" class="read-more">Read more</a>
+                            </div>
+                        </article>
+                    </div>
+                </div>
+                <button class="slide-btn right" onclick="slideRight('emerging')">&#10095;</button>
+            </div>
+        </section>
+
+        <section class="news-category">
+
+            <div
+                style="background: url('./asset/media/gif/ethnic.gif') center/cover no-repeat; padding: 200px 20px; position: relative;">
+
+                <p style="font-size: 36px; color:white;">
+                    Industry Disruptors
+                </p>
+            </div>
+            <div class="slider-container">
+                <button class="slide-btn left" onclick="slideLeft('future')">&#10094;</button>
+                <div class="news-slider" id="future">
+                    <div class="news-container">
+                        <article class="tab">
+                            <div class="card">
+                                <img src="https://www.philmckinney.com/content/images/size/w1200/2023/06/ethics-AdobeStock_79270152.jpeg"
+                                    alt="Ethics" class="picture">
+                                <h3 class="title">Ethics</h3>
+                                <p class="description">Explore ethical considerations <br>in technology.</p>
+                                <a href="./News/Future/ethic/ethic.html" class="read-more">Read more</a>
+                            </div>
+                        </article>
+                        <article class="tab">
+                            <div class="card">
+                                <img src="https://media.licdn.com/dms/image/v2/C5612AQH_hKaK5uybag/article-cover_image-shrink_720_1280/article-cover_image-shrink_720_1280/0/1653020859346?e=2147483647&v=beta&t=gSO178jd3tcPX3zpsR8jQZZSG1T68PjVeBo6iIgt0ag" alt="Social Impact"
+                                    class="picture">
+                                <h3 class="title">Social Impact</h3>
+                                <p class="description">Learn about technology's impact <br>on society.</p>
+                                <a href="./News/Future/impact/impact.html" class="read-more">Read more</a>
+                            </div>
+                        </article>
+                        <article class="tab">
+                            <div class="card">
+                                <img src="https://rent.rumah-i.com/wp-content/uploads/2024/03/Picture1-4.jpg"
+                                    alt="Smart City" class="picture">
+                                <h3 class="title">Smart City</h3>
+                                <p class="description">Discover innovations in smart city <br>development.</p>
+                                <a href="./News/Future/smartCity/smartCity.html" class="read-more">Read more</a>
+                            </div>
+                        </article>
+                    </div>
+                </div>
+                <button class="slide-btn right" onclick="slideRight('future')">&#10095;</button>
+            </div>
+        </section>
+
+        <section class="news-category">
+
+            <div
+                style="background: url('./asset/media/gif/c887-iqyryku7168060.gif') center/cover no-repeat; padding: 200px 20px; position: relative;">
+
+                <p style="font-size: 36px; color:white;">
+                    Industry Disruptors
+                </p>
+            </div>
+            <div class="slider-container">
+                <button class="slide-btn left" onclick="slideLeft('industry')">&#10094;</button>
+                <div class="news-slider" id="industry">
+                    <div class="news-container">
+                        <article class="tab">
+                            <div class="card">
+                                <img src="https://newswatchtv.com/wp-content/uploads/2019/09/iStock-1127447341-696x383.jpg" alt="New Business" class="picture">
+                                <h3 class="title">New Business</h3>
+                                <p class="description">Explore emerging business <br>technologies.</p>
+                                <a href="./News/Industrial/NewBusiness/business.html" class="read-more">Read more</a>
+                            </div>
+                        </article>
+                        <article class="tab">
+                            <div class="card">
+                                <img src="https://cdn.prod.website-files.com/5fda9e054c8f10649883f27d/63f7b5980150fa9a6ca8ff72_vationventures_regtech.jpeg" alt="Regulatory News" class="picture">
+                                <h3 class="title">Regulatory News</h3>
+                                <p class="description">Stay updated on regulatory <br>technology developments.</p>
+                                <a href="./News/Industrial/Regulatory/regulatory.html" class="read-more">Read more</a>
+                            </div>
+                        </article>
+                        <article class="tab">
+                            <div class="card">
+                                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR9sh3fIaFpnKs6kkZx_V3-KyPsLd0cSbS2Dg&s" alt="Space Exploration" class="picture">
+                                <h3 class="title">Startup Succes</h3>
+                                <p class="description">Stories of startups that turned <br>innovative ideas into thriving <br>businesses.</p>
+                                <a href="./News/Industrial/Startup success/startup.html" class="read-more">Read more</a>
+                            </div>
+                        </article>
+                    </div>
+                </div>
+                <button class="slide-btn right" onclick="slideRight('industry')">&#10095;</button>
+            </div>
+        </section>
+
+    </main>
+
+    <style>
+        .slider-container {
+            display: flex;
+            align-items: center;
+            position: relative;
+            padding: 3%;
+            margin-top:2%;
+        }
+
+        .news-slider {
+            overflow-x: hidden;
+            display: flex;
+            white-space: nowrap;
+            width: 100%;
+            scroll-behavior: smooth;
+        }
+
+        .news-container {
+            display: flex;
+            gap: 1.5rem;
+        }
+
+        .slide-btn {
+            background-color: rgba(60, 60, 60, 0.292);
+            color: white;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+            position: absolute;
+            z-index: 10;
+            border-radius:15px;
+        }
+
+        .left {
+            left: 0;
+        }
+
+        .right {
+            right: 0;
+        }
+    </style>
+
+    <script>
+        function slideLeft(category) {
+            document.getElementById(category).scrollBy({ left: -300, behavior: 'smooth' });
+        }
+        function slideRight(category) {
+            document.getElementById(category).scrollBy({ left: 300, behavior: 'smooth' });
+        }
+    </script>
+    <script src="./asset/scripts/scripts.js"></script>
+    <main class="sitemap-container">
+        <section class="sitemap-section">
+            <a href="index.html">
+                <img src="./logo.png" alt="Logo" class="logo">
+            </a>
+            <h2>Main Navigation</h2>
+            <div class="sitemap-grid">
+                <div class="sitemap-item">
+                    <h3><a href="index.html">Home</a></h3>
+                    <ul>
+                        <li>Homepage</li>
+                        <li>Featured Content</li>
+                        <li>Latest Updates</li>
+                    </ul>
+                </div>
+
+                <div class="sitemap-item">
+                    <h3><a href="about.html">About Us</a></h3>
+                    <ul>
+                        <li>Team Members</li>
+                        <li>Our Mission</li>
+                    </ul>
+                </div>
+
+                <div class="sitemap-item">
+                    <h3><a href="news.html">News Categories</a></h3>
+                    <ul>
+                        <li>Emerging Technologies</li>
+                        <li>Industry Disruptors</li>
+                        <li>Future Trends</li>
+                    </ul>
+                </div>
+
+                <div class="sitemap-item">
+                    <h3><a href="tools.html">Tools</a></h3>
+                    <ul>
+                        <li>VS Studio Code</li>
+                        <li>RTX 5090</li>
+                        <li>Tesla P100</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section class="sitemap-section">
+            <h2>Resources & Support</h2>
+            <div class="sitemap-grid">
+                <div class="sitemap-item">
+                    <h3><a href="resources.html">Resource Tutorial</a></h3>
+                    <ul>
+                        <li>Video Tutorials</li>
+                        <li>File Downloads</li>
+                        <li>Learning Materials</li>
+                    </ul>
+                </div>
+
+                <div class="sitemap-item">
+                    <h3><a href="forum.html">Forum</a></h3>
+                    <ul>
+                        <li>Discussion Board</li>
+                        <li>Community Posts</li>
+                        <li>User Contributions</li>
+                    </ul>
+                </div>
+
+                <div class="sitemap-item">
+                    <h3><a href="chatbot.html">Chatbot</a></h3>
+                    <ul>
+                        <li>AI Assistant</li>
+                        <li>Help Center</li>
+                        <li>FAQ</li>
+                    </ul>
+                </div>
+
+                <div class="sitemap-item">
+                    <h3><a href="contact.html">Contact</a></h3>
+                    <ul>
+                        <li>Contact Form</li>
+                        <li>Location Map</li>
+                        <li>Support Email</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section class="sitemap-section">
+            <h2>Available Media Resources</h2>
+            <div class="resource-list">
+                <div class="resource-item">
+                    <img src="./asset/media/gif/1_wJt3v7Gs46uticTUj4y9zg.gif" alt="Machine Learning">
+                    <p>Machine Learning GIF</p>
+                </div>
+                <div class="resource-item">
+                    <img src="./asset/media/gif/deep_learning.gif" alt="Deep Learning">
+                    <p>Deep Learning GIF</p>
+                </div>
+                <div class="resource-item">
+                    <img src="./asset/media/gif/ethnic.gif" alt="AI Ethics">
+                    <p>AI Ethics GIF</p>
+                </div>
+                <div class="resource-item">
+                    <img src="./asset/media/gif/picture1.gif" alt="AI Technology">
+                    <p>AI Technology GIF</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+</body>
+
+</html>

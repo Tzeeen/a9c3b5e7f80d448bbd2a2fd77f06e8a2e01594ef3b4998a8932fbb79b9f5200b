@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ethics and Challenges of Emerging Technologies</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Audiowide&family=Press+Start+2P&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="ethic.css">
+    <link rel="stylesheet" type="text/css" href="../../../asset/css/dark-theme.css" />
+    <link rel="stylesheet" type="text/css" href="../../../asset/css/light-theme.css" />
+    <link rel="stylesheet" type="text/css" href="../../../asset/css/style.css" />
+</head>
+
+<body>
+    <header>
+        <nav>
+            <div class="nav-container">
+                <!-- Logo -->
+                <a href="../../../index.html">
+                    <img src="../../../logo.png" alt="Logo" class="logo">
+                </a>
+
+                <!-- Use a table to create a horizontal layout. -->
+                <table>
+                    <tr>
+                        <!-- Search box -->
+                        <th>
+                            <div>
+                                <input type="text" id="search-box" class="form-control" placeholder="Search News..."
+                                    onkeyup="showSuggestions()" style="border-radius:15px; margin-left:-25px;">
+                                <div id="suggestions" class="list-group position-absolute w-100"></div>
+                            </div>
+                        </th>
+
+                        <!-- Menu -->
+                        <th>
+                            <input type="checkbox" id="menu-toggle" class="menu-checkbox">
+                            <label for="menu-toggle" class="menu-icon">☰</label>
+                            <ul class="nav-menu">
+                                <li><a href="../../../about.html">About Us</a></li>
+                                <li><a href="../../../news.html">News</a></li>
+                                <li><a href="../../../tools.html">Tools</a></li>
+                                <li><a href="../../../resources.html">Resource Tutorial</a></li>
+                                <li><a href="../../../forum.html">Forum</a></li>
+                                <li><a href="../../../chatbot.html">Chatbot</a></li>
+                                <li><a href="../../../contact.html">Contact Us</a></li>
+                            </ul>
+                        </th>
+
+                        <!-- Clear Cache Button -->
+                        <th>
+                            <button id="clear-storage" class="clear-storage" style="
+                            font-size: 1.2rem;
+                            cursor: pointer;
+                            border: none;
+                            background: transparent;
+                            margin-right: -23px;" title="Clear all Cookies and LocalStorage.">🗑️</button>
+                        </th>
+
+                        <!-- Theme Toggle Button -->
+                        <th>
+                            <button id="theme-toggle" class="theme-toggle" title="Theme"
+                                style="margin-right: -20px;">🌙</button>
+                        </th>
+                    </tr>
+                </table>
+            </div>
+        </nav>
+    </header>
+
+    <div id="cookie-popup" class="cookie-popup" style="display:none;">
+        <span style="color:black;">This website uses cookies to enhance the user experience. Do you accept?</span>
+        <br>
+        <button class="accept-btn" onclick="acceptCookies()">Agree</button>
+        <button class="decline-btn" onclick="declineCookies()">Disagree</button>
+    </div>
+
+    <div class="page">
+        <div class="container">
+            <h1 class="animated">Ethics and Challenges of Emerging Technologies</h1>
+            <p class="subtitle animated delay-1">Navigating the moral dilemmas in AI, biotechnology, and other frontier
+                technologies</p>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="article-meta animated delay-2">
+            <span>By Dr. Emily Zhang, Technology Ethics Researcher</span>
+            <span>Published: August 15, 2025</span>
+        </div>
+
+        <img src="https://media.licdn.com/dms/image/v2/D4E12AQGQ4N4iitbBSw/article-cover_image-shrink_600_2000/article-cover_image-shrink_600_2000/0/1705474877440?e=2147483647&v=beta&t=lvH7oD-BN3R9P4I9h9P0DDzpE52wAqTFBmk4SiQU8EM"
+            alt="Ethical technology concept" class="article-image animated delay-1"
+            style="border: 5px solid transparent;background:linear-gradient(white, grey) padding-box,linear-gradient(90deg, #6b8dff, #6bffb9, #ff6b6b) border-box;">
+
+        <div class="article-content">
+            <div class="main-content"
+                style="border: 5px solid transparent;background:linear-gradient(white, grey) padding-box,linear-gradient(90deg, #6b8dff, #6bffb9, #ff6b6b) border-box;">
+                <p class="animated delay-2">As technology advances at an unprecedented pace, ethical concerns and
+                    challenges surrounding emerging technologies
+                    are becoming more pressing. Innovations in artificial intelligence (AI), biotechnology, automation,
+                    and quantum computing
+                    bring incredible opportunities but also raise significant moral, social, and regulatory issues. This
+                    article explores the
+                    ethical dilemmas and challenges associated with cutting-edge technologies and how society can
+                    navigate them responsibly.
+                </p>
+
+                <div class="highlight animated delay-3">
+                    "Technology is neither good nor bad; nor is it neutral. Its ethical impact depends on how we design,
+                    deploy, and govern it." — Dr. Katrin Müller, Director of the Institute for Technology Ethics
+                </div>
+
+                <h2 class="animated delay-1">Key Ethical Challenges in AI:</h2>
+                <p class="animated delay-2">AI is transforming industries, from healthcare to finance, but its rapid
+                    development has raised concerns about bias, privacy, and accountability.</p>
+
+                <div class="ethics-grid animated delay-3">
+                    <div class="ethics-card">
+                        <div class="ethics-card-content">
+                            <div class="tech-icon"><i class="fas fa-robot"></i></div>
+                            <h4>Algorithmic Bias</h4>
+                            <p>AI models trained on biased datasets can reinforce discrimination in hiring, lending, and
+                                law enforcement.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="ethics-card">
+                        <div class="ethics-card-content">
+                            <div class="tech-icon"><i class="fas fa-dna"></i></div>
+                            <h4>Biotechnology</h4>
+                            <p>CRISPR gene editing, human enhancement, and synthetic biology challenge our concepts of
+                                human nature and equality.</p>
+                        </div>
+                    </div>
+                    <div class="ethics-card">
+                        <div class="ethics-card-content">
+                            <div class="tech-icon"><i class="fas fa-brain"></i></div>
+                            <h4>Privacy Violations</h4>
+                            <p>AI-powered surveillance and facial recognition raise concerns about mass surveillance and
+                                individual privacy.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="ethics-card">
+                        <div class="ethics-card-content">
+                            <div class="tech-icon"><i class="fas fa-database"></i></div>
+                            <h4>Job Displacement</h4>
+                            <p>Automation powered by AI threatens traditional jobs, creating economic inequalities.</p>
+                        </div>
+                    </div>
+                    <div class="ethics-card">
+                        <div class="ethics-card-content">
+                            <div class="tech-icon"><i class="fas fa-database"></i></div>
+                            <h4>Autonomous Weapons</h4>
+                            <p>The use of AI in military applications raises concerns about accountability in warfare.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <br>
+
+                <h2 class="animated delay-1">Key Ethical Challenges in Biotechnology:</h2>
+                <p class="animated delay-2">Advancements in gene editing (e.g., CRISPR), synthetic biology, and
+                    personalized medicine offer groundbreaking possibilities but also ethical dilemmas.</p>
+
+                <div class="ethics-grid animated delay-3">
+                    <div class="ethics-card">
+                        <div class="ethics-card-content">
+                            <div class="tech-icon"><i class="fas fa-robot"></i></div>
+                            <h4>Designer Babies</h4>
+                            <p>Genetic editing of embryos raises questions about human enhancement and inequality.</p>
+                        </div>
+                    </div>
+                    <div class="ethics-card">
+                        <div class="ethics-card-content">
+                            <div class="tech-icon"><i class="fas fa-dna"></i></div>
+                            <h4>Biosecurity Risks</h4>
+                            <p>Manipulating genes could lead to unintended consequences, including biological warfare
+                                threats.</p>
+                        </div>
+                    </div>
+                    <div class="ethics-card">
+                        <div class="ethics-card-content">
+                            <div class="tech-icon"><i class="fas fa-brain"></i></div>
+                            <h4>Privacy in Genetic Data</h4>
+                            <p>Companies collecting DNA data pose risks of misuse and discrimination.</p>
+                        </div>
+                    </div>
+                    <div class="ethics-card">
+                        <div class="ethics-card-content">
+                            <div class="tech-icon"><i class="fas fa-database"></i></div>
+                            <h4>Animal and Human Experimentation</h4>
+                            <p>Ethical concerns arise regarding genetic modifications in humans and animals.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <h2 class="animated delay-1">Key Ethical Challenges in Quantum Computing:</h2>
+                <p class="animated delay-2">Quantum computing has the potential to revolutionize cryptography, but it
+                    also poses risks to global cybersecurity.</p>
+
+                <div class="ethics-grid animated delay-3">
+                    <div class="ethics-card">
+                        <div class="ethics-card-content">
+                            <div class="tech-icon"><i class="fas fa-robot"></i></div>
+                            <h4>Breaking Encryption</h4>
+                            <p>Quantum computers could render current security protocols obsolete, exposing sensitive
+                                data.</p>
+                        </div>
+                    </div>
+                    <div class="ethics-card">
+                        <div class="ethics-card-content">
+                            <div class="tech-icon"><i class="fas fa-dna"></i></div>
+                            <h4>Access and Inequality</h4>
+                            <p>Only a few tech giants and governments currently have access to quantum computing,
+                                potentially widening technological divides.</p>
+                        </div>
+                    </div>
+                    <div class="ethics-card">
+                        <div class="ethics-card-content">
+                            <div class="tech-icon"><i class="fas fa-brain"></i></div>
+                            <h4>Ethical AI in Quantum Systems</h4>
+                            <p>AI models running on quantum computers could amplify biases at an unprecedented scale.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="share-section animated delay-3">
+                    <h3 class="share-title">Share This Article</h3>
+                    <div class="share-buttons">
+                        <button class="share-button share-twitter" onclick="shareOnTwitter()">
+                            <span class="share-icon"><i class="fab fa-twitter"></i></span>
+                            Twitter
+                        </button>
+                        <button class="share-button share-facebook" onclick="shareOnFacebook()">
+                            <span class="share-icon"><i class="fab fa-facebook-f"></i></span>
+                            Facebook
+                        </button>
+                        <button class="share-button share-linkedin" onclick="shareOnLinkedIn()">
+                            <span class="share-icon"><i class="fab fa-linkedin-in"></i></span>
+                            LinkedIn
+                        </button>
+                        <button class="share-button share-email" onclick="shareViaEmail()">
+                            <span class="share-icon"><i class="fas fa-envelope"></i></span>
+                            Email
+                        </button>
+                        <button class="share-button share-copy" onclick="copyToClipboard()">
+                            <span class="share-icon"><i class="fas fa-copy"></i></span>
+                            Copy Link
+                        </button>
+                    </div>
+                    <div class="share-message" id="shareMessage"></div>
+                </div>
+            </div>
+
+            <div class="sidebar"
+                style="border: 5px solid transparent;background:linear-gradient(white, grey) padding-box,linear-gradient(90deg, #6b8dff, #6bffb9, #ff6b6b) border-box;">
+                <h3 class="animated delay-1">Related Articles</h3>
+                <div class="related-articles">
+                    <div class="related-article animated delay-2">
+                        <h4><a href="#">Who Decides? The Politics of AI Governance</a></h4>
+                        <p>Examining global efforts to regulate artificial intelligence</p>
+                    </div>
+                    <div class="related-article animated delay-3">
+                        <h4><a href="#">The Right to Be Human: Ethical Limits of Enhancement</a></h4>
+                        <p>Debating the boundaries of human modification</p>
+                    </div>
+                    <div class="related-article animated delay-3">
+                        <h4><a href="#">Silicon Valley's Ethical Reckoning</a></h4>
+                        <p>How tech giants are responding to growing ethical concerns</p>
+                    </div>
+                </div>
+
+                <div class="debate-poll animated delay-3">
+                    <h3>Ethics Debate</h3>
+                    <p>Should there be mandatory ethics reviews for new technologies?</p>
+                    <form id="ethicsPoll">
+                        <div class="poll-option">
+                            <input type="radio" id="yes" name="ethicsReview" value="yes">
+                            <label for="yes">Yes, all new tech needs ethical oversight</label>
+                        </div>
+                        <div class="poll-option">
+                            <input type="radio" id="no" name="ethicsReview" value="no">
+                            <label for="no">No, it would stifle innovation</label>
+                        </div>
+                        <div class="poll-option">
+                            <input type="radio" id="depends" name="ethicsReview" value="depends">
+                            <label for="depends">Depends on the technology</label>
+                        </div>
+                        <button type="button" onclick="submitPoll()">Vote</button>
+                    </form>
+                    <div id="pollResults" class="poll-results">
+                        <h4>Poll Results</h4>
+                        <div id="pollBars"></div>
+                    </div>
+                </div>
+
+                <div class="animated delay-3" style="margin-top: 30px;">
+                    <h3>Upcoming Ethics Events</h3>
+                    <div style="margin-top: 15px;">
+                        <div style="display: flex; margin-bottom: 15px;">
+                            <div
+                                style="width: 40px; height: 40px; background-color: var(--accent-color); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-right: 10px; flex-shrink: 0;">
+                                <span style="font-weight: bold;">15</span>
+                            </div>
+                            <div>
+                                <strong>Sept 15:</strong> Global AI Ethics Summit in Geneva
+                            </div>
+                        </div>
+                        <div style="display: flex; margin-bottom: 15px;">
+                            <div
+                                style="width: 40px; height: 40px; background-color: var(--primary-color); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-right: 10px; flex-shrink: 0;">
+                                <span style="font-weight: bold;">28</span>
+                            </div>
+                            <div>
+                                <strong>Sept 28:</strong> Bioethics Conference at Harvard
+                            </div>
+                        </div>
+                        <div style="display: flex;">
+                            <div
+                                style="width: 40px; height: 40px; background-color: var(--secondary-color); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-right: 10px; flex-shrink: 0;">
+                                <span style="font-weight: bold;">5</span>
+                            </div>
+                            <div>
+                                <strong>Oct 5:</strong> Public Forum on Neurotechnology Ethics
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="comments-section animated delay-2"
+            style="border: 5px solid transparent;background:linear-gradient(white, whitesmoke) padding-box,linear-gradient(90deg, #6b8dff, #6bffb9, #ff6b6b) border-box;">
+            <h2>Reader Discussion</h2>
+            <div class="comment-form">
+                <h3>Join the Conversation</h3>
+                <textarea id="newComment"
+                    placeholder="What ethical concerns do you have about emerging technologies? How should we address them?"></textarea>
+                <button onclick="addComment()">Post Comment</button>
+            </div>
+            <div id="commentsContainer">
+                <!-- Comments will be added here by JavaScript -->
+            </div>
+        </div>
+    </div>
+
+    <div class="footer-content">
+        <div class="social-links">
+            <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+            <a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+            <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+            <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+        </div>
+    </div>
+
+    <!-- Back to Top Button -->
+    <button onclick="topFunction()" id="backToTopBtn" title="Go to top">↑</button>
+
+    <!-- Font Awesome for icons -->
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+
+    <script src="ethic.js"></script>
+    <script src="../../../asset/scripts/scripts.js"></script>
+
+
+</body>
+
+</html>

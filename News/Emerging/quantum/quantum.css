@@ -1,0 +1,374 @@
+body {
+    margin: 0;
+    color: black;
+    width: 100%;
+    padding-top: 5px;
+    box-shadow: 0px 10px 100px 9px rgba(105, 58, 223, 0.547);
+    margin-top: -15px;
+
+}
+
+.hero {
+    background: url('./media/quantumcomputing.gif') center/cover no-repeat;
+    color: white;
+    text-align: center;
+    padding: 200px 20px;
+    box-shadow: inset 0 50px 50px rgba(0, 0, 0, 0.5);
+    position: relative;
+}
+
+.hero-gif {
+    width: 100px;
+    /* adjust size */
+    height: auto;
+}
+
+
+#typing {
+    font-size: 2rem;
+    font-weight: bold;
+    white-space: nowrap;
+    overflow: hidden;
+    border-right: 3px solid #b80000;
+    width: fit-content;
+}
+
+/* Cursor blink effect */
+@keyframes blink {
+    0% {
+        border-color: transparent;
+    }
+
+    50% {
+        border-color: #b80000;
+    }
+
+    100% {
+        border-color: transparent;
+    }
+}
+
+#typing {
+    animation: blink 0.7s infinite step-end;
+}
+
+.container {
+    max-width: 900px;
+    margin: 30px auto;
+    padding: 0 20px;
+    background: white;
+    border: #1a1a1a;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+}
+
+.subheadline {
+    font-size: 1.2rem;
+    margin: 15px 0;
+    color: black;
+}
+
+.meta {
+    color: #999;
+    font-size: 0.85rem;
+    margin-bottom: 20px;
+}
+
+.hero-image img {
+    width: 100%;
+    height: auto;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    transition: transform 0.3s ease;
+}
+
+.hero-image img:hover {
+    transform: scale(1.02);
+}
+
+article {
+    padding: 0 20px 20px 20px;
+}
+
+article p {
+    line-height: 1.8;
+    margin-bottom: 18px;
+    font-size: 1.05rem;
+}
+
+.related {
+    background: grey;
+    padding: 15px 20px;
+    border-left: 4px solid #b80000;
+    margin-top: 30px;
+    border-radius: 5px;
+}
+
+.related h4 {
+    color:#1a1a1a;
+    margin-bottom: 10px;
+}
+
+.related a {
+    display: block;
+    color: white;
+    text-decoration: none;
+    margin-bottom: 8px;
+    font-weight: bold;
+}
+
+.related a:hover {
+    color: #b80000;
+    text-decoration: underline;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .container {
+        margin: 15px;
+    }
+
+    header h1 {
+        font-size: 1.8rem;
+    }
+}
+
+.tech-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    padding: 20px;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.tech-card {
+    position: relative;
+    padding: 2px;
+    border-radius: 12px;
+    background: whitesmoke;
+    background-size: 300% 300%;
+    animation: gradientAnimation 6s ease infinite;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    text-align: center;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.tech-card:hover {
+    position: relative;
+    padding: 2px;
+    border-radius: 12px;
+    background: linear-gradient(270deg, #6b8dff, #6bffb9, #ff6b6b) border-box;
+    background-size: 300% 300%;
+    animation: gradientAnimation 6s ease infinite;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    text-align: center;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.tech-card-inner {
+    background: white;
+    /* Keep inner content readable */
+    border-radius: 10px;
+    padding: 20px;
+    width: 100%;
+    box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+
+.tech-card p {
+    margin-bottom: 15px;
+    font-size: 16px;
+    text-align: left;
+}
+
+#backToTop {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    z-index: 99;
+    border: none;
+    outline: none;
+    background: linear-gradient(45deg, #00c6ff, #0072ff);
+    color: white;
+    cursor: pointer;
+    padding: 15px;
+    border-radius: 8px;
+    font-size: 18px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    display: none;
+    transition: 0.3s;
+}
+
+#backToTop:hover {
+    background: linear-gradient(45deg, #0072ff, #00c6ff);
+}
+
+/* From Uiverse.io by nima-mollazadeh */
+.button {
+    position: relative;
+    text-decoration: none;
+    color: white;
+    background: linear-gradient(45deg, #0ce39a, #69007f, #fc0987);
+    padding: 14px 25px;
+    border-radius: 10px;
+    font-size: 1.25em;
+    cursor: pointer;
+}
+
+.button span {
+    position: relative;
+    z-index: 1;
+}
+
+.button::before {
+    content: "";
+    position: absolute;
+    inset: 1px;
+    background: grey;
+    border-radius: 9px;
+    transition: 0.5s;
+}
+
+.button:hover::before {
+    opacity: 0.7;
+}
+
+.button::after {
+    content: "";
+    position: absolute;
+    inset: 0px;
+    background: linear-gradient(45deg, #0ce39a, #69007f, #fc0987);
+    border-radius: 9px;
+    transition: 0.5s;
+    opacity: 0;
+    filter: blur(20px);
+}
+
+.button:hover:after {
+    opacity: 1;
+}
+
+.share_navbar {
+    display: flex;
+    justify-content: flex-end;
+    /* Align to right */
+    padding: 10px;
+}
+
+.share-container {
+    position: relative;
+    background: white;
+    border-radius: 5px;
+}
+
+.share-container:hover {
+    position: relative;
+    background: linear-gradient(115deg, #4fcf70, #fad648, #a767e5, #12bcfe, #44ce7b)
+}
+
+.share-button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    color: #333;
+}
+
+.share-button i {
+    font-size: 18px;
+}
+
+.share-menu {
+    display: none;
+    position: absolute;
+    top: 30px;
+    right: 0;
+    /* Align dropdown to the right */
+    background: black;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    border-radius: 5px;
+    padding: 10px;
+    min-width: 150px;
+}
+
+.share-menu a {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: #333;
+    padding: 8px;
+    gap: 8px;
+    font-size: 14px;
+}
+
+.share-menu a:hover {
+    background: linear-gradient(115deg, #4fcf70, #fad648, #a767e5, #12bcfe, #44ce7b);
+    border-radius: 4px;
+}
+
+.share-menu i {
+    font-size: 16px;
+    width: 20px;
+    text-align: center;
+}
+
+.container_inner {
+    width: 800px;
+    height: auto;
+    background: linear-gradient(270deg, #6b8dff, #6bffb9, #ff6b6b) border-box;
+    border-radius: 15px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    padding: 15px;
+    border: 2px solid #ddd;
+}
+
+.box {
+    width: 90%;
+    height: auto;
+    padding: 50px;
+    background: grey;
+    border-radius: 10px;
+    text-align: center;
+    color: black;
+    font-size: 16px;
+    font-weight: bold;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease;
+    margin: 10px 0;
+}
+
+.box:hover {
+    width: 90%;
+    height: auto;
+    padding: 50px;
+    background: linear-gradient(135deg, #6e8efb, #a777e3);
+    border-radius: 10px;
+    color: lightgreen;
+    font-size: 16px;
+    font-weight: bold;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease;
+    margin: 10px 0;
+}
+
+.container{
+    border: 5px solid transparent;
+    background:
+        linear-gradient(white, grey) padding-box,
+        linear-gradient(90deg, #6b8dff, #6bffb9, #ff6b6b) border-box;
+}

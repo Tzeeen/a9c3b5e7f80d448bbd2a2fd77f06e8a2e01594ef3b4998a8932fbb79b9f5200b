@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Cities and the Future of Urban Living</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Audiowide&family=Press+Start+2P&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="smartCity.css">
+    <link rel="stylesheet" type="text/css" href="../../../asset/css/dark-theme.css" />
+    <link rel="stylesheet" type="text/css" href="../../../asset/css/light-theme.css" />
+    <link rel="stylesheet" type="text/css" href="../../../asset/css/style.css" />
+
+</head>
+
+<body>
+    <header>
+        <nav>
+            <div class="nav-container">
+                <!-- Logo -->
+                <a href="../../../index.html">
+                    <img src="../../../logo.png" alt="Logo" class="logo">
+                </a>
+
+                <!-- Use a table to create a horizontal layout. -->
+                <table>
+                    <tr>
+                        <!-- Search box -->
+                        <th>
+                            <div>
+                                <input type="text" id="search-box" class="form-control" placeholder="Search News..."
+                                    onkeyup="showSuggestions()" style="border-radius:15px; margin-left:-25px;">
+                                <div id="suggestions" class="list-group position-absolute w-100"></div>
+                            </div>
+                        </th>
+
+                        <!-- Menu -->
+                        <th>
+                            <input type="checkbox" id="menu-toggle" class="menu-checkbox">
+                            <label for="menu-toggle" class="menu-icon">☰</label>
+                            <ul class="nav-menu">
+                                <li><a href="../../../about.html">About Us</a></li>
+                                <li><a href="../../../news.html">News</a></li>
+                                <li><a href="../../../tools.html">Tools</a></li>
+                                <li><a href="../../../resources.html">Resource Tutorial</a></li>
+                                <li><a href="../../../forum.html">Forum</a></li>
+                                <li><a href="../../../chatbot.html">Chatbot</a></li>
+                                <li><a href="../../../contact.html">Contact Us</a></li>
+                            </ul>
+                        </th>
+
+                        <!-- Clear Cache Button -->
+                        <th>
+                            <button id="clear-storage" class="clear-storage" style="
+                            font-size: 1.2rem;
+                            cursor: pointer;
+                            border: none;
+                            background: transparent;
+                            margin-right: -23px;" title="Clear all Cookies and LocalStorage.">🗑️</button>
+                        </th>
+
+                        <!-- Theme Toggle Button -->
+                        <th>
+                            <button id="theme-toggle" class="theme-toggle" title="Theme"
+                                style="margin-right: -20px;">🌙</button>
+                        </th>
+                    </tr>
+                </table>
+            </div>
+        </nav>
+    </header>
+
+    <div id="cookie-popup" class="cookie-popup" style="display:none;">
+        <span style="color:black;">This website uses cookies to enhance the user experience. Do you accept?</span>
+        <br>
+        <button class="accept-btn" onclick="acceptCookies()">Agree</button>
+        <button class="decline-btn" onclick="declineCookies()">Disagree</button>
+    </div>
+
+    <div class="page">
+        <div class="container">
+            <h1 class="animated">Smart Cities and the Future of Urban Living</h1>
+            <p class="subtitle animated delay-1">How technology is transforming our urban landscapes and redefining
+                quality of life</p>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="article-meta animated delay-2" style="color:grey">
+            <span>By David Chen, Urban Technology Reporter</span>
+            <span>Published: July 22, 2025</span>
+        </div>
+
+        <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80"
+            alt="Smart city skyline at night" class="article-image animated delay-1"
+            style="border: 5px solid transparent;background:linear-gradient(white, grey) padding-box,linear-gradient(90deg, #6b8dff, #6bffb9, #ff6b6b) border-box;">
+
+        <div class="share-section animated delay-3"
+            style="border: 5px solid transparent;background:linear-gradient(white, grey) padding-box,linear-gradient(90deg, #6b8dff, #6bffb9, #ff6b6b) border-box;">
+            <h3 class="share-title">Share This Article</h3>
+            <div class="share-buttons">
+                <button class="share-button share-twitter" onclick="shareOnTwitter()">
+                    <span class="share-icon"><i class="fab fa-twitter"></i></span>
+                    Twitter
+                </button>
+                <button class="share-button share-facebook" onclick="shareOnFacebook()">
+                    <span class="share-icon"><i class="fab fa-facebook-f"></i></span>
+                    Facebook
+                </button>
+                <button class="share-button share-linkedin" onclick="shareOnLinkedIn()">
+                    <span class="share-icon"><i class="fab fa-linkedin-in"></i></span>
+                    LinkedIn
+                </button>
+                <button class="share-button share-email" onclick="shareViaEmail()">
+                    <span class="share-icon"><i class="fas fa-envelope"></i></span>
+                    Email
+                </button>
+                <button class="share-button share-copy" onclick="copyToClipboard()">
+                    <span class="share-icon"><i class="fas fa-copy"></i></span>
+                    Copy Link
+                </button>
+            </div>
+            <div class="share-message" id="shareMessage"></div>
+        </div>
+
+        <br>
+
+        <div class="article-content">
+            <div class="main-content"
+                style="border: 5px solid transparent;background:linear-gradient(white, grey) padding-box,linear-gradient(90deg, #6b8dff, #6bffb9, #ff6b6b) border-box;">
+                <p class="animated delay-2">As global urbanization continues to rise, cities face growing challenges
+                    such as traffic congestion, pollution,
+                    energy consumption, and resource management. To address these issues, governments and technology
+                    firms are investing
+                    in smart city solutions—a transformative approach that leverages data, AI, and IoT (Internet of
+                    Things) to create more
+                    sustainable, efficient, and livable urban environments.</p>
+
+                <div class="highlight animated delay-3">
+                    "The smart city of the future isn't just about technology—it's about using that technology to create
+                    more equitable, resilient, and human-centered urban spaces." — Dr. Elena Rodriguez, Director of
+                    Urban Innovation at MIT
+                </div>
+
+                <h2 class="animated delay-1">1. What Are Smart Cities?</h2>
+                <p class="animated delay-2">A smart city integrates digital technology into urban infrastructure to
+                    optimize resources, enhance public services,
+                    and improve the overall quality of life. These cities rely on real-time data collection and analysis
+                    to streamline
+                    operations in transportation, energy, healthcare, and public safety.
+                </p>
+
+                <p>
+                    Key Technologies Powering Smart Cities:
+                </p>
+
+                <div class="feature-grid animated delay-3">
+                    <div class="feature-card">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQMotxjqzY4AkNzS1CXZc252yekRFRmE2EKrA&s"
+                            alt="IoT sensors">
+                        <div class="feature-card-content">
+                            <h4>IoT and Sensors</h4>
+                            <p>
+                                Devices embedded in infrastructure collect data on air quality, traffic patterns, and
+                                energy usage.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="feature-card">
+                        <img src="https://media.licdn.com/dms/image/v2/D4D12AQHug5AFH_-suA/article-cover_image-shrink_720_1280/article-cover_image-shrink_720_1280/0/1711973069721?e=2147483647&v=beta&t=6mwAxoU7MUqMtBN6H2kCj3Eq3xIFKoNSgw97g9bE5Vw"
+                            alt="Artificial Intelligence (AI)">
+                        <div class="feature-card-content">
+                            <h4>Artificial Intelligence (AI)</h4>
+                            <p>
+                                AI processes large datasets to improve city planning and predict trends.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="feature-card">
+                        <img src="https://media.licdn.com/dms/image/v2/D5612AQFD6V2ye_aTfA/article-cover_image-shrink_720_1280/article-cover_image-shrink_720_1280/0/1709206812657?e=2147483647&v=beta&t=pZdTyAJmTxikzXVKpjYiqsa0gthE5OElTuRBO6ShwPA"
+                            alt="5G Connectivity">
+                        <div class="feature-card-content">
+                            <h4>5G Connectivity</h4>
+                            <p>
+                                High-speed networks enable instant data exchange and communication.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="feature-card">
+                        <img src="https://cdn.prod.website-files.com/605c9e03d6553a5d82976ce2/664ba9192c8f9ebbccf4f693_Big-Data-edited.jpeg"
+                            alt="Big Data Analytics">
+                        <div class="feature-card-content">
+                            <h4>Big Data Analytics</h4>
+                            <p>
+                                Provides secure and transparent record-keeping for transactions and governance.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="feature-card">
+                        <img src="https://www.firmofthefuture.com/oidam/intuit/sbseg/en_us/Blog/Photography/Stock/blockchain-payments-faster-secure-us-en.png"
+                            alt="Blockchain">
+                        <div class="feature-card-content">
+                            <h4>Blockchain</h4>
+                            <p>
+                                Provides secure and transparent record-keeping for transactions and governance.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <h2 class="animated delay-1">Smart Transportation and Mobility</h2>
+                <p>Traffic congestion is a major issue in urban centers. Smart cities aim to ease this burden through
+                    intelligent transportation systems:</p>
+
+                <h3 class="animated delay-1">Smart Traffic Lights</h3>
+                <ul class="animated delay-2">
+                    <li>AI-powered traffic signals adjust in real-time based on traffic flow, reducing congestion and
+                        emissions.</li>
+                </ul>
+
+                <h3 class="animated delay-1">Autonomous Vehicles</h3>
+                <ul class="animated delay-2">
+                    <li>Self-driving cars and shuttles reduce accidents and optimize road usage.</li>
+                </ul>
+
+                <h3 class="animated delay-1">Mobility-as-a-Service (MaaS)</h3>
+                <ul class="animated delay-2">
+                    <li>Integrates public transport, bike-sharing, and ride-hailing services into a seamless digital
+                        platform.</li>
+                </ul>
+
+                <h3 class="animated delay-1">Smart Parking Solutions</h3>
+                <ul class="animated delay-2">
+                    <li>Sensors guide drivers to available parking spots, reducing time spent searching for parking.
+                    </li>
+                </ul>
+
+                <h2 class="animated delay-1">Challenges in Building Smart Cities</h2>
+                <p class="animated delay-2">Despite their potential, smart cities face several challenges:</p>
+
+                <h3 class="animated delay-1">High Implementation Costs</h3>
+                <p class="animated delay-2">Upgrading infrastructure requires substantial investment.</p>
+
+                <h3 class="animated delay-1">Data Privacy Concerns</h3>
+                <p class="animated delay-2">Collecting vast amounts of citizen data raises ethical and security
+                    questions.</p>
+
+                <h3 class="animated delay-1">Digital Divide</h3>
+                <p class="animated delay-2">Not all citizens have equal access to smart technologies.</p>
+
+                <h3 class="animated delay-1">Cybersecurity Risks</h3>
+                <p class="animated delay-2">Increased connectivity makes smart cities vulnerable to hacking.</p>
+
+                <h2 class="animated delay-1">The Future of Smart Urban Living</h2>
+                <p class="animated delay-2">As technology continues to advance, smart cities will evolve with
+                    innovations such as:</p>
+                <ul class="animated delay-2">
+                    <li><strong>Hyperloop and Flying Taxis</strong> -Revolutionary transport solutions could redefine
+                        urban mobility.</li>
+                    <li><strong>AI-Powered City Planning</strong> -Predictive analytics will enhance zoning and
+                        infrastructure development.</li>
+                    <li><strong>Decentralized Energy Systems</strong> -Blockchain and microgrids will allow residents to
+                        share and trade renewable energy.</li>
+                    <li><strong>Self-Sufficient Urban Ecosystems</strong> -Vertical farms and smart water systems will
+                        promote urban agriculture.</li>
+                </ul>
+            </div>
+
+            <div class="sidebar"
+                style="border: 5px solid transparent;background:linear-gradient(white, grey) padding-box,linear-gradient(90deg, #6b8dff, #6bffb9, #ff6b6b) border-box;">
+                <h3 class="animated delay-1">Related Articles</h3>
+                <div class="related-articles">
+                    <div class="related-article animated delay-2">
+                        <h4><a href="https://sustainabilitymag.com/top10/top-10-smart-cities">The 10 Most Advanced Smart
+                                Cities in 2025</a></h4>
+                        <p>Which cities are leading the digital transformation?</p>
+                    </div>
+                    <div class="related-article animated delay-3">
+                        <h4><a href="https://www.hiig.de/en/participation-in-smart-cities">How Citizens Are Shaping
+                                Smart City Development</a></h4>
+                        <p>Participatory design in urban technology projects</p>
+                    </div>
+                    <div class="related-article animated delay-3">
+                        <h4><a
+                                href="https://www.thesmartcityjournal.com/en/smart-building/how-smart-homes-will-be-integrated-into-smart-cities">Smart
+                                Homes vs. Smart Cities: The Connectivity Revolution</a></h4>
+                        <p>How residential tech integrates with urban infrastructure</p>
+                    </div>
+                </div>
+
+                <div class="city-poll animated delay-3">
+                    <h3>City Living Poll</h3>
+                    <p>Would you want to live in a smart city?</p>
+                    <form id="smartCityPoll">
+                        <div class="poll-option">
+                            <input type="radio" id="yes" name="smartCity" value="yes">
+                            <label for="yes">Yes, the benefits outweigh concerns</label>
+                        </div>
+                        <div class="poll-option">
+                            <input type="radio" id="no" name="smartCity" value="no">
+                            <label for="no">No, I have privacy/safety concerns</label>
+                        </div>
+                        <div class="poll-option">
+                            <input type="radio" id="unsure" name="smartCity" value="unsure">
+                            <label for="unsure">Unsure/Need more information</label>
+                        </div>
+                        <button type="button" onclick="submitPoll()">Vote</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <div class="comments-section animated delay-2"
+            style="border: 5px solid transparent;background:linear-gradient(white, grey) padding-box,linear-gradient(90deg, #6b8dff, #6bffb9, #ff6b6b) border-box;">
+            <h2>Reader Discussion</h2>
+            <div class="comment-form">
+                <h3>Share Your Thoughts</h3>
+                <textarea id="newComment"
+                    placeholder="What's your perspective on smart cities? How do you think they'll affect urban living?"></textarea>
+                <button onclick="addComment()">Post Comment</button>
+            </div>
+            <div id="commentsContainer">
+                <!-- Comments will be added here by JavaScript -->
+            </div>
+        </div>
+    </div>
+
+    <div class="footer-content">
+        <div class="social-links">
+            <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+            <a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+            <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+            <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+        </div>
+    </div>
+
+    <!-- Back to Top Button -->
+    <button onclick="topFunction()" id="backToTopBtn" title="Go to top">↑</button>
+
+    <!--Font Awesome for icons-->
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    <script src="smartCity.js"></script>
+    <script src="../../../asset/scripts/scripts.js"></script>
+</body>
+
+</html>

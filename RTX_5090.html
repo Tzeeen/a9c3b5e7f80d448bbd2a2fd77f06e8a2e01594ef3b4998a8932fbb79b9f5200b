@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>RTX 5090 - Ultimate Power</title>
+
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Audiowide&family=Press+Start+2P&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="./asset/css/dark-theme.css" />
+    <link rel="stylesheet" type="text/css" href="./asset/css/light-theme.css" />
+    <link rel="stylesheet" type="text/css" href="./asset/css/style.css" />
+    <!-- Particles.js -->
+    <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+
+    <style>
+        body {
+            font-family: 'Orbitron', sans-serif;
+            margin: 0;
+            background: #0a0a0a;
+            color: #fff;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        #particles-js {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+        }
+
+        #particles-js {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+        }
+
+        header.hero {
+            text-align: center;
+            background: rgba(0, 0, 0, 0);
+        }
+
+        header.hero h1 {
+            font-size: 4rem;
+            color: #00fff2;
+            text-shadow: 0 0 10px #00fff2, 0 0 20px #007f7f;
+            animation: pulse 2s infinite;
+        }
+
+        header.hero p {
+            font-size: 1.2rem;
+            color: #b0f7f7;
+        }
+
+        @keyframes pulse {
+            0% {
+                text-shadow: 0 0 10px #00fff2;
+            }
+
+            50% {
+                text-shadow: 0 0 25px #00fff2;
+            }
+
+            100% {
+                text-shadow: 0 0 10px #00fff2;
+            }
+        }
+
+        .card {
+            background: rgba(26, 26, 26, 0.95);
+            border: 1px solid #00fff2;
+            border-radius: 15px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 20px #00fff2;
+        }
+
+        .specs h2 {
+            color: #00fff2;
+            margin-bottom: 1rem;
+            text-shadow: 0 0 10px #00fff2;
+        }
+
+        .model-viewer-wrapper {
+            max-width: 100%;
+            margin: 40px auto;
+            text-align: center;
+        }
+
+        iframe {
+            width: 100%;
+            max-width: 800px;
+            height: 500px;
+            border-radius: 15px;
+            box-shadow: 0 0 20px #00fff2;
+        }
+
+        .footer-loading {
+            text-align: center;
+            padding: 40px 0;
+        }
+
+        .spinner-border {
+            width: 3rem;
+            height: 3rem;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="particles-js"></div>
+
+    <!-- Hero -->
+    <header class="hero">
+        <nav>
+            <div class="nav-container">
+                <!-- Logo -->
+                <a href="./index.html">
+                    <img src="./logo.png" alt="Logo" class="logo">
+                </a>
+
+                <!-- Use a table to create a horizontal layout. -->
+                <table>
+                    <tr>
+                        <!-- Menu -->
+                        <th>
+                            <input type="checkbox" id="menu-toggle" class="menu-checkbox">
+                            <label for="menu-toggle" class="menu-icon">☰</label>
+                            <ul class="nav-menu">
+                                <li><a href="./about.html">About Us</a></li>
+                                <li><a href="./news.html">News</a></li>
+                                <li><a href="./tools.html">Tools</a></li>
+                                <li><a href="./resources.html">Resource Tutorial</a></li>
+                                <li><a href="./forum.html">Forum</a></li>
+                                <li><a href="./chatbot.html">Chatbot</a></li>
+                                <li><a href="./contact.html">Contact Us</a></li>
+                            </ul>
+                        </th>
+
+                        <!-- Clear Cache Button -->
+                        <th>
+                            <button id="clear-storage" class="clear-storage" style="
+                font-size: 1.2rem;
+                cursor: pointer;
+                border: none;
+                background: transparent;
+                margin-right: -23px;" title="Clear all Cookies and LocalStorage.">🗑️</button>
+                        </th>
+
+                        <!-- Theme Toggle Button -->
+                        <th>
+                            <button id="theme-toggle" class="theme-toggle" title="Theme"
+                                style="margin-right: -20px;">🌙</button>
+                        </th>
+                    </tr>
+                </table>
+            </div>
+        </nav>
+        <h1>RTX 5090</h1>
+        <p>The most powerful GeForce GPU ever made — built for next-level gaming, creation & AI.</p>
+    </header>
+
+    <main style="margin-top: 150px;">
+        <!-- Specs Section -->
+        <section class="container specs text-center mb-5 text-white py-5 rounded">
+            <h2>🚀 Key Specs</h2>
+            <div class="row g-4 justify-content-center">
+                <div class="col-sm-6 col-md-4 col-lg-3">
+                    <div class="card p-4 bg-transparent border-light text-white">
+                        <h5>CUDA Cores</h5>
+                        <p class="fs-4">18,432</p>
+                    </div>
+                </div>
+                <div class="col-sm-6 col-md-4 col-lg-3">
+                    <div class="card p-4 bg-transparent border-light text-white">
+                        <h5>Memory</h5>
+                        <p class="fs-4">48GB GDDR7</p>
+                    </div>
+                </div>
+                <div class="col-sm-6 col-md-4 col-lg-3">
+                    <div class="card p-4 bg-transparent border-light text-white">
+                        <h5>Ray Tracing</h5>
+                        <p class="fs-4">2.5x Faster</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- 3D Model Section -->
+        <section class="model-viewer-wrapper container">
+            <h2 class="text-center mb-4 text-info">🧊 Explore in 3D</h2>
+            <div class="sketchfab-embed-wrapper">
+                <iframe title="RTX 5090" frameborder="0" allowfullscreen mozallowfullscreen="true"
+                    webkitallowfullscreen="true" allow="autoplay; fullscreen; xr-spatial-tracking" xr-spatial-tracking
+                    execution-while-out-of-viewport execution-while-not-rendered web-share
+                    src="https://sketchfab.com/models/71e5b3a100244e8495681294abaeada0/embed">
+                </iframe>
+            </div>
+        </section>
+    </main>
+
+    <!-- Bootstrap -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Particle.js Config -->
+    <script>
+        particlesJS("particles-js", {
+            "particles": {
+                "number": { "value": 120 },
+                "color": { "value": "#00fff2" },
+                "shape": { "type": "circle" },
+                "opacity": { "value": 0.5 },
+                "size": { "value": 3 },
+                "line_linked": {
+                    "enable": true,
+                    "distance": 100,
+                    "color": "#00fff2",
+                    "opacity": 0.4,
+                    "width": 1
+                },
+                "move": {
+                    "enable": true,
+                    "speed": 2.5,
+                    "direction": "none",
+                    "out_mode": "bounce"
+                }
+            },
+            "interactivity": {
+                "events": {
+                    "onhover": { "enable": true, "mode": "grab" },
+                    "onclick": { "enable": true, "mode": "push" }
+                }
+            }
+        });
+    </script>
+    <script src="./asset/scripts/scripts.js"></script>
+</body>
+
+</html>
