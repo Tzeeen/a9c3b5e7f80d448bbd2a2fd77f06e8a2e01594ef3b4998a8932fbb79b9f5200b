@@ -17,37 +17,37 @@
         <nav>
             <div class="nav-container">
                 <!-- Logo -->
-                <a href="./index.html">
+                <a href="index.html">
                     <img src="./logo.png" alt="Logo" class="logo">
                 </a>
-
+    
                 <!-- Use a table to create a horizontal layout. -->
                 <table>
                     <tr>
                         <!-- Search box -->
                         <th>
-                            <div>
+                            <div class="search-container position-relative">
                                 <input type="text" id="search-box" class="form-control" placeholder="Search News..."
                                     onkeyup="showSuggestions()" style="border-radius:15px; margin-left:-25px;">
                                 <div id="suggestions" class="list-group position-absolute w-100"></div>
                             </div>
                         </th>
-
+    
                         <!-- Menu -->
                         <th>
                             <input type="checkbox" id="menu-toggle" class="menu-checkbox">
                             <label for="menu-toggle" class="menu-icon">☰</label>
                             <ul class="nav-menu">
-                                <li><a href="./about.html">About Us</a></li>
-                                <li><a href="./news.html">News</a></li>
-                                <li><a href="./tools.html">Tools</a></li>
-                                <li><a href="./resources.html">Resource Tutorial</a></li>
-                                <li><a href="./forum.html">Forum</a></li>
-                                <li><a href="./chatbot.html">Chatbot</a></li>
-                                <li><a href="./contact.html">Contact Us</a></li>
+                                <li><a href="about.html">About Us</a></li>
+                                <li><a href="news.html">News</a></li>
+                                <li><a href="tools.html">Tools</a></li>
+                                <li><a href="resources.html">Resource Tutorial</a></li>
+                                <li><a href="forum.html">Forum</a></li>
+                                <li><a href="chatbot.html">Chatbot</a></li>
+                                <li><a href="contact.html">Contact Us</a></li>
                             </ul>
                         </th>
-
+    
                         <!-- Clear Cache Button -->
                         <th>
                             <button id="clear-storage" class="clear-storage" style="
@@ -57,7 +57,7 @@
                     background: transparent;
                     margin-right: -23px;" title="Clear all Cookies and LocalStorage.">🗑️</button>
                         </th>
-
+    
                         <!-- Theme Toggle Button -->
                         <th>
                             <button id="theme-toggle" class="theme-toggle" title="Theme"
@@ -109,7 +109,7 @@
             <!-- Chat messages area -->
             <div class="chat-messages" id="chat-messages">
                 <div class="message bot-message">
-                    Hello! I’m a chatbot powered by the Google Gemini API. How can I assist you today?
+                    Hello! I'm a chatbot powered by the Google Gemini API. How can I help you today?
                 </div>
             </div>
 
@@ -132,15 +132,21 @@
 
     <script>
         $(document).ready(function () {
+            // Default API key - this is just a placeholder, replace with your actual default key
+            const defaultApiKey = "AIzaSyARFASqo_ljD-r9XFprUVg3InEY1iMF4kI";
+            
             // Configuration stored in localStorage
-            let apiKey = localStorage.getItem('gemini_api_key') || '';
+            let apiKey = localStorage.getItem('gemini_api_key') || defaultApiKey;
             let model = localStorage.getItem('gemini_model') || 'gemini-pro';
             let temperature = localStorage.getItem('gemini_temperature') || 0.7;
 
+            // Check if using default key
+            const isUsingDefaultKey = apiKey === defaultApiKey;
+            
             // Store conversation history
             let conversationHistory = [{
                 role: "model",
-                parts: [{ text: "Hello! I’m a chatbot powered by the Google Gemini API. How can I help you today?" }]
+                parts: [{ text: "Hello! I'm a chatbot powered by the Google Gemini API. How can I help you today?" }]
             }];
 
             // Set initial values
@@ -155,19 +161,28 @@
 
             // Save settings
             $('#save-settings').click(function () {
-                apiKey = $('#api-key').val();
+                const newApiKey = $('#api-key').val();
+                // Only save if user entered a key, otherwise use default
+                apiKey = newApiKey || defaultApiKey;
                 model = $('#model-select').val();
                 temperature = $('#temperature').val();
 
-                localStorage.setItem('gemini_api_key', apiKey);
+                // Only store in localStorage if it's not the default key
+                if (newApiKey) {
+                    localStorage.setItem('gemini_api_key', newApiKey);
+                } else {
+                    localStorage.removeItem('gemini_api_key');
+                }
+                
                 localStorage.setItem('gemini_model', model);
                 localStorage.setItem('gemini_temperature', temperature);
 
                 $('#settings-panel').hide();
                 $('#error-display').text('');
 
-                // Confirmation message
-                addMessageToChat('bot', 'Settings saved! Current model in use:' + model);
+                // Confirmation message with note about key status
+                const keyMessage = newApiKey ? 'Using your custom API key.' : 'Using default API key.';
+                addMessageToChat('bot', `Settings saved! Current model in use: ${model}. ${keyMessage}`);
             });
 
             // Close settings panel when clicking outside
@@ -349,7 +364,11 @@
             }
 
             // Check if API key exists
-            if (!apiKey) {
+            if (isUsingDefaultKey) {
+                addMessageToChat('bot', 'Welcome to the Gemini chatbot! Using the default API key. You can configure your own API key in the settings at the top right if you prefer.');
+                // Try to fetch model list with default key
+                fetchAvailableModels();
+            } else if (!apiKey) {
                 $('#settings-panel').show();
                 addMessageToChat('bot', 'Welcome to the Gemini chatbot! Please configure your API key in the settings at the top right first.');
             }
