@@ -1,14 +1,32 @@
 document.addEventListener("DOMContentLoaded", function () {
+    // This function waits until the HTML document has been completely loaded and parsed
+
     const clickSound = new Audio();
-    //clickSound.src = "./asset/media/audio/421352__jaszunio15__click_3.wav";//https://freesound.org/people/Jaszunio15/sounds/421352/
-    clickSound.src = "./asset/media/audio/219069__annabloom__click1.wav";//https://freesound.org/people/annabloom/sounds/219069/
-    //clickSound.src = "./asset/media/audio/506054__mellau__button-click-1.wav";//https://freesound.org/people/Mellau/sounds/506054/
+    // Creates a new Audio object to play a sound on click
+
+    //clickSound.src = "./asset/media/audio/421352__jaszunio15__click_3.wav";
+    // An optional sound source (commented out) from freesound.org
+
+    clickSound.src = "./asset/media/audio/219069__annabloom__click1.wav";
+    // Sets the source of the click sound to an audio file by annabloom from freesound.org
+
+    //clickSound.src = "./asset/media/audio/506054__mellau__button-click-1.wav";
+    // Another optional sound source (commented out)
+
     clickSound.preload = "auto";
+    // Preloads the audio file to improve playback performance
 
     document.addEventListener("click", function () {
+        // Adds a click event listener to the entire document
+
         clickSound.currentTime = 0;
+        // Resets the audio to the beginning before playing
+
         clickSound.play().catch(function (e) {
+            // Attempts to play the sound and catches any errors (e.g., due to autoplay restrictions)
+
             console.log("Autoplay might be blocked:", e);
+            // Logs a message to the console if playback fails
         });
     });
 });
@@ -16,38 +34,65 @@ document.addEventListener("DOMContentLoaded", function () {
 //////////////////////////////////////////////////////////
 
 const emojis = ['🐱', '🐶', '🐰', '🦊', '🐸', '🐻'];
+// An array of emojis to be used as cursor icons
+
 let currentEmojiIndex = 0;
+// Keeps track of the currently displayed emoji index
 
 function createEmojiCursor(emoji) {
+    // Creates a custom cursor image from the given emoji
+
     const canvas = document.createElement('canvas');
+    // Creates a canvas element for drawing the emoji
+
     const ctx = canvas.getContext('2d');
+    // Gets the 2D drawing context of the canvas
 
     canvas.width = 64;
     canvas.height = 64;
+    // Sets the canvas size
+
     ctx.font = '48px serif';
+    // Sets the font size and style for drawing the emoji
+
     ctx.textBaseline = 'top';
+    // Aligns text to the top of the canvas
+
     ctx.fillText(emoji, 0, 0);
+    // Draws the emoji at the top-left corner of the canvas
 
     return canvas.toDataURL('image/png');
+    // Converts the canvas to a data URL and returns it
 }
 
 function setCursor(emoji) {
+    // Sets the custom emoji as the cursor
+
     const dataURL = createEmojiCursor(emoji);
+    // Generates a data URL from the emoji
+
     document.body.style.cursor = `url(${dataURL}) 0 0, auto`;
+    // Sets the document's cursor style to the custom emoji image
 }
 
-// 初始 emoji
 setCursor(emojis[currentEmojiIndex]);
+// Sets the initial emoji cursor when the page loads
 
-// 点击切换 emoji
 document.addEventListener('click', () => {
+    // Adds a click event listener to the whole document
+
     currentEmojiIndex = (currentEmojiIndex + 1) % emojis.length;
+    // Increments the emoji index and wraps around to the start if necessary
+
     setCursor(emojis[currentEmojiIndex]);
+    // Updates the cursor to the new emoji
 });
 
 ///////////////////////////////////////////////////////////////
 
 const newsPages = [
+    // Array of objects containing page titles and corresponding file paths
+
     { title: "AI & Machine Learning\n", file: "./News/Emerging/AI&ML/AI.html" },
     { title: "Blockchain\n", file: "./News/Emerging/blockchain/blockchain.html" },
     { title: "Quantum Computing\n", file: "./News/Emerging/quantum/quantum.html" },
@@ -62,29 +107,58 @@ const newsPages = [
 ];
 
 function showSuggestions() {
+    // Function to display search suggestions based on user input
+
     let query = document.getElementById("search-box").value.toLowerCase();
+    // Get the current input value and convert it to lowercase for case-insensitive comparison
+
     let suggestionsDiv = document.getElementById("suggestions");
-    suggestionsDiv.innerHTML = ""; 
+    // Get the element that will display the suggestions
+
+    suggestionsDiv.innerHTML = "";
+    // Clear previous suggestions
 
     if (query.length === 0) {
         return;
+        // If input is empty, exit the function
     }
 
     let matches = newsPages.filter(page => page.title.toLowerCase().includes(query));
+    // Filter newsPages for titles that contain the input string
 
     if (matches.length > 0) {
+        // If there are matching results
+
         matches.forEach(match => {
             let item = document.createElement("a");
+            // Create a new anchor element for each match
+
             item.href = `${match.file}`;
+            // Set the link to the corresponding HTML file
+
             item.classList.add("list-group-item", "list-group-item-action");
-            item.innerText = match.title; 
+            // Add Bootstrap classes for styling (assumes Bootstrap is used)
+
+            item.innerText = match.title;
+            // Set the text of the suggestion to the title
+
             suggestionsDiv.appendChild(item);
+            // Add the suggestion item to the suggestions container
         });
     } else {
+        // If no matches found
+
         let noMatch = document.createElement("div");
+        // Create a <div> to show no results
+
         noMatch.classList.add("list-group-item");
+        // Add styling class
+
         noMatch.innerText = "No results found";
+        // Set message text
+
         suggestionsDiv.appendChild(noMatch);
+        // Display the no result message
     }
 }
 
@@ -309,7 +383,7 @@ function setLocalStorage(name, value, days) {
     if (days) {
         let expireDate = new Date();
         expireDate.setTime(expireDate.getTime() + (days * 24 * 60 * 60 * 1000));
-        data.expiry = expireDate.getTime(); 
+        data.expiry = expireDate.getTime();
     }
 
     localStorage.setItem(name, JSON.stringify(data));
@@ -317,15 +391,15 @@ function setLocalStorage(name, value, days) {
 
 function getLocalStorage(name) {
     let item = localStorage.getItem(name);
-    if (!item) return null; 
+    if (!item) return null;
 
     let data = JSON.parse(item);
 
 
     if (data.expiry && new Date().getTime() > data.expiry) {
-        localStorage.removeItem(name); 
+        localStorage.removeItem(name);
         return null;
     }
 
-    return data.value; 
+    return data.value;
 }

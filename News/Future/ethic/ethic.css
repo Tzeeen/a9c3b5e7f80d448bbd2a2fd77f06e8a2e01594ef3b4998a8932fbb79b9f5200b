@@ -38,43 +38,32 @@ body {
     background-color: #333;
 }
 
+/* Header with angled bottom */
 .page {
     background: linear-gradient(135deg, var(--secondary-color), var(--primary-color));
     color: white;
-    padding: 50px 0;
+    padding: 100px 0 50px; /* Extra top padding for nav */
     text-align: center;
     margin-bottom: 30px;
-    position: relative;
+    position: relative; /* Required for z-index */
     clip-path: polygon(0 0, 100% 0, 100% 90%, 0 100%);
 }
 
+/* Accent line at bottom (unchanged) */
 .page::after {
-    content: '';
-    position: absolute;
+    position: relative;
     bottom: 0;
     left: 0;
     right: 0;
     height: 5px;
+    margin-bottom: 30px;
     background: var(--accent-color);
 }
 
 .container {
-    max-width: 1200px;
+    max-width: 100%;
     margin: 0 auto;
     padding: 20px;
-}
-
-h1 {
-    font-size: 2.8rem;
-    margin-bottom: 15px;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
-}
-
-.subtitle {
-    font-size: 1.3rem;
-    opacity: 0.9;
-    max-width: 800px;
-    margin: 0 auto;
 }
 
 .article-meta {
@@ -513,7 +502,6 @@ footer {
 
     header {
         padding: 40px 20px;
-        clip-path: polygon(0 0, 100% 0, 100% 95%, 0 100%);
     }
 
     .article-image {

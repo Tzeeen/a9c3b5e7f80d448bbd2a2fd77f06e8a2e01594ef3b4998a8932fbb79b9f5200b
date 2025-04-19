@@ -65,7 +65,7 @@ body {
     border-radius: 8px;
     margin-bottom: 2rem;
     text-align: center;
-    width:100%;
+    max-width:100%;
 }
 
 .hero h1 {
